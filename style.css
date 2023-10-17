@@ -1,0 +1,54 @@
+#main {
+    background-color: rgb(49, 29, 230);
+}
+
+#Menu{
+    text-align: center;
+}
+
+#playerBoard{
+    padding: 100px ;
+    text-align: center;
+}
+
+.Buttons{
+    background-color: #4d4dff; 
+    border: none;
+    color: #00004d;
+    padding: 15px 15px;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.Buttons:hover {
+    background-color: #8888fd; 
+}
+
+.textBox{
+    background-color: #4d4dff; 
+    border: none;
+    color: #00004d;
+    padding: 15px 32px;
+    width: 150px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+}
+
+#mySelect{
+    background-color: #4d4dff; 
+    border: none;
+    color: #00004d;
+    padding: 15px 32px;
+    width: 150px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+}
+
