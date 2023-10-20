@@ -7,10 +7,13 @@
     "name": "Trening_intelektu",
     "short_name": "TI",
     "description": "Aplikacja do treningu intelektu",
-    "icons": {
-        "name": "icon.ico",
-        "src": "./icon.ico",
-        "sizes": "512x512",
-        "type": "image/png"
-    }
+    "icons": 
+    [
+        {
+            "name": "icon.ico",
+            "src": "./icon.ico",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
 }
