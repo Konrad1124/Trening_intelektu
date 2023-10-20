@@ -1,0 +1,13 @@
+{
+    "theme_color": "#35f6e9",
+    "background_color": "#35acf6",
+    "display": "standalone",
+    "scope": "/Trening_intelektu/",
+    "start_url": "/Trening_intelektu/",
+    "name": "Trening_intelektu",
+    "short_name": "TI",
+    "description": "Aplikacja do treningu intelektu",
+    "icons": {
+        "name": "icon.ico"
+    }
+}

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="manifest" href="manifest.webmanifest">
     <title>Mind Trainer</title>
   </head>
   <body id = "main">
@@ -19,5 +20,10 @@
       <button id="Back1" class="Buttons">Back</button><button id="Show" class="Buttons">Show My results</button>
     </div>
     <div id="game1"></div>
+    <script>
+      if (typeof navigator.serviceWorker !== 'undefined') {
+        navigator.serviceWorker.register('sw.js')
+      }
+    </script>
   </body>
 </html>
