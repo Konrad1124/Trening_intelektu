@@ -23,10 +23,11 @@
     </div>
     <div id="game1"></div>
     <script>
-       if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register(
-            '/sw.js'
-          );
+        if (navigator.serviceWorker) {
+          navigator.serviceWorker.register (
+            '/Trening_intelektu/sw.js',
+            {scope: '/Trening_intelektu/'}
+          )
         }
     </script>
   </body>
