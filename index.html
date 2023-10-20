@@ -9,7 +9,7 @@
     <link rel="manifest" href="./manifest.webmanifest">
     <title>Mind Trainer</title>
   </head>
-  <body id = "main">
+  <body id = "main" lang="en">
     <div id="Menu" >
       <h1 id="GameTitle">Menu</h1>
       <button id="Start" class="Buttons">Start</button></br>
@@ -23,9 +23,11 @@
     </div>
     <div id="game1"></div>
     <script>
-      if (typeof navigator.serviceWorker !== 'undefined') {
-        navigator.serviceWorker.register('sw.js')
-      }
+       if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register(
+            '/sw.js'
+          );
+        }
     </script>
   </body>
 </html>

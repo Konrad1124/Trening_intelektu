@@ -9,7 +9,7 @@
     "description": "Aplikacja do treningu intelektu",
     "icons": {
         "name": "icon.ico",
-        "src": "icon.ico",
+        "src": "./icon.ico",
         "sizes": "512x512",
         "type": "image/png"
     }
