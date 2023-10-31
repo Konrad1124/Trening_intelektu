@@ -15,7 +15,7 @@ Exit.addEventListener('click', () => {
 })
 
 function DailyGames(){
-    for (let i = 0; i < 5; i++) {
+    /*for (let i = 0; i < 5; i++) {
         //do {
             let temp = Math.floor(Math.random() * 5);
             console.log(temp);
@@ -26,7 +26,7 @@ function DailyGames(){
             })
         //} while ( GameSequence[i] != '');
         
-    }
+    }*/
     console.log(GameSequence);
     //document.getElementById("Start").innerText=GameSequence;
 }
