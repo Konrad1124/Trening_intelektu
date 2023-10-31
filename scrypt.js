@@ -18,8 +18,8 @@ function DailyGames(){
     for (let i = 0; i < 5; i++) {
         do {
             let temp = Math.floor(Math.random() * 5);
-            console.log(temp);
             GameSequence.forEach(element => {
+                console.log(GameSequence[i]);
                 if(element==temp){
                     GameSequence[i]=temp;
                 }
