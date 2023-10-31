@@ -16,7 +16,7 @@ Exit.addEventListener('click', () => {
 
 function DailyGames(){
     for (let i = 0; i < 5; i++) {
-        //do {
+        do {
             let temp = Math.floor(Math.random() * 5);
             console.log(temp);
             GameSequence.forEach(element => {
@@ -24,8 +24,7 @@ function DailyGames(){
                     GameSequence[i]=temp;
                 }
             })
-        //} while ( GameSequence[i] != '');
-        
+        } while ( GameSequence[i] != ''); 
     }
     console.log(GameSequence);
     //document.getElementById("Start").innerText=GameSequence;
