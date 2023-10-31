@@ -1,6 +1,6 @@
 var GHPATH = '/Trening_intelektu';
 var APP_PREFIX = 'TI_';
-var VERSION = 'version01';
+var VERSION = 'version02';
  
 var URLS = [    
   `${GHPATH}/`,
