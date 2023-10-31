@@ -2,7 +2,7 @@ const Start = document.getElementById("Start");
 const Results = document.getElementById("Results");
 const Exit = document.getElementById("Exit");
 const Game1 = document.getElementById("game1");
-let GameSequence = [];
+let GameSequence = new Array[5];
 Start.addEventListener('click', () => {
     DailyGames();
 })
@@ -19,7 +19,7 @@ function DailyGames(){
         //do {
             let temp = Math.floor(Math.random() * 5);
             GameSequence.forEach(element => {
-                console.log(GameSequence[i]);
+                console.log();
                 if(element==temp){
                     GameSequence[i]=temp;
                 }
