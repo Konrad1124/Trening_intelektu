@@ -24,7 +24,7 @@ function DailyGames(){
                     GameSequence[i]=temp;
                 }
             })
-        } while ( GameSequence[i] != ''); 
+        } while ( GameSequence[i] != '' || i==4); 
     }
     console.log(GameSequence);
     //document.getElementById("Start").innerText=GameSequence;
