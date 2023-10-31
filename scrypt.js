@@ -18,6 +18,7 @@ function DailyGames(){
     for (let i = 0; i < 5; i++) {
         do {
             let temp = Math.floor(Math.random() * 5);
+            console.log(temp);
             GameSequence.forEach(element => {
                 if(element==temp){
                     GameSequence[i]=temp;
@@ -26,5 +27,6 @@ function DailyGames(){
         } while ( GameSequence[i] != '');
         
     }
-    document.getElementById("Start").innerText=GameSequence;
+    console.log(GameSequence);
+    //document.getElementById("Start").innerText=GameSequence;
 }
