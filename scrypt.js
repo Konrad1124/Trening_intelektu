@@ -2,7 +2,8 @@ const Start = document.getElementById("Start");
 const Results = document.getElementById("Results");
 const Exit = document.getElementById("Exit");
 const Game1 = document.getElementById("game1");
-let GameSequence = new Array[5];
+let GameSequence = [];
+let theSmae=false;
 Start.addEventListener('click', () => {
     DailyGames();
 })
@@ -15,17 +16,26 @@ Exit.addEventListener('click', () => {
 })
 
 function DailyGames(){
-    for (let i = 0; i < 5; i++) {
-        //do {
+    GameSequence = [];
+    let i =0;
+        do {
+            theSmae=false
             let temp = Math.floor(Math.random() * 5);
-            GameSequence.forEach(element => {
-                console.log();
-                if(element==temp){
-                    GameSequence[i]=temp;
-                }
-            })
-        //} while ( GameSequence[i] != '' || i==4); 
-    }
-    console.log(GameSequence);
-    //document.getElementById("Start").innerText=GameSequence;
+            if (GameSequence.length != 0) {
+                GameSequence.forEach(element => {
+                    
+                    if(element==temp){
+                        theSmae=true;
+                    }
+                })
+            }
+            
+            if ( theSmae==false) {
+                
+                GameSequence[i]=temp
+                i++;
+            }
+        } while ( i!=5);
+        
+    document.getElementById("game1").innerText=GameSequence;
 }
