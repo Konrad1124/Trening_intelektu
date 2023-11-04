@@ -1,13 +1,31 @@
+
+//buttons------------------------------------------------------------------------------------------
 const Start = document.getElementById("Start");
 const Results = document.getElementById("Results");
 const Exit = document.getElementById("Exit");
+const BackFromPlayerBoard = document.getElementById("Back1");
+const BackFromSelectResults = document.getElementById("Back2");
+
+//panels-------------------------------------------------------------------------------------------
 const Game1 = document.getElementById("game1");
+const Menu = document.getElementById("Menu");
+const playerBoard = document.getElementById("playerBoard");
+const selectResults = document.getElementById("selectResults");
+
+//variuables---------------------------------------------------------------------------------------
 let GameSequence = [];
 let theSmae=false;
+
+//buttons functions--------------------------------------------------------------------------------
 Start.addEventListener('click', () => {
-    DailyGames();
+    //Menu.setAttribute("hidden", "hidden")
+    //playerBoard.removeAttribute("hidden")
 })
 
+Results.addEventListener('click', async () => {
+    Menu.setAttribute("hidden", "hidden")
+    selectResults.removeAttribute("hidden")
+  })
 
 Exit.addEventListener('click', () => {
     if (confirm("Close Window?")) {
@@ -15,6 +33,17 @@ Exit.addEventListener('click', () => {
     }
 })
 
+BackFromPlayerBoard.addEventListener('click', () => {
+    playerBoard.setAttribute("hidden", "hidden")
+    Menu.removeAttribute("hidden")
+})
+
+BackFromSelectResults.addEventListener('click', () => {
+    selectResults.setAttribute("hidden", "hidden")
+    Menu.removeAttribute("hidden")
+})
+
+//functions----------------------------------------------------------------------------------------
 function DailyGames(){
     GameSequence = [];
     let i =0;
@@ -39,3 +68,4 @@ function DailyGames(){
         
     document.getElementById("game1").innerText=GameSequence;
 }
+

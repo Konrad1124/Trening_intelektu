@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <link rel="canonical" href="https://konrad1124.github.io/Trening_intelektu/">
@@ -16,11 +15,21 @@
       <button id="Results" class="Buttons">My Results</button></br>
       <button id="Exit" class="Buttons">Exit</button></br>
     </div>
-    <div id="playerBoard" hidden>
+
+    <div id="playerBoard" class="selectScreen" hidden>
       <div id="selectContainer" class="Select"></div></br></br>
       <input type="text" id="name" class="textBox"></br></br>
-      <button id="Back1" class="Buttons">Back</button><button id="Show" class="Buttons">Show My results</button>
+      <button id="Back1" class="Buttons">Back</button>
+      <button id="startExercise" class="Buttons">Start Exercise</button>
     </div>
+
+    <div id="selectResults" class="selectScreen" hidden>
+      <div id="selectContainer" class="Select"></div></br></br>
+      <input type="text" id="name" class="textBox"></br></br>
+      <button id="Back2" class="Buttons">Back</button>
+      <button id="Show" class="Buttons">Show My results</button>
+    </div>
+    
     <div id="game1">
 
 
