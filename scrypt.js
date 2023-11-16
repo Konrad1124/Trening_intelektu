@@ -20,6 +20,9 @@ let theSmae=false;
 Start.addEventListener('click', () => {
     Menu.setAttribute("hidden", "hidden");
     Game1.removeAttribute("hidden");
+    while (Game1.firstChild) {
+        Game1.removeChild(Game1.firstChild);
+    }
     ComparingSymbols();
 })
 
@@ -73,5 +76,6 @@ function DailyGames(){
 //Games--------------------------------------------------------------------------------------------
 function ComparingSymbols() {
     var ComparingSymbolsForm = document.createElement("form",{onsubmit: "return ComparingSymbolsResults()"});
-    ComparingSymbolsForm.id="Compar"
+    ComparingSymbolsForm.id="Compar";
+    Game1.appendChild(ComparingSymbolsForm);
 }
