@@ -115,7 +115,8 @@ function ComparingSymbols() {
     ComparingSymbol
     .forEach((element,i) => {
         window[ 'Div' + i ] = document.createElement("div");
-        window[ 'Div' + i ].innerHTML=`<p class=\"paragraph1\">`+element[0]+`</p><select id=\"symbols${i}\" name=\"symbols${i}\" class=\"mySelect\"><option value=\">\">></option><option value=\"=\">=</option><option value=\"<\"><</option> </select><p class=\"paragraph1\">`+element[1]+`</p>`
+        window[ 'Div' + i ].classList.add("paragraph1");
+        window[ 'Div' + i ].innerHTML=`<p class=\"paragraph1\">`+element[0]+`<select id=\"symbols${i}\" name=\"symbols${i}\" class=\"mySelect\"><option value=\">\">></option><option value=\"=\">=</option><option value=\"<\"><</option> </select>`+element[1]+`</p>`
         ComparingSymbolsForm.appendChild(window[ 'Div' + i ]);
     });
     
