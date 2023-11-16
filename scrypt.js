@@ -15,6 +15,10 @@ const selectResults = document.getElementById("selectResults");
 //variuables---------------------------------------------------------------------------------------
 let GameSequence = [];
 let theSmae=false;
+let ComparNumbers=[];
+let ComparingSymbol=[];
+let Symbol="";
+
 
 //buttons functions--------------------------------------------------------------------------------
 Start.addEventListener('click', () => {
@@ -73,9 +77,49 @@ function DailyGames(){
     document.getElementById("game1").innerText=GameSequence;
 }
 
+function Random(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
 //Games--------------------------------------------------------------------------------------------
 function ComparingSymbols() {
-    var ComparingSymbolsForm = document.createElement("form",{onsubmit: "return ComparingSymbolsResults()"});
+    ComparNumbers=[];
+    ComparingSymbol=[];
+    SymbolsTypes=["p","+","@","b","!","w","=","m","&","-","%","*","Y","<","o","}","L"]
+    let number=0;
+    let difrence=0;
+    let temp1="";
+    let temp2="";
+    for (let i = 0; i < 10; i++) {
+        number=Random(9,35);
+        difrence=Random(-4,4);
+        ComparNumbers[i]=[number,number-difrence]
+    }
+    ComparNumbers.forEach((element,i) => {
+        temp1="";
+        temp2="";
+        Symbol=SymbolsTypes[Random(0,SymbolsTypes.length-1)]
+        for (let a = 0; a < element[0]; a++) {
+            temp1+=Symbol;
+        }
+        for (let a = 0; a < element[1]; a++) {
+            temp2+=Symbol;
+        }
+        ComparingSymbol[i]=[temp1,temp2]
+    });
+
+    let ComparingSymbolsForm = document.createElement("form");
     ComparingSymbolsForm.id="Compar";
+    ComparingSymbol
+    .forEach((element,i) => {
+        window[ 'Div' + i ] = document.createElement("div");
+        window[ 'Div' + i ].innerHTML=`<p class=\"paragraph1\">`+element[0]+`</p><select id=\"symbols${i}\" name=\"symbols${i}\" class=\"mySelect\"><option value=\">\">></option><option value=\"=\">=</option><option value=\"<\"><</option> </select><p class=\"paragraph1\">`+element[1]+`</p>`
+        ComparingSymbolsForm.appendChild(window[ 'Div' + i ]);
+    });
+    
+
     Game1.appendChild(ComparingSymbolsForm);
+    
 }

@@ -6,6 +6,11 @@
     text-align: center;
 }
 
+#Game1{
+    padding: 100px ;
+    text-align: center;
+}
+
 .selectScreen{
     padding: 100px ;
     text-align: center;
@@ -40,15 +45,32 @@
     display: inline-block;
 }
 
-#mySelect{
+.mySelect{
     background-color: #4d4dff; 
     border: none;
     color: #00004d;
-    padding: 15px 32px;
-    width: 150px;
+    width: 50px;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
     display: inline-block;
+    margin-left: auto;
+    margin-right: auto
 }
 
+#Compar{
+    background-color: #4d4dff; 
+    border: none;
+    color: #00004d;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+
+.paragraph1{
+    display:  inline-block;
+    margin-left: 0;
+    margin-right: 0
+}
