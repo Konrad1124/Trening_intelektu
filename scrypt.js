@@ -18,13 +18,14 @@ let theSmae=false;
 
 //buttons functions--------------------------------------------------------------------------------
 Start.addEventListener('click', () => {
-    //Menu.setAttribute("hidden", "hidden")
-    //playerBoard.removeAttribute("hidden")
+    Menu.setAttribute("hidden", "hidden");
+    Game1.removeAttribute("hidden");
+    ComparingSymbols();
 })
 
 Results.addEventListener('click', async () => {
-    Menu.setAttribute("hidden", "hidden")
-    selectResults.removeAttribute("hidden")
+    Menu.setAttribute("hidden", "hidden");
+    selectResults.removeAttribute("hidden");
   })
 
 Exit.addEventListener('click', () => {
@@ -34,13 +35,13 @@ Exit.addEventListener('click', () => {
 })
 
 BackFromPlayerBoard.addEventListener('click', () => {
-    playerBoard.setAttribute("hidden", "hidden")
-    Menu.removeAttribute("hidden")
+    playerBoard.setAttribute("hidden", "hidden");
+    Menu.removeAttribute("hidden");
 })
 
 BackFromSelectResults.addEventListener('click', () => {
-    selectResults.setAttribute("hidden", "hidden")
-    Menu.removeAttribute("hidden")
+    selectResults.setAttribute("hidden", "hidden");
+    Menu.removeAttribute("hidden");
 })
 
 //functions----------------------------------------------------------------------------------------
@@ -69,3 +70,8 @@ function DailyGames(){
     document.getElementById("game1").innerText=GameSequence;
 }
 
+//Games--------------------------------------------------------------------------------------------
+function ComparingSymbols() {
+    var ComparingSymbolsForm = document.createElement("form",{onsubmit: "return ComparingSymbolsResults()"});
+    ComparingSymbolsForm.id="Compar"
+}
