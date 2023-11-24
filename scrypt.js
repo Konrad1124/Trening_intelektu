@@ -18,8 +18,10 @@ let theSmae=false;
 let ComparNumbers=[];
 let ComparingSymbol=[];
 let Symbol="";
-
-
+let input;
+let comparSymbol;
+let info;
+let time;
 //buttons functions--------------------------------------------------------------------------------
 Start.addEventListener('click', () => {
     Menu.setAttribute("hidden", "hidden");
@@ -107,20 +109,94 @@ function ComparingSymbols() {
         for (let a = 0; a < element[1]; a++) {
             temp2+=Symbol;
         }
-        ComparingSymbol[i]=[temp1,temp2]
+        if (temp1.length<temp2.length) {
+            let dif =temp2.length - temp1.length;
+            for (let i = 0; i < dif; i++) {
+                temp1+=" ";
+            }
+        } else {
+            let dif =temp1.length - temp2.length;
+            for (let i = 0; i < dif; i++) {
+                temp2+=" ";
+            }
+        }
+        ComparingSymbol[i]=[temp1,temp2];
     });
+    info = document.createElement("div");
+    info.id = "info";
+    info.innerHTML="Visually compare the number of the same symbols on the left and right. Select the =,<,> sign. Try to keep the time as short as possible."
+    let button = document.createElement("button");
+    button.id = "ComparingSymbolsValues";
+    button.innerHTML= "OK";
+    button.classList.add("Buttons");
+    Game1.appendChild(info);
+    Game1.appendChild(button);
+    button.onclick = function StartCompar() {
+        while (Game1.firstChild) {
+            Game1.removeChild(Game1.firstChild);
+        }
 
-    let ComparingSymbolsForm = document.createElement("form");
-    ComparingSymbolsForm.id="Compar";
-    ComparingSymbol
-    .forEach((element,i) => {
-        window[ 'Div' + i ] = document.createElement("div");
-        window[ 'Div' + i ].classList.add("paragraph1");
-        window[ 'Div' + i ].innerHTML=`<p class=\"paragraph1\">`+element[0]+`<select id=\"symbols${i}\" name=\"symbols${i}\" class=\"mySelect\"><option value=\">\">></option><option value=\"=\">=</option><option value=\"<\"><</option> </select>`+element[1]+`</p>`
-        ComparingSymbolsForm.appendChild(window[ 'Div' + i ]);
-    });
-    
+        time = new Date();
+        let ComparingSymbolsForm = document.createElement("form");
+        ComparingSymbolsForm.id="Compar";
+        ComparingSymbol
+        .forEach((element,i) => {
+            window[ 'p' + i ] = document.createElement("p");
+            window[ 'p' + i ].classList.add("paragraph1");
+            window[ 'p' + i ].innerHTML=element[0]+`<select id=\"symbols${i}\" name=\"symbols${i}\" class=\"mySelect\"><option value=\" \"> </option><option value=\">\">></option><option value=\"=\">=</option><option value=\"<\"><</option> </select>`+element[1];
+            ComparingSymbolsForm.appendChild(window[ 'p' + i ]);
+        });
+        let submitAnswer = document.createElement("button");
+        submitAnswer.id = "ComparingSymbolsValues";
+        submitAnswer.innerHTML= "Submit";
+        submitAnswer.classList.add("Buttons");
+        submitAnswer.onclick = function ComparingSymbolsValues() {
+            if (document.querySelector(`#symbols1`)!=null) {
+                ComparingSymbol
+                .forEach((element,i) => {
+                    input = document.querySelector(`#symbols${i}`);
+                    switch (input.selectedIndex) {
+                        case 0:
+                            console.log("brak odpowiedzi")
+                            break;
+                        case 1:
+                            if ( ComparingSymbol[i][0]>ComparingSymbol[i][1]) {
+                                console.log(i+" dobrze")
+                            }else{
+                                console.log(i+" źle")
+                            }
+                            break;
+                        case 2:
+                            if ( ComparingSymbol[i][0]=ComparingSymbol[i][1]) {
+                                console.log(i+" dobrze")
+                            }else{
+                                console.log(i+" źle")
+                            }
+                            break;
+                        case 3:
+                            if ( ComparingSymbol[i][0]<ComparingSymbol[i][1]) {
+                                console.log(i+" dobrze")
+                            }else{
+                                console.log(i+" źle")
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                });
+            }
+            time=new Date().getTime()-time.getTime();
+            console.log(time)
+            Game1.setAttribute("hidden", "hidden");
+            Menu.removeAttribute("hidden");
+            while (Game1.firstChild) {
+                Game1.removeChild(Game1.firstChild);
+            }
+        };
+        Game1.appendChild(ComparingSymbolsForm);
+        Game1.appendChild(submitAnswer);
 
-    Game1.appendChild(ComparingSymbolsForm);
-    
+    }
 }
+
+

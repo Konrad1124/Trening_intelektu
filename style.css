@@ -1,12 +1,13 @@
 #main {
     background-color: rgb(49, 29, 230);
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #Menu{
     text-align: center;
 }
 
-#Game1{
+#game1{
     padding: 100px ;
     text-align: center;
 }
@@ -65,15 +66,11 @@
     font-size: 16px;
 }
 
-.paragraph1 div{
-    display:  inline-block;
-    margin-left: 0;
-    margin-right: 0;
+#ComparingSymbolsValues{
     text-align: center;
+    margin: 20px;
 }
 
-.paragraph1 p{
-    display:  inline-block;
-    margin-left: auto;
-    margin-right: auto
+.paragraph1{
+    font-family: monospace;
 }
