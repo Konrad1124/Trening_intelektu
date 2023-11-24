@@ -235,7 +235,7 @@ function Math() {
     
     info = document.createElement("div");
     info.id = "info";
-    info.innerHTML=""
+    info.innerHTML="Do arithmetic calculations as quickly as possible."
     let button = document.createElement("button");
     button.id = "StartMath";
     button.innerHTML= "OK";
@@ -256,12 +256,11 @@ function Math() {
     }
 }
 
-
 function FindWords() {
     
     info = document.createElement("div");
     info.id = "info";
-    info.innerHTML=""
+    info.innerHTML="Find the words in the sequence of letters below and circle them. Time yourself and try to do it as quickly as possible."
     let button = document.createElement("button");
     button.id = "StartFindWords";
     button.innerHTML= "OK";
@@ -286,7 +285,7 @@ function Sudoku() {
     
     info = document.createElement("div");
     info.id = "info";
-    info.innerHTML=""
+    info.innerHTML="Complete the letter Sudoku puzzle as quickly as possible, remembering that a given letter can only appear once in each small square (3x3 fields), in each column and each row."
     let button = document.createElement("button");
     button.id = "StartSudoku";
     button.innerHTML= "OK";
