@@ -17,6 +17,8 @@ let GameSequence = [];
 let theSmae=false;
 let ComparNumbers=[];
 let ComparingSymbol=[];
+let NumberSequence=new Array(10).fill(0).map(x => Array(10).fill(0));
+
 let Symbol="";
 let input;
 let comparSymbol;
@@ -29,7 +31,8 @@ Start.addEventListener('click', () => {
     while (Game1.firstChild) {
         Game1.removeChild(Game1.firstChild);
     }
-    ComparingSymbols();
+    //ComparingSymbols();
+    Remember2Number()
 })
 
 Results.addEventListener('click', async () => {
@@ -126,12 +129,12 @@ function ComparingSymbols() {
     info.id = "info";
     info.innerHTML="Visually compare the number of the same symbols on the left and right. Select the =,<,> sign. Try to keep the time as short as possible."
     let button = document.createElement("button");
-    button.id = "ComparingSymbolsValues";
+    button.id = "StartComparingSymbols";
     button.innerHTML= "OK";
     button.classList.add("Buttons");
     Game1.appendChild(info);
     Game1.appendChild(button);
-    button.onclick = function StartCompar() {
+    button.onclick = function StartComparingSymbols() {
         while (Game1.firstChild) {
             Game1.removeChild(Game1.firstChild);
         }
@@ -147,10 +150,10 @@ function ComparingSymbols() {
             ComparingSymbolsForm.appendChild(window[ 'p' + i ]);
         });
         let submitAnswer = document.createElement("button");
-        submitAnswer.id = "ComparingSymbolsValues";
+        submitAnswer.id = "ComparingSymbolsResults";
         submitAnswer.innerHTML= "Submit";
         submitAnswer.classList.add("Buttons");
-        submitAnswer.onclick = function ComparingSymbolsValues() {
+        submitAnswer.onclick = function ComparingSymbolsResults() {
             if (document.querySelector(`#symbols1`)!=null) {
                 ComparingSymbol
                 .forEach((element,i) => {
@@ -199,4 +202,107 @@ function ComparingSymbols() {
     }
 }
 
+function Remember2Number(){
+    for (let i = 0; i < 10; i++) {
+        for (let j = 0; j < 10; j++) {
+            NumberSequence[i][j]=Random(9,88);
+        }
+    }
+    console.log(NumberSequence)
+    info = document.createElement("div");
+    info.id = "info";
+    info.innerHTML="Read all the numbers in the column. As you read, remember every other digit. Write the memorized numbers under the column in the correct order."
+    let button = document.createElement("button");
+    button.id = " StartRemember2Number";
+    button.innerHTML= "OK";
+    button.classList.add("Buttons");
+    Game1.appendChild(info);
+    Game1.appendChild(button);
+    button.onclick = function StartRemember2Number() {
+        
+        let submitAnswer = document.createElement("button");
+        submitAnswer.id = "Remember2NumberResults";
+        submitAnswer.innerHTML= "Submit";
+        submitAnswer.classList.add("Buttons");
+        submitAnswer.onclick = function Remember2NumberResults() {
 
+        }
+        Game1.appendChild(submitAnswer);
+    }
+}
+
+function Math() {
+    
+    info = document.createElement("div");
+    info.id = "info";
+    info.innerHTML=""
+    let button = document.createElement("button");
+    button.id = "StartMath";
+    button.innerHTML= "OK";
+    button.classList.add("Buttons");
+    Game1.appendChild(info);
+    Game1.appendChild(button);
+    button.onclick = function StartMath() {
+
+
+        let submitAnswer = document.createElement("button");
+        submitAnswer.id = "MathResults";
+        submitAnswer.innerHTML= "Submit";
+        submitAnswer.classList.add("Buttons");
+        submitAnswer.onclick = function MathResults() {
+
+        }
+        Game1.appendChild(submitAnswer);
+    }
+}
+
+
+function FindWords() {
+    
+    info = document.createElement("div");
+    info.id = "info";
+    info.innerHTML=""
+    let button = document.createElement("button");
+    button.id = "StartFindWords";
+    button.innerHTML= "OK";
+    button.classList.add("Buttons");
+    Game1.appendChild(info);
+    Game1.appendChild(button);
+    button.onclick = function StartFindWords() {
+
+
+        let submitAnswer = document.createElement("button");
+        submitAnswer.id = "FindWordsResults";
+        submitAnswer.innerHTML= "Submit";
+        submitAnswer.classList.add("Buttons");
+        submitAnswer.onclick = function FindWordsResults() {
+
+        }
+        Game1.appendChild(submitAnswer);
+    }
+}
+
+function Sudoku() {
+    
+    info = document.createElement("div");
+    info.id = "info";
+    info.innerHTML=""
+    let button = document.createElement("button");
+    button.id = "StartSudoku";
+    button.innerHTML= "OK";
+    button.classList.add("Buttons");
+    Game1.appendChild(info);
+    Game1.appendChild(button);
+    button.onclick = function StartSudoku() {
+
+
+        let submitAnswer = document.createElement("button");
+        submitAnswer.id = "SudokuResults";
+        submitAnswer.innerHTML= "Submit";
+        submitAnswer.classList.add("Buttons");
+        submitAnswer.onclick = function SudokuResults() {
+
+        }
+        Game1.appendChild(submitAnswer);
+    }
+}
