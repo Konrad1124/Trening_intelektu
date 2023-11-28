@@ -18,8 +18,10 @@ let theSmae=false;
 let ComparNumbers=[];
 let ComparingSymbol=[];
 let NumberSequence=new Array(10).fill(0).map(x => Array(10).fill(0));
+let NumberSequenceCorect =new Array(10).fill("");
 
 let Symbol="";
+let form;
 let input;
 let comparSymbol;
 let info;
@@ -208,7 +210,7 @@ function Remember2Number(){
             NumberSequence[i][j]=Random(9,88);
         }
     }
-    console.log(NumberSequence)
+    
     info = document.createElement("div");
     info.id = "info";
     info.innerHTML="Read all the numbers in the column. As you read, remember every other digit. Write the memorized numbers under the column in the correct order."
@@ -219,19 +221,61 @@ function Remember2Number(){
     Game1.appendChild(info);
     Game1.appendChild(button);
     button.onclick = function StartRemember2Number() {
-        
+        while (Game1.firstChild) {
+            Game1.removeChild(Game1.firstChild);
+        }
+
+        let Remember2NumberForm = document.createElement("form");
+        Remember2NumberForm.id="Compar";
+        NumberSequence.forEach((element,x) => {
+            window[ 'div' + x ] = document.createElement("div");
+            window[ 'div' + x ].classList.add("numbersColumns");
+            element.forEach((element2,y) => {
+                window[ 'p' + y ] = document.createElement("p");
+                window[ 'p' + y ].innerHTML= element2;
+                window[ 'div' + x ].appendChild(window[ 'p' + y ]);
+            });
+            window[ 'input' + x ] = document.createElement("input");
+            window[ 'input' + x ].type = "number";
+            window[ 'input' + x ].id = `number${x}`;
+            window[ 'input' + x ].classList.add("numbers");
+            window[ 'input' + x ].max= "9999999999";
+            window[ 'input' + x ].name= "numbers";
+            window[ 'div' + x ].appendChild(window[ 'input' + x ]);
+            Remember2NumberForm.appendChild(window[ 'div' + x ]);
+        });
         let submitAnswer = document.createElement("button");
         submitAnswer.id = "Remember2NumberResults";
         submitAnswer.innerHTML= "Submit";
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function Remember2NumberResults() {
+            let temp=[];
+             for (let i = 0; i < 10; i++) {
+                temp=[];
+                for (let j = 1; j < 10; j+=2) {
+                    temp.push(NumberSequence[i][j]);
+                }
+                NumberSequenceCorect[i]=temp;
+            }
+            console.log(NumberSequenceCorect)
+            form=document.querySelector("#Compar");
+            input=form.querySelectorAll("input[name=numbers]");
+           
+                
+            
+            
 
+
+            while (Game1.firstChild) {
+                Game1.removeChild(Game1.firstChild);
+            }
         }
+        Game1.appendChild(Remember2NumberForm);
         Game1.appendChild(submitAnswer);
     }
 }
 
-function Math() {
+function MathOnTime() {
     
     info = document.createElement("div");
     info.id = "info";
@@ -243,14 +287,20 @@ function Math() {
     Game1.appendChild(info);
     Game1.appendChild(button);
     button.onclick = function StartMath() {
-
+        while (Game1.firstChild) {
+            Game1.removeChild(Game1.firstChild);
+        }
+        
 
         let submitAnswer = document.createElement("button");
         submitAnswer.id = "MathResults";
         submitAnswer.innerHTML= "Submit";
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function MathResults() {
-
+            while (Game1.firstChild) {
+                Game1.removeChild(Game1.firstChild);
+            }
+            
         }
         Game1.appendChild(submitAnswer);
     }
@@ -268,14 +318,20 @@ function FindWords() {
     Game1.appendChild(info);
     Game1.appendChild(button);
     button.onclick = function StartFindWords() {
-
+        while (Game1.firstChild) {
+            Game1.removeChild(Game1.firstChild);
+        }
+        
 
         let submitAnswer = document.createElement("button");
         submitAnswer.id = "FindWordsResults";
         submitAnswer.innerHTML= "Submit";
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function FindWordsResults() {
-
+            while (Game1.firstChild) {
+                Game1.removeChild(Game1.firstChild);
+            }
+            
         }
         Game1.appendChild(submitAnswer);
     }
@@ -293,14 +349,20 @@ function Sudoku() {
     Game1.appendChild(info);
     Game1.appendChild(button);
     button.onclick = function StartSudoku() {
-
+        while (Game1.firstChild) {
+            Game1.removeChild(Game1.firstChild);
+        }
+        
 
         let submitAnswer = document.createElement("button");
         submitAnswer.id = "SudokuResults";
         submitAnswer.innerHTML= "Submit";
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function SudokuResults() {
-
+            while (Game1.firstChild) {
+                Game1.removeChild(Game1.firstChild);
+            }
+            
         }
         Game1.appendChild(submitAnswer);
     }
