@@ -19,7 +19,7 @@ let ComparNumbers=[];
 let ComparingSymbol=[];
 let NumberSequence=new Array(10).fill(0).map(x => Array(10).fill(0));
 let NumberSequenceCorect =new Array(10).fill("");
-
+let MathCalculations=new Array(20);
 let Symbol="";
 let form;
 let input;
@@ -34,7 +34,8 @@ Start.addEventListener('click', () => {
         Game1.removeChild(Game1.firstChild);
     }
     //ComparingSymbols();
-    Remember2Number()
+    //Remember2Number();
+    MathOnTime();
 })
 
 Results.addEventListener('click', async () => {
@@ -276,7 +277,41 @@ function Remember2Number(){
 }
 
 function MathOnTime() {
-    
+    MathCalculations.fill(0);
+    for (let i = 0; i < MathCalculations.length; i++) {
+
+        MathCalculations[i] ={
+            FirstNumber:Random(1,99),
+            SecondNumber:Random(1,99),
+            OperationSymbol:x =>{switch (Random(0,3)) {
+                case 0:
+                   return "*";
+                case 1:
+                    return "/";
+                case 2:
+                    return "-";
+                case 3:
+                    return "+";  
+            }}
+
+        }
+        switch (Random(0,3)) {
+            case 0:
+                MathCalculations[i].OperationSymbol="*";
+                break;
+            case 1:
+                MathCalculations[i].OperationSymbol="/";
+                break;
+            case 2:
+                MathCalculations[i].OperationSymbol="-";
+                break;
+            case 3:
+                MathCalculations[i].OperationSymbol="+";
+                break;  
+        }
+    }
+
+
     info = document.createElement("div");
     info.id = "info";
     info.innerHTML="Do arithmetic calculations as quickly as possible."
@@ -308,6 +343,8 @@ function MathOnTime() {
 
 function FindWords() {
     
+
+
     info = document.createElement("div");
     info.id = "info";
     info.innerHTML="Find the words in the sequence of letters below and circle them. Time yourself and try to do it as quickly as possible."
