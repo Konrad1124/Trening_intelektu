@@ -60,13 +60,13 @@ BackFromSelectResults.addEventListener('click', () => {
 })
 
 //functions----------------------------------------------------------------------------------------
-/*window.onload = function() {
+window.onload = function() {
     console.log("ss")
     var width=1200;
     var height=900;
     window.moveTo((window.screen.availwidth-width)/2,(window.screen.availheight-height)/2);
     window.resizeTo(width,height);
-};*/
+};
 
 function DailyGames(){
     GameSequence = [];
