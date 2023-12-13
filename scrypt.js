@@ -33,9 +33,9 @@ Start.addEventListener('click', () => {
     while (Game1.firstChild) {
         Game1.removeChild(Game1.firstChild);
     }
-    //ComparingSymbols();
+    ComparingSymbols();
     //Remember2Number();
-    MathOnTime();
+    //MathOnTime();
 })
 
 Results.addEventListener('click', async () => {
@@ -60,6 +60,14 @@ BackFromSelectResults.addEventListener('click', () => {
 })
 
 //functions----------------------------------------------------------------------------------------
+/*window.onload = function() {
+    console.log("ss")
+    var width=1200;
+    var height=900;
+    window.moveTo((window.screen.availwidth-width)/2,(window.screen.availheight-height)/2);
+    window.resizeTo(width,height);
+};*/
+
 function DailyGames(){
     GameSequence = [];
     let i =0;
@@ -147,52 +155,63 @@ function ComparingSymbols() {
         ComparingSymbolsForm.id="Compar";
         ComparingSymbol
         .forEach((element,i) => {
-            window[ 'p' + i ] = document.createElement("p");
-            window[ 'p' + i ].classList.add("paragraph1");
-            window[ 'p' + i ].innerHTML=element[0]+`<select id=\"symbols${i}\" name=\"symbols${i}\" class=\"mySelect\"><option value=\" \"> </option><option value=\">\">></option><option value=\"=\">=</option><option value=\"<\"><</option> </select>`+element[1];
-            ComparingSymbolsForm.appendChild(window[ 'p' + i ]);
+            window[ 'div' + i ] = document.createElement("div");
+            window[ 'div' + i ].classList.add("line");
+            window[ 'div' + i ].innerHTML=`<p class=\"paragraph1\">${element[0]}</p>
+            <p class=\"paragraph2\">
+            <input type=\"radio\" value=\"<\" name=\"symbols${i}\" class = \"customRadio\"><label for=\"outline\">\<</label>
+            <input type=\"radio\" value=\"=\" name=\"symbols${i}\" class = \"customRadio\"><label for=\"outline\">\=</label>
+            <input type=\"radio\" value=\">\" name=\"symbols${i}\" class = \"customRadio\"><label for=\"outline\">\></label>
+            </p>
+            <p class=\"paragraph3\">${element[1]}</p>`;
+            ComparingSymbolsForm.appendChild(window[ 'div' + i ]);
         });
         let submitAnswer = document.createElement("button");
         submitAnswer.id = "ComparingSymbolsResults";
         submitAnswer.innerHTML= "Submit";
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function ComparingSymbolsResults() {
-            if (document.querySelector(`#symbols1`)!=null) {
+            time=new Date().getTime()-time.getTime();
+            console.log(time)
+            if (document.querySelector(`input[name=symbols1]`)!=null) {
                 ComparingSymbol
                 .forEach((element,i) => {
-                    input = document.querySelector(`#symbols${i}`);
-                    switch (input.selectedIndex) {
-                        case 0:
+                    input = document.querySelectorAll(`input[name=symbols${i}]`);
+                    for (const radio of input) {
+                        if (radio.checked) {
+                            console.log(radio.value)
+                            switch (radio.value) {
+                                case "<":
+                                    if ( ComparingSymbol[i][0]>ComparingSymbol[i][1]) {
+                                        console.log(i+" dobrze")
+                                    }else{
+                                        console.log(i+" źle")
+                                    }
+                                    break;
+                                case "=":
+                                    if ( ComparingSymbol[i][0]=ComparingSymbol[i][1]) {
+                                        console.log(i+" dobrze")
+                                    }else{
+                                        console.log(i+" źle")
+                                    }
+                                    break;
+                                case ">":
+                                    if ( ComparingSymbol[i][0]<ComparingSymbol[i][1]) {
+                                        console.log(i+" dobrze")
+                                    }else{
+                                        console.log(i+" źle")
+                                    }
+                                    break;
+                            }
+                            break;
+                        }else if (radio.value == ">") {
                             console.log("brak odpowiedzi")
-                            break;
-                        case 1:
-                            if ( ComparingSymbol[i][0]>ComparingSymbol[i][1]) {
-                                console.log(i+" dobrze")
-                            }else{
-                                console.log(i+" źle")
-                            }
-                            break;
-                        case 2:
-                            if ( ComparingSymbol[i][0]=ComparingSymbol[i][1]) {
-                                console.log(i+" dobrze")
-                            }else{
-                                console.log(i+" źle")
-                            }
-                            break;
-                        case 3:
-                            if ( ComparingSymbol[i][0]<ComparingSymbol[i][1]) {
-                                console.log(i+" dobrze")
-                            }else{
-                                console.log(i+" źle")
-                            }
-                            break;
-                        default:
-                            break;
+                        }
+                        
+
                     }
                 });
             }
-            time=new Date().getTime()-time.getTime();
-            console.log(time)
             Game1.setAttribute("hidden", "hidden");
             Menu.removeAttribute("hidden");
             while (Game1.firstChild) {

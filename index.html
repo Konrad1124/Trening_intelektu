@@ -9,37 +9,42 @@
     <title>Mind Trainer</title>
   </head>
   <body id = "main" lang="en">
-    <div id="Menu" >
-      <h1 id="GameTitle">Menu</h1>
-      <button id="Start" class="Buttons">Start</button></br>
-      <button id="Results" class="Buttons">My Results</button></br>
-      <button id="Exit" class="Buttons">Exit</button></br>
+    <div id = "container">
+
+      <div id="Menu" >
+        <h1 id="GameTitle">Menu</h1>
+        <button id="Start" class="Buttons">Start</button></br>
+        <button id="Results" class="Buttons">My Results</button></br>
+        <button id="Exit" class="Buttons">Exit</button></br>
+      </div>
+
+      <div id="playerBoard" class="selectScreen" hidden>
+        <div id="selectContainer" class="Select"></div></br></br>
+        <input type="text" id="name" class="textBox"></br></br>
+        <button id="Back1" class="Buttons">Back</button>
+        <button id="startExercise" class="Buttons">Start Exercise</button>
+      </div>
+
+      <div id="selectResults" class="selectScreen" hidden>
+        <div id="selectContainer" class="Select"></div></br></br>
+        <input type="text" id="name" class="textBox"></br></br>
+        <button id="Back2" class="Buttons">Back</button>
+        <button id="Show" class="Buttons">Show My results</button>
+      </div>
+      
+      <div id="game1" hidden>
+
+
+      </div>
     </div>
 
-    <div id="playerBoard" class="selectScreen" hidden>
-      <div id="selectContainer" class="Select"></div></br></br>
-      <input type="text" id="name" class="textBox"></br></br>
-      <button id="Back1" class="Buttons">Back</button>
-      <button id="startExercise" class="Buttons">Start Exercise</button>
-    </div>
-
-    <div id="selectResults" class="selectScreen" hidden>
-      <div id="selectContainer" class="Select"></div></br></br>
-      <input type="text" id="name" class="textBox"></br></br>
-      <button id="Back2" class="Buttons">Back</button>
-      <button id="Show" class="Buttons">Show My results</button>
-    </div>
-    
-    <div id="game1">
-
-
-    </div>
-    <script>
+    <script Language="JavaScript">
         if (navigator.serviceWorker) {
           navigator.serviceWorker.register ('/Trening_intelektu/sw.js',{scope: '/Trening_intelektu/'})
           .then(res => console.log("Registered sw.js"))
           .catch(err => console.log("Failed to register sw.js"))
         }
+       
     </script>
     <script src="./scrypt.js"></script>
   </body>
