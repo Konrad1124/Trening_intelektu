@@ -1,14 +1,15 @@
 #main {
-    background-color: rgb(49, 29, 230);
-    font-family: 'Courier New', Courier, monospace;
-    position: relative;
-
+    --color-main-darker: rgb(49, 29, 230);
     --color-main: #4d4dff;
     --color-box-shadow: rgba(16, 24, 114, 0.763);
     --color-hover: #8888fd;
     --color-font: #00004d;
     --color-radio: #2106e7;
     --color-checked: #130961;
+
+    background-color: var(--color-main-darker);
+    font-family: 'Courier New', Courier, monospace;
+    position: relative;
 }
 
 #container{
@@ -105,6 +106,7 @@
     font-size: 16px;
     border-radius: 12px;
     margin: 20px;
+    padding: 10px;
     box-shadow: 0px 0px 14px 5px var(--color-box-shadow);
     box-sizing: border-box;
 }
@@ -185,16 +187,28 @@
 
 /*radio end*/
 
-.numbersColumns{
-    width: 150px;
-    margin: 0px;
-    float:left;
-    overflow: hidden;
+.exercise{
+    position: relative;
+    height: 350px;
+    padding: 10px;
 }
 
+.numbersColumns{
+    position: absolute;
+    left: 15%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
 .numbers{
-    background-color: var(--color-main); 
-    border: none;
+    position: absolute;
+    background-color: var(--color-main-darker); 
+    border-radius: 12px;
+    border: 0;
+    box-shadow: 0px 0px 14px 5px var(--color-box-shadow);
+    box-sizing: border-box;
+    outline: none;
     color: var(--color-font);
     padding: 15px 15px;
     width: 100px;
@@ -203,4 +217,22 @@
     text-decoration: none;
     font-size: 16px;
     display: inline-block;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+
+#number0{
+    left: 30%;
+}
+#number1{
+    left: 45%;
+}
+#number2{
+    left: 60%;
+}
+#number3{
+    left: 75%;
+}
+#number4{
+    left: 90%;
 }

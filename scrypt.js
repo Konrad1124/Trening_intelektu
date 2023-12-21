@@ -33,7 +33,19 @@ Start.addEventListener('click', () => {
     while (Game1.firstChild) {
         Game1.removeChild(Game1.firstChild);
     }
-    ComparingSymbols();
+
+    //for development
+    switch (Random(1, 2)) {
+        case 1:
+            ComparingSymbols();
+            break;
+        case 2:
+            Remember2Number();
+            break;
+        default:
+            break;
+    }
+    //ComparingSymbols();
     //Remember2Number();
     //MathOnTime();
 })
@@ -73,7 +85,7 @@ function DailyGames(){
     let i =0;
         do {
             theSmae=false
-            let temp = Math.floor(Math.random() * 5);
+            let temp = Random(1, 5);
             if (GameSequence.length != 0) {
                 GameSequence.forEach(element => {
                     
@@ -98,6 +110,9 @@ function Random(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
+
+
+
 
 //Games--------------------------------------------------------------------------------------------
 function ComparingSymbols() {
@@ -244,52 +259,97 @@ function Remember2Number(){
         while (Game1.firstChild) {
             Game1.removeChild(Game1.firstChild);
         }
-
+        let iteration=0;
         let Remember2NumberForm = document.createElement("form");
         Remember2NumberForm.id="Compar";
-        NumberSequence.forEach((element,x) => {
-            window[ 'div' + x ] = document.createElement("div");
-            window[ 'div' + x ].classList.add("numbersColumns");
-            element.forEach((element2,y) => {
-                window[ 'p' + y ] = document.createElement("p");
-                window[ 'p' + y ].innerHTML= element2;
-                window[ 'div' + x ].appendChild(window[ 'p' + y ]);
-            });
-            window[ 'input' + x ] = document.createElement("input");
-            window[ 'input' + x ].type = "number";
-            window[ 'input' + x ].id = `number${x}`;
-            window[ 'input' + x ].classList.add("numbers");
-            window[ 'input' + x ].max= "9999999999";
-            window[ 'input' + x ].name= "numbers";
-            window[ 'div' + x ].appendChild(window[ 'input' + x ]);
-            Remember2NumberForm.appendChild(window[ 'div' + x ]);
+
+        window[ 'div' + iteration ] = document.createElement("div");
+        window[ 'div' + iteration ].classList.add("exercise");
+        window[ 'div' + iteration  + 'insaid'] = document.createElement("div");
+        window[ 'div' + iteration  + 'insaid'].classList.add("numbersColumns");
+        window[ 'div' + iteration ].appendChild(window[ 'div' + iteration  + 'insaid']);
+        NumberSequence[iteration].forEach((element2,y) => {
+            window[ 'p' + y ] = document.createElement("p");
+            window[ 'p' + y ].innerHTML= element2;
+            window[ 'div' + iteration  + 'insaid'].appendChild(window[ 'p' + y ]);
         });
+        for (let inputNumber = 0; inputNumber < 5; inputNumber++) {
+            window[ 'input' + inputNumber ] = document.createElement("input");
+            window[ 'input' + inputNumber ].type = "number";
+            window[ 'input' + inputNumber ].id = `number${inputNumber}`;
+            window[ 'input' + inputNumber ].classList.add("numbers");
+            window[ 'input' + inputNumber ].max= "88";
+            window[ 'input' + inputNumber ].name= "numbers";
+            window[ 'div' + iteration ].appendChild(window[ 'input' + inputNumber ]);
+            
+        }
+       
+        Remember2NumberForm.appendChild(window[ 'div' + iteration ]);
+
+
         let submitAnswer = document.createElement("button");
         submitAnswer.id = "Remember2NumberResults";
         submitAnswer.innerHTML= "Submit";
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function Remember2NumberResults() {
-            let temp=[];
-             for (let i = 0; i < 10; i++) {
-                temp=[];
-                for (let j = 1; j < 10; j+=2) {
-                    temp.push(NumberSequence[i][j]);
-                }
-                NumberSequenceCorect[i]=temp;
-            }
-            console.log(NumberSequenceCorect)
-            form=document.querySelector("#Compar");
-            input=form.querySelectorAll("input[name=numbers]");
-           
+            if (iteration==NumberSequence.length-1){
+                Game1.setAttribute("hidden", "hidden");
+                Menu.removeAttribute("hidden");
                 
-            
-            
+               
+                while (Game1.firstChild) {
+                    Game1.removeChild(Game1.firstChild);
+                }
+            }else{
+                
+                let temp=[];
+                for (let j = 1; j < 10; j+=2) {
+                   temp.push(NumberSequence[iteration][j]);
+                }
+                NumberSequenceCorect[iteration]=temp;
+                
+                form=document.querySelector("#Compar");
+                input=form.querySelectorAll("input[name=numbers]");
+                
+                input.forEach((element,i) => {
+                    if (element.valueAsNumber == NumberSequenceCorect[iteration][i]) {
+                        console.log("corect")
+                    }else{
+                        console.log("wrong")
+                    }
+                });
+                while (Remember2NumberForm.firstChild) {
+                    Remember2NumberForm.removeChild(Remember2NumberForm.firstChild);
+                }
 
 
-            while (Game1.firstChild) {
-                Game1.removeChild(Game1.firstChild);
+                iteration++;
+
+                window[ 'div' + iteration ] = document.createElement("div");
+                window[ 'div' + iteration ].classList.add("exercise");
+                window[ 'div' + iteration  + 'insaid'] = document.createElement("div");
+                window[ 'div' + iteration  + 'insaid'].classList.add("numbersColumns");
+                window[ 'div' + iteration ].appendChild(window[ 'div' + iteration  + 'insaid']);
+                NumberSequence[iteration].forEach((element2,y) => {
+                    window[ 'p' + y ] = document.createElement("p");
+                    window[ 'p' + y ].innerHTML= element2;
+                    window[ 'div' + iteration  + 'insaid'].appendChild(window[ 'p' + y ]);
+                });
+                for (let inputNumber = 0; inputNumber < 5; inputNumber++) {
+                    window[ 'input' + inputNumber ] = document.createElement("input");
+                    window[ 'input' + inputNumber ].type = "number";
+                    window[ 'input' + inputNumber ].id = `number${inputNumber}`;
+                    window[ 'input' + inputNumber ].classList.add("numbers");
+                    window[ 'input' + inputNumber ].max= "88";
+                    window[ 'input' + inputNumber ].name= "numbers";
+                    window[ 'div' + iteration ].appendChild(window[ 'input' + inputNumber ]);
+                    
+                }
+            
+                Remember2NumberForm.appendChild(window[ 'div' + iteration ]);
             }
         }
+        
         Game1.appendChild(Remember2NumberForm);
         Game1.appendChild(submitAnswer);
     }
