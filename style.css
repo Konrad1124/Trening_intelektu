@@ -236,3 +236,33 @@
 #number4{
     left: 90%;
 }
+
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.column{
+    width: 300px;
+    margin: 10px;
+    text-align: center;
+    line-height: 35px;
+}
+.result{
+    background-color: var(--color-main-darker); 
+    border-radius: 12px;
+    border: 0;
+    box-shadow: 0px 0px 14px 5px var(--color-box-shadow);
+    box-sizing: border-box;
+    outline: none;
+    color: var(--color-font);
+    padding: 15px 15px;
+    width: 100px;
+    height: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+}

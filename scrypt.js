@@ -19,13 +19,16 @@ let ComparNumbers=[];
 let ComparingSymbol=[];
 let NumberSequence=new Array(10).fill(0).map(x => Array(10).fill(0));
 let NumberSequenceCorect =new Array(10).fill("");
-let MathCalculations=new Array(20);
+let MathCalculations=new Array(21);
 let Symbol="";
 let form;
 let input;
 let comparSymbol;
 let info;
 let time;
+let iteration;
+let temp;
+let tempArray;
 //buttons functions--------------------------------------------------------------------------------
 Start.addEventListener('click', () => {
     Menu.setAttribute("hidden", "hidden");
@@ -35,7 +38,7 @@ Start.addEventListener('click', () => {
     }
 
     //for development
-    switch (Random(1, 2)) {
+    /*switch (Random(1, 2)) {
         case 1:
             ComparingSymbols();
             break;
@@ -44,10 +47,10 @@ Start.addEventListener('click', () => {
             break;
         default:
             break;
-    }
+    }*/
     //ComparingSymbols();
     //Remember2Number();
-    //MathOnTime();
+    MathOnTime();
 })
 
 Results.addEventListener('click', async () => {
@@ -85,7 +88,7 @@ function DailyGames(){
     let i =0;
         do {
             theSmae=false
-            let temp = Random(1, 5);
+            temp = Random(1, 5);
             if (GameSequence.length != 0) {
                 GameSequence.forEach(element => {
                     
@@ -250,7 +253,7 @@ function Remember2Number(){
     info.id = "info";
     info.innerHTML="Read all the numbers in the column. As you read, remember every other digit. Write the memorized numbers under the column in the correct order."
     let button = document.createElement("button");
-    button.id = " StartRemember2Number";
+    button.id = "StartRemember2Number";
     button.innerHTML= "OK";
     button.classList.add("Buttons");
     Game1.appendChild(info);
@@ -259,7 +262,7 @@ function Remember2Number(){
         while (Game1.firstChild) {
             Game1.removeChild(Game1.firstChild);
         }
-        let iteration=0;
+        iteration=0;
         let Remember2NumberForm = document.createElement("form");
         Remember2NumberForm.id="Compar";
 
@@ -302,11 +305,11 @@ function Remember2Number(){
                 }
             }else{
                 
-                let temp=[];
+                tempArray=[];
                 for (let j = 1; j < 10; j+=2) {
-                   temp.push(NumberSequence[iteration][j]);
+                   tempArray.push(NumberSequence[iteration][j]);
                 }
-                NumberSequenceCorect[iteration]=temp;
+                NumberSequenceCorect[iteration]=tempArray;
                 
                 form=document.querySelector("#Compar");
                 input=form.querySelectorAll("input[name=numbers]");
@@ -362,16 +365,7 @@ function MathOnTime() {
         MathCalculations[i] ={
             FirstNumber:Random(1,99),
             SecondNumber:Random(1,99),
-            OperationSymbol:x =>{switch (Random(0,3)) {
-                case 0:
-                   return "*";
-                case 1:
-                    return "/";
-                case 2:
-                    return "-";
-                case 3:
-                    return "+";  
-            }}
+            OperationSymbol:"",
 
         }
         switch (Random(0,3)) {
@@ -404,18 +398,97 @@ function MathOnTime() {
         while (Game1.firstChild) {
             Game1.removeChild(Game1.firstChild);
         }
-        
+        let MathOnTimeForm = document.createElement("form");
+        MathOnTimeForm.id="Compar";
+
+        window[ 'div' ] = document.createElement("div");
+        window[ 'div' ].classList.add("row");
+
+        window[ 'div' + 'column1'] = document.createElement("div");
+        window[ 'div' + 'column1'].id = "column1";
+        window[ 'div' + 'column1'].classList.add("column");
+        window[ 'div' ].appendChild( window[ 'div' + 'column1']);
+
+        window[ 'div' + 'column2'] = document.createElement("div");
+        window[ 'div' + 'column2'].id = "column2";
+        window[ 'div' + 'column2'].classList.add("column");
+        window[ 'div' ].appendChild( window[ 'div' + 'column2']);
+
+        window[ 'div' + 'column3'] = document.createElement("div");
+        window[ 'div' + 'column3'].id = "column3";
+        window[ 'div' + 'column3'].classList.add("column");
+        window[ 'div' ].appendChild( window[ 'div' + 'column3']);
+
+        iteration = 0;
+        let column = 1;
+        MathCalculations.forEach((element,i) => {
+            if (iteration < (MathCalculations.length/3)-1) {
+                window[ 'p' + i ] = document.createElement("p");
+                window[ 'p' + i ].innerHTML= `${element.FirstNumber} ${element.OperationSymbol} ${element.SecondNumber}`;
+                window[ 'div' + `column${column}`].appendChild(window[ 'p' + i ]);
+                window[ 'input' + i ] = document.createElement("input");
+                window[ 'input' + i ].type = "number";
+                window[ 'input' + i ].id = `number${i}`;
+                window[ 'input' + i ].name= "numbers";
+                window[ 'input' + i ].classList.add("result");
+                window[ 'div' + `column${column}`].appendChild(window[ 'input' + i ]);
+                iteration++;
+            }else{
+                window[ 'p' + i ] = document.createElement("p");
+                window[ 'p' + i ].innerHTML= `${element.FirstNumber} ${element.OperationSymbol} ${element.SecondNumber}`;
+                window[ 'div' + `column${column}`].appendChild(window[ 'p' + i ]);
+                window[ 'input' + i ] = document.createElement("input");
+                window[ 'input' + i ].type = "number";
+                window[ 'input' + i ].id = `number${i}`;
+                window[ 'input' + i ].name= "numbers";
+                window[ 'input' + i ].classList.add("result");
+                window[ 'div' + `column${column}`].appendChild(window[ 'input' + i ]);
+                column++;
+                iteration = 0;
+            }
+        });
+    
+        MathOnTimeForm.appendChild( window[ 'div']);
 
         let submitAnswer = document.createElement("button");
         submitAnswer.id = "MathResults";
         submitAnswer.innerHTML= "Submit";
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function MathResults() {
+            
+            form=document.querySelector("#Compar");
+            input=form.querySelectorAll("input[name=numbers]");
+            input.forEach((element,i) => {
+                switch (MathCalculations[i].OperationSymbol) {
+                    case "*":
+                        temp= MathCalculations[i].FirstNumber * MathCalculations[i].SecondNumber
+                        break;
+                    case "/":
+                        temp= MathCalculations[i].FirstNumber / MathCalculations[i].SecondNumber
+                        break;
+                    case "-":
+                        temp= MathCalculations[i].FirstNumber - MathCalculations[i].SecondNumber
+                        break;
+                    case "+":
+                        temp= MathCalculations[i].FirstNumber + MathCalculations[i].SecondNumber
+                        break;
+                }
+                if(element.valueAsNumber==temp){
+                    console.log("corect")
+                }else{
+                    console.log("wrong")
+                }
+            })
+
+            Game1.setAttribute("hidden", "hidden");
+            Menu.removeAttribute("hidden");
+                
+               
             while (Game1.firstChild) {
                 Game1.removeChild(Game1.firstChild);
             }
-            
         }
+        Game1.appendChild(MathOnTimeForm);
         Game1.appendChild(submitAnswer);
     }
 }
