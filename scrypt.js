@@ -365,26 +365,47 @@ function MathOnTime() {
     MathCalculations.fill(0);
     for (let i = 0; i < MathCalculations.length; i++) {
 
-        MathCalculations[i] ={
-            FirstNumber:Random(1,99),
-            SecondNumber:Random(1,99),
-            OperationSymbol:"",
-
-        }
+        let tempFirstNumber=Random(1,99);
+        let tempSecondNumber=Random(1,99);
+        let tempOperationSymbol="";
+        let tempIfGood=false;
         switch (Random(0,3)) {
             case 0:
-                MathCalculations[i].OperationSymbol="*";
+                tempOperationSymbol="*";
+                if ((tempFirstNumber * tempSecondNumber)<200) {
+                    tempIfGood=true;
+                }
                 break;
             case 1:
-                MathCalculations[i].OperationSymbol="/";
+                tempOperationSymbol="/";
+                if (Number.isInteger(tempFirstNumber / tempSecondNumber)) {
+                    tempIfGood=true;
+                }
                 break;
             case 2:
-                MathCalculations[i].OperationSymbol="-";
+                tempOperationSymbol="-";
+                if ((tempFirstNumber - tempSecondNumber)>0) {
+                    tempIfGood=true;
+                }
                 break;
             case 3:
-                MathCalculations[i].OperationSymbol="+";
+                tempOperationSymbol="+";
+                if ((tempFirstNumber + tempSecondNumber)<120) {
+                    tempIfGood=true;
+                }
                 break;  
         }
+        if (tempIfGood==true) {
+            MathCalculations[i] ={
+                FirstNumber:tempFirstNumber,
+                SecondNumber:tempSecondNumber,
+                OperationSymbol:tempOperationSymbol
+            }
+        } else {
+            i--;
+        }
+        
+        
     }
 
 
