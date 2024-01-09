@@ -38,19 +38,22 @@ Start.addEventListener('click', () => {
     }
 
     //for development
-    /*switch (Random(1, 2)) {
+    switch (Random(1, 2)) {
         case 1:
             ComparingSymbols();
             break;
         case 2:
             Remember2Number();
             break;
+        case 3:
+            MathOnTime();
+            break;
         default:
             break;
-    }*/
+    }
     //ComparingSymbols();
     //Remember2Number();
-    MathOnTime();
+    //MathOnTime();
 })
 
 Results.addEventListener('click', async () => {
