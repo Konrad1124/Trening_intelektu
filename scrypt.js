@@ -26,9 +26,14 @@ let input;
 let comparSymbol;
 let info;
 let time;
-let iteration;
-let temp;
-let tempArray;
+let iteration=0;
+let temp=0;
+let tempArray=[];
+let wordArray='And Fix Own Are Fly Odd Ape Fry Our Ace For Pet Act Got Pat Ask Get Peg Arm God Paw Age Gel Pup Ago Gas Pit Air Hat Put Ate Hit Pot All Has Pop But Had Pin Bye How Rat Bad Her Rag Big His Rub Bed Hen Row Bat Ink Rug Boy Ice Run Bus Ill Rap Bag Jab Ram Box Jug Sow Bit Jet See Bee Jam Saw Buy Jar Set Bun Job Sit Cub Jog Sir Cat Kit Sat Car Key Sob Cut Lot Tap Cow Lit Tip Cry Let Top Cab Lay Tug Can Mat Tow Dad Man Toe Dab Mad Tan Dam Mug Ten Did Mix Two Dug Map Use Den Mum Van Dot Mud Vet Dip Mom Was Day May Wet Ear Met Win Eye Net Won Eat New Wig End Nap War Elf Now Why Egg Nod Who Far Net Way Fat Not Wow Few Nut You Fan Oar Yes Fun One Yak Fit Out Yet Fin Owl Zip Fox Old Zap'.toUpperCase().split(' ')
+let selectedWordArray=[];
+let word="";
+let letterArray='abcdefghijklmnopqrstuvwxyz'.split('')
+let letersSequenceArray =[];
 //buttons functions--------------------------------------------------------------------------------
 Start.addEventListener('click', () => {
     Menu.setAttribute("hidden", "hidden");
@@ -38,7 +43,7 @@ Start.addEventListener('click', () => {
     }
 
     //for development
-    switch (Random(1, 3)) {
+    /*switch (Random(1, 3)) {
         case 1:
             ComparingSymbols();
             break;
@@ -50,10 +55,11 @@ Start.addEventListener('click', () => {
             break;
         default:
             break;
-    }
+    }*/
     //ComparingSymbols();
     //Remember2Number();
     //MathOnTime();
+    FindWords();
 })
 
 Results.addEventListener('click', async () => {
@@ -171,7 +177,7 @@ function ComparingSymbols() {
             Game1.removeChild(Game1.firstChild);
         }
 
-        time = new Date();
+        
         let ComparingSymbolsForm = document.createElement("form");
         ComparingSymbolsForm.id="Compar";
         ComparingSymbol
@@ -239,6 +245,7 @@ function ComparingSymbols() {
                 Game1.removeChild(Game1.firstChild);
             }
         };
+        time = new Date();
         Game1.appendChild(ComparingSymbolsForm);
         Game1.appendChild(submitAnswer);
 
@@ -422,6 +429,8 @@ function MathOnTime() {
         while (Game1.firstChild) {
             Game1.removeChild(Game1.firstChild);
         }
+
+        
         let MathOnTimeForm = document.createElement("form");
         MathOnTimeForm.id="Compar";
 
@@ -472,14 +481,16 @@ function MathOnTime() {
             }
         });
     
-        MathOnTimeForm.appendChild( window[ 'div']);
-
+        MathOnTimeForm.appendChild( window[ 'div' ]);
+        
         let submitAnswer = document.createElement("button");
         submitAnswer.id = "MathResults";
         submitAnswer.innerHTML= "Submit";
         submitAnswer.classList.add("Buttons");
+        
         submitAnswer.onclick = function MathResults() {
-            
+            time=new Date().getTime()-time.getTime();
+            console.log(time)
             form=document.querySelector("#Compar");
             input=form.querySelectorAll("input[name=numbers]");
             input.forEach((element,i) => {
@@ -512,18 +523,33 @@ function MathOnTime() {
                 Game1.removeChild(Game1.firstChild);
             }
         }
+        time = new Date();  
         Game1.appendChild(MathOnTimeForm);
         Game1.appendChild(submitAnswer);
     }
 }
 
 function FindWords() {
-    
-
-
+    temp=0;
+    selectedWordArray=[];
+    word="";
+    while(letersSequenceArray.toString().replaceAll(",","").length<686){
+        if (Random(0,100)<7) {
+            console.log('i')
+            word=wordArray[Random(0,(wordArray.length)-1)];
+            letersSequenceArray.push(word);
+            temp++;
+            selectedWordArray.push(word);
+        } else {
+            letersSequenceArray.push(letterArray[Random(0,(letterArray.length)-1)]);
+        }
+    }
+    console.log(letersSequenceArray.toString().replaceAll(",",""))
+    console.log(selectedWordArray)
+    console.log(temp)
     info = document.createElement("div");
     info.id = "info";
-    info.innerHTML="Find the words in the sequence of letters below and circle them. Time yourself and try to do it as quickly as possible."
+    info.innerHTML="Find the words in the sequence of letters below and write them below a sequence. Try to do it as quickly as possible."
     let button = document.createElement("button");
     button.id = "StartFindWords";
     button.innerHTML= "OK";
@@ -534,23 +560,49 @@ function FindWords() {
         while (Game1.firstChild) {
             Game1.removeChild(Game1.firstChild);
         }
-        
+        let FindWordsForm = document.createElement("form");
+        FindWordsForm.id="Compar";
+
+        window[ 'div' ] = document.createElement("div");
+        window[ 'div' ].id = "sequence";
+        window[ 'div' ].classList.add("sequence");
+        window[ 'p' ] = document.createElement("p");
+        window[ 'p' ].innerHTML=letersSequenceArray.toString().replaceAll(",","");
+        window[ 'div' ].appendChild( window[ 'p' ]);
+        FindWordsForm.appendChild( window[ 'div' ]);
+
+        for (let inputNumber = 0; inputNumber < temp; inputNumber++) {
+            window[ 'input' + inputNumber ] = document.createElement("input");
+            window[ 'input' + inputNumber ].type = "text";
+            window[ 'input' + inputNumber ].id = `text${inputNumber}`;
+            window[ 'input' + inputNumber ].classList.add("textBox");
+            window[ 'div' ].appendChild(window[ 'input' + inputNumber ]);
+            
+        }
+
+
 
         let submitAnswer = document.createElement("button");
         submitAnswer.id = "FindWordsResults";
         submitAnswer.innerHTML= "Submit";
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function FindWordsResults() {
+            time=new Date().getTime()-time.getTime();
+            console.log(time)
+
+
             while (Game1.firstChild) {
                 Game1.removeChild(Game1.firstChild);
             }
-            
         }
+        time = new Date();
+        Game1.appendChild(FindWordsForm);
         Game1.appendChild(submitAnswer);
     }
 }
 
 function Sudoku() {
+    
     
     info = document.createElement("div");
     info.id = "info";

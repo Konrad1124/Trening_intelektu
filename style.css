@@ -266,3 +266,28 @@
     font-size: 16px;
     display: inline-block;
 }
+
+.sequence{
+    height: 350px;
+    padding: 10px;
+}
+
+
+.sequence p{
+    word-wrap: break-word;
+    text-align: left;
+}
+
+.sequence input{
+    background-color: var(--color-main-darker); 
+    border-radius: 5px;
+    border: none;
+    color: var(--color-font);
+    padding: 5px;
+    margin: 3px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+}
