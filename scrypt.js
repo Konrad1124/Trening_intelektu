@@ -38,7 +38,7 @@ Start.addEventListener('click', () => {
     }
 
     //for development
-    switch (Random(1, 2)) {
+    switch (Random(1, 3)) {
         case 1:
             ComparingSymbols();
             break;
