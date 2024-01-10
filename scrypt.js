@@ -533,6 +533,8 @@ function FindWords() {
     temp=0;
     selectedWordArray=[];
     word="";
+    let wordFinded=0;
+    let el
     while(letersSequenceArray.toString().replaceAll(",","").length<686){
         if (Random(0,100)<7) {
             console.log('i')
@@ -567,20 +569,20 @@ function FindWords() {
         window[ 'div' ].id = "sequence";
         window[ 'div' ].classList.add("sequence");
         window[ 'p' ] = document.createElement("p");
-        window[ 'p' ].innerHTML=letersSequenceArray.toString().replaceAll(",","");
+        letersSequenceArray.forEach((element,i) => {
+            if(element.length!=1){
+                window[ 'p' ].innerHTML+=`<a href=\"\#link${i}\" title=\"${element}\" id=\"link${i}\" class=\"linkNotClicked\">${element}</a>`
+                
+            }else{
+                window[ 'p' ].innerHTML+=element
+            }
+        });
         window[ 'div' ].appendChild( window[ 'p' ]);
         FindWordsForm.appendChild( window[ 'div' ]);
 
-        for (let inputNumber = 0; inputNumber < temp; inputNumber++) {
-            window[ 'input' + inputNumber ] = document.createElement("input");
-            window[ 'input' + inputNumber ].type = "text";
-            window[ 'input' + inputNumber ].id = `text${inputNumber}`;
-            window[ 'input' + inputNumber ].classList.add("textBox");
-            window[ 'div' ].appendChild(window[ 'input' + inputNumber ]);
-            
-        }
+        
 
-
+        
 
         let submitAnswer = document.createElement("button");
         submitAnswer.id = "FindWordsResults";
@@ -595,9 +597,27 @@ function FindWords() {
                 Game1.removeChild(Game1.firstChild);
             }
         }
-        time = new Date();
+        
         Game1.appendChild(FindWordsForm);
         Game1.appendChild(submitAnswer);
+        letersSequenceArray.forEach((element,i) => {
+            if(element.length!=1){
+            el = document.getElementById(`link${i}`);
+            el.onclick=function() {return textLink(`${element}`,this);};
+            }
+        });
+        function textLink(word, link){
+            wordFinded++;
+            console.log(link)
+            link.setAttribute('class', 'linkClicked');
+            link.onclick = function(event) {
+                
+                event.preventDefault();
+             }
+            
+            return false;
+        }
+        time = new Date();
     }
 }
 
