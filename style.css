@@ -276,6 +276,7 @@
 .sequence p{
     word-wrap: break-word;
     text-align: left;
+    cursor: pointer;
 }
 
 .sequence input{
@@ -291,3 +292,16 @@
     font-size: 16px;
     display: inline-block;
 }
+
+.linkNotClicked {
+    text-decoration: none;
+    color: var(--color-font);
+    cursor: pointer;
+}
+
+.linkClicked {
+    text-decoration:line-through;
+    color: #f50944;
+    cursor: pointer;
+}
+  
