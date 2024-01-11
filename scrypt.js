@@ -32,7 +32,8 @@ let tempArray=[];
 let wordArray='And Fix Own Are Fly Odd Ape Fry Our Ace For Pet Act Got Pat Ask Get Peg Arm God Paw Age Gel Pup Ago Gas Pit Air Hat Put Ate Hit Pot All Has Pop But Had Pin Bye How Rat Bad Her Rag Big His Rub Bed Hen Row Bat Ink Rug Boy Ice Run Bus Ill Rap Bag Jab Ram Box Jug Sow Bit Jet See Bee Jam Saw Buy Jar Set Bun Job Sit Cub Jog Sir Cat Kit Sat Car Key Sob Cut Lot Tap Cow Lit Tip Cry Let Top Cab Lay Tug Can Mat Tow Dad Man Toe Dab Mad Tan Dam Mug Ten Did Mix Two Dug Map Use Den Mum Van Dot Mud Vet Dip Mom Was Day May Wet Ear Met Win Eye Net Won Eat New Wig End Nap War Elf Now Why Egg Nod Who Far Net Way Fat Not Wow Few Nut You Fan Oar Yes Fun One Yak Fit Out Yet Fin Owl Zip Fox Old Zap'.toUpperCase().split(' ')
 let selectedWordArray=[];
 let word="";
-let letterArray='abcdefghijklmnopqrstuvwxyz'.split('')
+let letter=""
+let letterArray='abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('')
 let letersSequenceArray =[];
 //buttons functions--------------------------------------------------------------------------------
 Start.addEventListener('click', () => {
@@ -533,22 +534,29 @@ function FindWords() {
     temp=0;
     selectedWordArray=[];
     word="";
+    letter=""
     let wordFinded=0;
     let el
     while(letersSequenceArray.toString().replaceAll(",","").length<686){
         if (Random(0,100)<7) {
-            console.log('i')
             word=wordArray[Random(0,(wordArray.length)-1)];
             letersSequenceArray.push(word);
             temp++;
             selectedWordArray.push(word);
         } else {
-            letersSequenceArray.push(letterArray[Random(0,(letterArray.length)-1)]);
+            letter=letterArray[Random(0,(letterArray.length)-1)]
+            
+            if(wordArray.indexOf(letersSequenceArray[letersSequenceArray.length-2]+letersSequenceArray[letersSequenceArray.length-1]+letter)>-1){
+                continue;
+            }else{
+                letersSequenceArray.push(letter);
+            }
+           
+            
         }
     }
-    console.log(letersSequenceArray.toString().replaceAll(",",""))
-    console.log(selectedWordArray)
-    console.log(temp)
+    console.log( letersSequenceArray.toString().replaceAll(",","").length) 
+
     info = document.createElement("div");
     info.id = "info";
     info.innerHTML="Find the words in the sequence of letters below and write them below a sequence. Try to do it as quickly as possible."
@@ -608,7 +616,7 @@ function FindWords() {
         });
         function textLink(word, link){
             wordFinded++;
-            console.log(link)
+            
             link.setAttribute('class', 'linkClicked');
             link.onclick = function(event) {
                 
