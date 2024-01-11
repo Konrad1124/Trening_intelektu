@@ -545,14 +545,15 @@ function FindWords() {
             selectedWordArray.push(word);
         } else {
             letter=letterArray[Random(0,(letterArray.length)-1)]
-            
-            if(wordArray.indexOf(letersSequenceArray[letersSequenceArray.length-2]+letersSequenceArray[letersSequenceArray.length-1]+letter)>-1){
-                continue;
+            if (letersSequenceArray[letersSequenceArray.length-2]!=undefined&&letersSequenceArray[letersSequenceArray.length-1]!=undefined) {
+                if(wordArray.indexOf(letersSequenceArray[letersSequenceArray.length-2].slice(-1)+letersSequenceArray[letersSequenceArray.length-1].slice(-1)+letter)>-1){
+                    continue;
+                }else{
+                    letersSequenceArray.push(letter);
+                }
             }else{
                 letersSequenceArray.push(letter);
             }
-           
-            
         }
     }
     console.log( letersSequenceArray.toString().replaceAll(",","").length) 
@@ -588,8 +589,10 @@ function FindWords() {
         window[ 'div' ].appendChild( window[ 'p' ]);
         FindWordsForm.appendChild( window[ 'div' ]);
 
-        
-
+        window[ 'pCounter' ] = document.createElement("p");
+        window[ 'pCounter' ].id = "Counter";
+        window[ 'pCounter' ].innerHTML=wordFinded+" / "+temp;
+        window[ 'div' ].appendChild( window[ 'pCounter' ]);
         
 
         let submitAnswer = document.createElement("button");
@@ -616,10 +619,9 @@ function FindWords() {
         });
         function textLink(word, link){
             wordFinded++;
-            
+            window[ 'pCounter' ].innerHTML=wordFinded+" / "+temp;
             link.setAttribute('class', 'linkClicked');
             link.onclick = function(event) {
-                
                 event.preventDefault();
              }
             
