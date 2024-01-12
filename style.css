@@ -294,3 +294,31 @@
     text-align: center;
     font-size: 24px;
 }
+
+.sudokuDiv{
+    text-align: center;
+}
+
+.sudoku{
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    padding: 0px;
+    border: 1px solid var(--color-main-darker);
+    color: var(--color-font);
+    background-color: var(--color-main); 
+    outline: transparent;
+}
+
+td{
+    padding: 0px;
+}
+
+table{
+    text-align: center;
+    margin:auto;
+    border-collapse: collapse;
+    border: 3px solid var(--color-box-shadow);
+    background-color: var(--color-main-darker);
+}

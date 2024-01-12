@@ -20,6 +20,7 @@ let ComparingSymbol=[];
 let NumberSequence=new Array(10).fill(0).map(x => Array(10).fill(0));
 let NumberSequenceCorect =new Array(10).fill("");
 let MathCalculations=new Array(21);
+let submitAnswer;
 let Symbol="";
 let form;
 let input;
@@ -35,6 +36,8 @@ let word="";
 let letter=""
 let letterArray='abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('')
 let letersSequenceArray =[];
+let SudokuArray =new Array(9).fill('1').map(x => Array(9).fill('1'));
+let SudokuArraySolution;
 //buttons functions--------------------------------------------------------------------------------
 Start.addEventListener('click', () => {
     Menu.setAttribute("hidden", "hidden");
@@ -60,7 +63,8 @@ Start.addEventListener('click', () => {
     //ComparingSymbols();
     //Remember2Number();
     //MathOnTime();
-    FindWords();
+    //FindWords();
+    Sudoku();
 })
 
 Results.addEventListener('click', async () => {
@@ -124,7 +128,61 @@ function Random(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
+function rowCorect(number, row){
+    return SudokuArray[row].includes(number);
+}
 
+function columnCorect(number, column){
+    for (let i = 0; i < 9; i++) {
+        if (SudokuArray[i][column]===number) {
+            return true
+        }
+    }
+    return false
+}
+
+function boxCorect(number,row,column){
+    for (let i = (Math.floor( row/3)*3); i < (Math.floor( row/3)*3)+3; i++) {
+        for (let j = (Math.floor( column/3)*3); j < (Math.floor( column/3)*3)+3; j++) {
+            if (SudokuArray[i][j]===number) {
+                return true
+            }
+        }
+    }
+    return false
+}
+
+function generateGoodSudoku(){
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            if (SudokuArray[i][j]===' ') {
+                for (let number = 1; number < 10; number++) {
+                    if (!(rowCorect(number,i)||columnCorect(number,j)||boxCorect(number,i,j))) {
+                        SudokuArray[i][j]=number;
+                        if(generateGoodSudoku()){
+                            return true;
+                        }
+                        SudokuArray[i][j]=" "
+                    }
+                }
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+function chenged(x,i,j) {
+    if(parseInt(x.target.value)===" " || (parseInt(x.target.value) >= 1 && parseInt(x.target.value) <= 9)){
+        SudokuArray[i][j]=parseInt(x.target.value)
+    }
+    if(JSON.stringify(SudokuArray)===JSON.stringify(SudokuArraySolution)){
+        submitAnswer.style.display = 'inline-block'
+        time=new Date().getTime()-time.getTime();
+        
+    }
+
+}
 
 
 //Games--------------------------------------------------------------------------------------------
@@ -194,7 +252,7 @@ function ComparingSymbols() {
             <p class=\"paragraph3\">${element[1]}</p>`;
             ComparingSymbolsForm.appendChild(window[ 'div' + i ]);
         });
-        let submitAnswer = document.createElement("button");
+        submitAnswer = document.createElement("button");
         submitAnswer.id = "ComparingSymbolsResults";
         submitAnswer.innerHTML= "Submit";
         submitAnswer.classList.add("Buttons");
@@ -301,7 +359,7 @@ function Remember2Number(){
         Remember2NumberForm.appendChild(window[ 'div' + iteration ]);
 
 
-        let submitAnswer = document.createElement("button");
+        submitAnswer = document.createElement("button");
         submitAnswer.id = "Remember2NumberResults";
         submitAnswer.innerHTML= "Submit";
         submitAnswer.classList.add("Buttons");
@@ -484,7 +542,7 @@ function MathOnTime() {
     
         MathOnTimeForm.appendChild( window[ 'div' ]);
         
-        let submitAnswer = document.createElement("button");
+        submitAnswer = document.createElement("button");
         submitAnswer.id = "MathResults";
         submitAnswer.innerHTML= "Submit";
         submitAnswer.classList.add("Buttons");
@@ -560,7 +618,7 @@ function FindWords() {
 
     info = document.createElement("div");
     info.id = "info";
-    info.innerHTML="Find the words in the sequence of letters below and write them below a sequence. Try to do it as quickly as possible."
+    info.innerHTML="Find the tree letter words in the sequence. Try to do it as quickly as possible."
     let button = document.createElement("button");
     button.id = "StartFindWords";
     button.innerHTML= "OK";
@@ -595,14 +653,14 @@ function FindWords() {
         window[ 'div' ].appendChild( window[ 'pCounter' ]);
         
 
-        let submitAnswer = document.createElement("button");
+        submitAnswer = document.createElement("button");
         submitAnswer.id = "FindWordsResults";
         submitAnswer.innerHTML= "Submit";
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function FindWordsResults() {
             time=new Date().getTime()-time.getTime();
             console.log(time)
-
+            console.log(wordFinded+" / "+temp)
 
             while (Game1.firstChild) {
                 Game1.removeChild(Game1.firstChild);
@@ -632,8 +690,39 @@ function FindWords() {
 }
 
 function Sudoku() {
+    SudokuArray.map(x => x.fill(' '));
+    for (let i = 0; i < 9; i) {
+        temp=Random(1,9);
+        if (SudokuArray[0].includes(temp)==false) {
+            SudokuArray[0][i]=temp;
+            i++;
+        }
+    }
     
+    generateGoodSudoku()
     
+    SudokuArraySolution=JSON.parse(JSON.stringify(SudokuArray));
+    for(let i=0;i<Random(25,50);i++){
+        SudokuArray[Random(0,8)][Random(0,8)]=" "
+    }
+    
+    console.log(" -----------------------------")
+      for(let i=0; i<SudokuArraySolution.length; i++){
+          if(i !== 0 && i%3 === 0){
+              console.log(" -----------------------------")
+          }
+          let string = ""
+          for(let j=0; j<SudokuArraySolution[i].length; j++){
+              if(j%3 === 0){
+                  string += "|"
+              }
+              string += " "+SudokuArraySolution[i][j]+" "
+          }
+          console.log(string + "|")
+      }
+      console.log(" -----------------------------")
+
+
     info = document.createElement("div");
     info.id = "info";
     info.innerHTML="Complete the letter Sudoku puzzle as quickly as possible, remembering that a given letter can only appear once in each small square (3x3 fields), in each column and each row."
@@ -647,18 +736,44 @@ function Sudoku() {
         while (Game1.firstChild) {
             Game1.removeChild(Game1.firstChild);
         }
-        
 
-        let submitAnswer = document.createElement("button");
+        window[ 'div' ] = document.createElement("div");
+        window[ 'div' ].classList.add("sudokuDiv");
+
+        window[ 'tabele' ] = document.createElement("table");
+        window[ 'div' ].appendChild(window[ 'tabele' ]);
+
+        window[ 'tabeleBody' ] = document.createElement("tbody");
+        window[ 'tabele' ].appendChild(window[ 'tabeleBody' ]);
+        for (let i = 0; i < 9; i++) {
+            window[ 'tr' + i ] = document.createElement("tr");
+            window[ 'tabeleBody' ].appendChild(window[ 'tr' + i ]);
+            for (let j = 0; j < 9; j++) {
+                window[ 'td' + j ] = document.createElement("td");
+                window[ 'tr' + i ].appendChild(window[ 'td' + j ]);
+                window[ "input" + j + i] = document.createElement("input");
+                window[ "input" + j + i].id = `input${i}${j}`;
+                window[ "input" + j + i].classList.add("sudoku");
+                window[ "input" + j + i].value = SudokuArray[i][j];
+                window[ "input" + j + i].disabled = SudokuArray[i][j] !== " ";
+                window[ "input" + j + i].onchange = (x)=>chenged(x,i,j);
+                window[ 'td' + j ].appendChild(window[ "input" + j + i]);
+            }
+        }
+
+        submitAnswer = document.createElement("button");
         submitAnswer.id = "SudokuResults";
         submitAnswer.innerHTML= "Submit";
+        submitAnswer.style.display = 'none'
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function SudokuResults() {
             while (Game1.firstChild) {
                 Game1.removeChild(Game1.firstChild);
             }
-            
+            console.log(time)
         }
+        Game1.appendChild(window[ 'div' ]);
         Game1.appendChild(submitAnswer);
+        time = new Date();
     }
 }
