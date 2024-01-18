@@ -47,7 +47,7 @@ Start.addEventListener('click', () => {
     }
 
     //for development
-    /*switch (Random(1, 3)) {
+    switch (Random(1, 5)) {
         case 1:
             ComparingSymbols();
             break;
@@ -57,14 +57,20 @@ Start.addEventListener('click', () => {
         case 3:
             MathOnTime();
             break;
+        case 4:
+            FindWords();;
+            break;
+        case 5:
+            Sudoku();;
+            break;
         default:
             break;
-    }*/
+    }
     //ComparingSymbols();
     //Remember2Number();
     //MathOnTime();
     //FindWords();
-    Sudoku();
+    //Sudoku();
 })
 
 Results.addEventListener('click', async () => {
