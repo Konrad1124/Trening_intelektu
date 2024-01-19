@@ -43,6 +43,7 @@ e.respondWith((async () => {
 });
 
 self.addEventListener("activate", (e) => {
+  console.log(`active`);
   e.waitUntil(
     caches.keys().then((keyList) => {
       return Promise.all(
