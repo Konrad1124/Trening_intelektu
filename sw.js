@@ -10,3 +10,7 @@ var URLS = [
   `${GHPATH}/icon.ico`,
   `${GHPATH}/styles.css`
 ]
+
+self.addEventListener("install", (e) => {
+  console.log("[Service Worker] Install");
+});
