@@ -7,6 +7,14 @@
     <link rel="stylesheet" type="text/css" href="./style.css">
     <link rel="manifest" href="./manifest.webmanifest">
     <title>Mind Trainer</title>
+    <script Language="JavaScript">
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.register ('/Trening_intelektu/sw.js',{scope: '/Trening_intelektu/'})
+        .then(res => console.log("Registered sw.js"))
+        .catch(err => console.log("Failed to register sw.js"))
+      }
+  </script>
+  <script src="./scrypt.js"></script>
   </head>
   <body id = "main" lang="en">
     <div id = "container">
@@ -38,13 +46,6 @@
       </div>
     </div>
 
-    <script Language="JavaScript">
-        if (navigator.serviceWorker) {
-          navigator.serviceWorker.register ('/Trening_intelektu/sw.js',{scope: '/Trening_intelektu/'})
-          .then(res => console.log("Registered sw.js"))
-          .catch(err => console.log("Failed to register sw.js"))
-        }
-    </script>
-    <script src="./scrypt.js"></script>
+    
   </body>
 </html>
