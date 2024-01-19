@@ -1,5 +1,7 @@
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js');
+    navigator.serviceWorker.register ('/Trening_intelektu/sw.js',{scope: '/Trening_intelektu/'})
+        .then(res => console.log("Registered sw.js"))
+        .catch(err => console.log("Failed to register sw.js"))
   }
 
 //buttons------------------------------------------------------------------------------------------
