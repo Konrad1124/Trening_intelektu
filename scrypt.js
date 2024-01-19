@@ -1,10 +1,12 @@
 
+
 //buttons------------------------------------------------------------------------------------------
 const Start = document.getElementById("Start");
 const Results = document.getElementById("Results");
 const Exit = document.getElementById("Exit");
 const BackFromPlayerBoard = document.getElementById("Back1");
 const BackFromSelectResults = document.getElementById("Back2");
+const startExercise = document.getElementById("startExercise");
 
 //panels-------------------------------------------------------------------------------------------
 const Game1 = document.getElementById("game1");
@@ -13,6 +15,7 @@ const playerBoard = document.getElementById("playerBoard");
 const selectResults = document.getElementById("selectResults");
 
 //variuables---------------------------------------------------------------------------------------
+
 let GameSequence = [];
 let theSmae=false;
 let ComparNumbers=[];
@@ -39,15 +42,17 @@ let letersSequenceArray =[];
 let SudokuArray =new Array(9).fill('1').map(x => Array(9).fill('1'));
 let SudokuArraySolution;
 //buttons functions--------------------------------------------------------------------------------
+
+
 Start.addEventListener('click', () => {
     Menu.setAttribute("hidden", "hidden");
-    Game1.removeAttribute("hidden");
-    while (Game1.firstChild) {
+    playerBoard.removeAttribute("hidden");
+    /*while (Game1.firstChild) {
         Game1.removeChild(Game1.firstChild);
     }
-
-    //for development
-    switch (Random(1, 5)) {
+    
+    DailyGames()
+    switch (GameSequence[0]) {
         case 1:
             ComparingSymbols();
             break;
@@ -63,14 +68,16 @@ Start.addEventListener('click', () => {
         case 5:
             Sudoku();;
             break;
-        default:
-            break;
-    }
-    //ComparingSymbols();
-    //Remember2Number();
-    //MathOnTime();
-    //FindWords();
-    //Sudoku();
+    }*/
+
+   
+    
+})
+
+startExercise.addEventListener('click', async () => {
+    
+    playerBoard.setAttribute("hidden", "hidden");
+    Game1.removeAttribute("hidden");
 })
 
 Results.addEventListener('click', async () => {
@@ -101,6 +108,7 @@ window.onload = function() {
     var height=1000;
     window.moveTo((window.screen.availwidth-width)/2,(window.screen.availheight-height)/2);
     window.resizeTo(width,height);
+
 };
 
 function DailyGames(){
@@ -190,6 +198,8 @@ function chenged(x,i,j) {
 
 }
 
+
+  
 
 //Games--------------------------------------------------------------------------------------------
 function ComparingSymbols() {
@@ -668,6 +678,10 @@ function FindWords() {
             console.log(time)
             console.log(wordFinded+" / "+temp)
 
+           Game1.setAttribute("hidden", "hidden");
+            Menu.removeAttribute("hidden");
+                
+               
             while (Game1.firstChild) {
                 Game1.removeChild(Game1.firstChild);
             }
@@ -773,6 +787,10 @@ function Sudoku() {
         submitAnswer.style.display = 'none'
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function SudokuResults() {
+            Game1.setAttribute("hidden", "hidden");
+            Menu.removeAttribute("hidden");
+                
+               
             while (Game1.firstChild) {
                 Game1.removeChild(Game1.firstChild);
             }

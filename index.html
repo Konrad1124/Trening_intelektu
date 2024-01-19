@@ -20,14 +20,14 @@
 
       <div id="playerBoard" class="selectScreen" hidden>
         <div id="selectContainer" class="Select"></div></br></br>
-        <input type="text" id="name" class="textBox"></br></br>
+        <input type="text" id="name1" class="textBox"></br></br>
         <button id="Back1" class="Buttons">Back</button>
         <button id="startExercise" class="Buttons">Start Exercise</button>
       </div>
 
       <div id="selectResults" class="selectScreen" hidden>
         <div id="selectContainer" class="Select"></div></br></br>
-        <input type="text" id="name" class="textBox"></br></br>
+        <input type="text" id="name2" class="textBox"></br></br>
         <button id="Back2" class="Buttons">Back</button>
         <button id="Show" class="Buttons">Show My results</button>
       </div>
@@ -44,7 +44,9 @@
           .then(res => console.log("Registered sw.js"))
           .catch(err => console.log("Failed to register sw.js"))
         }
-       
+        self.addEventListener("install", (e) => {
+          console.log("[Service Worker] Install");
+        });
     </script>
     <script src="./scrypt.js"></script>
   </body>
