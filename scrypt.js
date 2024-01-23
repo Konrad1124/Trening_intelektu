@@ -10,16 +10,29 @@ const Exit = document.getElementById("Exit");
 const BackFromPlayerBoard = document.getElementById("Back1");
 const BackFromSelectResults = document.getElementById("Back2");
 const startExercise = document.getElementById("startExercise");
+const showData = document.getElementById("Show");
+const DelateFile = document.getElementById("Delate");
+
 
 //panels-------------------------------------------------------------------------------------------
 const Game1 = document.getElementById("game1");
 const Menu = document.getElementById("Menu");
 const playerBoard = document.getElementById("playerBoard");
 const selectResults = document.getElementById("selectResults");
+const text1 = document.getElementById("name1");
+const select = document.getElementById("selectContainer1")
+const text2 = document.getElementById("name2");
+const select2 = document.getElementById("selectContainer2")
 
 //variuables---------------------------------------------------------------------------------------
-
+const checkbox = document.querySelectorAll("input[name=played]")
+let Root ;
+let fileNames =[];
+let gameData = {};
 let GameSequence = [];
+let GameSequenceNext = 0;
+let fileHandle;
+let selectList;
 let theSmae=false;
 let ComparNumbers=[];
 let ComparingSymbol=[];
@@ -47,45 +60,94 @@ let SudokuArraySolution;
 //buttons functions--------------------------------------------------------------------------------
 
 
-Start.addEventListener('click', () => {
+Start.addEventListener('click', async () => {
+    gameData={}
     Menu.setAttribute("hidden", "hidden");
     playerBoard.removeAttribute("hidden");
-    /*while (Game1.firstChild) {
-        Game1.removeChild(Game1.firstChild);
-    }
-    
-    DailyGames()
-    switch (GameSequence[0]) {
-        case 1:
-            ComparingSymbols();
-            break;
-        case 2:
-            Remember2Number();
-            break;
-        case 3:
-            MathOnTime();
-            break;
-        case 4:
-            FindWords();;
-            break;
-        case 5:
-            Sudoku();;
-            break;
-    }*/
-
    
-    
+    if(select!=null){
+        if (document.getElementById("mySelect1")===null) {
+            selectList = document.createElement("select");
+            selectList.id = "mySelect1";
+            selectList.classList.add("mySelect");
+            select.appendChild(selectList);
+        }else{
+            while (document.getElementById("mySelect1").firstChild) {
+                document.getElementById("mySelect1").removeChild(document.getElementById("mySelect1").firstChild);
+            }
+        }
+      }
+      fileNames=await filesNames()
+        for (var i = 0; i < fileNames.length; i++) {
+          option = document.createElement("option");
+          option.value = fileNames[i];
+          option.text = fileNames[i];
+          selectList.appendChild(option);
+      }
 })
 
 startExercise.addEventListener('click', async () => {
-    
-    playerBoard.setAttribute("hidden", "hidden");
-    Game1.removeAttribute("hidden");
+    for(const check of checkbox){
+        if (check.value==="played1" && check.checked) {
+            console.log("select")
+            fileHandle = await Root.getFileHandle(`${document.getElementById("mySelect1").value}`);
+            //writeToFile(fileHandle, new Date().getDate()+"."+new Date().getMonth()+"."+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes())
+            gameData.time = new Date().getDate()+"."+new Date().getMonth()+"."+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes()
+            while (Game1.firstChild) {
+                Game1.removeChild(Game1.firstChild);
+            }
+            DailyGames()
+            showNextGame()
+            playerBoard.setAttribute("hidden", "hidden");
+            Game1.removeAttribute("hidden");
+        }else if(check.value==="played1" && !check.checked){
+            console.log("textbox")
+            if (text1.value===''|| /\s/g.test(text1.value)) {
+                alert("Enter filr name. It should not have space.")
+            }else{
+                fileHandle = await Root.getFileHandle(`${text1.value}`, {create: true});
+                text1.value=''
+                //writeToFile(fileHandle, new Date().getDate()+"."+new Date().getMonth()+"."+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes())
+                gameData.time = new Date().getDate()+"."+new Date().getMonth()+"."+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes()
+                while (Game1.firstChild) {
+                    Game1.removeChild(Game1.firstChild);
+                }
+                DailyGames()
+                showNextGame()
+                playerBoard.setAttribute("hidden", "hidden");
+                Game1.removeAttribute("hidden");
+            }
+            
+        }
+    }
+    console.log(gameData)
 })
 
 Results.addEventListener('click', async () => {
     Menu.setAttribute("hidden", "hidden");
     selectResults.removeAttribute("hidden");
+
+    if(select2!=null){
+        
+        if (document.getElementById("mySelect2")===null) {
+            selectList = document.createElement("select");
+            selectList.id = "mySelect2";
+            selectList.classList.add("mySelect");
+            select2.appendChild(selectList);
+        }else{
+            while (document.getElementById("mySelect2").firstChild) {
+                document.getElementById("mySelect2").removeChild(document.getElementById("mySelect2").firstChild);
+            }
+        }
+      }
+
+      fileNames=await filesNames()
+        for (var i = 0; i < fileNames.length; i++) {
+          option = document.createElement("option");
+          option.value = fileNames[i];
+          option.text = fileNames[i];
+          selectList.appendChild(option);
+      }
   })
 
 Exit.addEventListener('click', () => {
@@ -104,18 +166,90 @@ BackFromSelectResults.addEventListener('click', () => {
     Menu.removeAttribute("hidden");
 })
 
+showData.addEventListener('click', async () => {
+    fileHandle = await Root.getFileHandle(`${document.getElementById("mySelect2").value}`);
+    const file = await fileHandle.getFile();
+    selectResults.setAttribute("hidden", "hidden");
+    while (Game1.firstChild) {
+        Game1.removeChild(Game1.firstChild);
+    }
+    Game1.removeAttribute("hidden");
+    let showFile = document.createElement("div");
+    showFile.id="Compar";
+    
+    gameData=await file.text()
+    console.log( await file.text())
+    backToFileSelect = document.createElement("button");
+    backToFileSelect.id = "backToFileSelect";
+    backToFileSelect.innerHTML= "Back";
+    backToFileSelect.classList.add("Buttons");
+    backToFileSelect.onclick = function backToFileSelectButton() {
+        Game1.setAttribute("hidden", "hidden");
+        selectResults.removeAttribute("hidden");
+        while (Game1.firstChild) {
+            Game1.removeChild(Game1.firstChild);
+        }
+        gameData={}
+    }
+    Game1.appendChild(showFile);
+    Game1.appendChild(backToFileSelect);
+    
+})
+
+DelateFile.addEventListener('click', async () => {
+    await Root.removeEntry(`${document.getElementById("mySelect2").value}`);
+    while (document.getElementById("mySelect2").firstChild) {
+        document.getElementById("mySelect2").removeChild(document.getElementById("mySelect2").firstChild);
+    }
+    fileNames=await filesNames()
+        for (var i = 0; i < fileNames.length; i++) {
+          option = document.createElement("option");
+          option.value = fileNames[i];
+          option.text = fileNames[i];
+          selectList.appendChild(option);
+      }
+})
+
+
 //functions----------------------------------------------------------------------------------------
-window.onload = function() {
+window.onload = async function() {
     console.log("ss")
     var width=1300;
     var height=1000;
     window.moveTo((window.screen.availwidth-width)/2,(window.screen.availheight-height)/2);
     window.resizeTo(width,height);
+    if(!(navigator.userAgent.indexOf("Chrome") != -1)){
+        console.log("nie chrome")
+        alert("If you want to instal this game as standalone app, its's recomended to use Chrome.")
+    }
+    Root = await navigator.storage.getDirectory()
+    if(typeof(Worker) !== "undefined") {
+        if(typeof(w) == "undefined") {
+          var w = new Worker("worker.js");
+        }
+      } else {
+        console.log("Sorry, your browser does not support Web Workers...");
+      }
+}
 
-};
+for(const check of checkbox){
+    check.checked = false;
+    check.addEventListener("change", e => {
+        
+                if (e.target.checked) {
+                    text1.style.visibility = "hidden"
+                    select.removeAttribute("hidden");
+                }else{
+                    select.setAttribute("hidden", "hidden");
+                    text1.style.visibility = "visible"
+                }
+                
+    })
+}
 
 function DailyGames(){
     GameSequence = [];
+    GameSequenceNext = 0;
     let i =0;
         do {
             theSmae=false
@@ -135,15 +269,60 @@ function DailyGames(){
                 i++;
             }
         } while ( i!=5);
-        
+        GameSequence.push(6)
     document.getElementById("game1").innerText=GameSequence;
+}
+
+function showNextGame() {
+    while (Game1.firstChild) {
+        Game1.removeChild(Game1.firstChild);
+    }
+    switch (GameSequence[GameSequenceNext]) {
+        case 1:
+            ComparingSymbols();
+            break;
+        case 2:
+            Remember2Number();
+            break;
+        case 3:
+            MathOnTime();
+            break;
+        case 4:
+            FindWords();
+            break;
+        case 5:
+            Sudoku();
+            break;
+        case 6:
+            End()
+            break;
+    }
+    GameSequenceNext++;
+}
+
+async function filesNames(){
+    tempArray= []
+    for await (let handle of Root.values()) {
+        tempArray.push(
+            handle.name
+        )
+    }
+    return tempArray
+}
+
+async function writeToFile(fileName, content){
+    const file = fileName.getFile()
+    const writeing = await fileName.createWritable();
+    await writeing.write(JSON.stringify(content));
+    await writeing.close();
+
 }
 
 function Random(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1) + min);
-  }
+}
 
 function rowCorect(number, row){
     return SudokuArray[row].includes(number);
@@ -196,6 +375,7 @@ function chenged(x,i,j) {
     if(JSON.stringify(SudokuArray)===JSON.stringify(SudokuArraySolution)){
         submitAnswer.style.display = 'inline-block'
         time=new Date().getTime()-time.getTime();
+        gameData.Sudoku={time: `${time}`}
         
     }
 
@@ -278,6 +458,7 @@ function ComparingSymbols() {
         submitAnswer.onclick = function ComparingSymbolsResults() {
             time=new Date().getTime()-time.getTime();
             console.log(time)
+            gameData.ComparingSymbols={time: `${time}`}
             if (document.querySelector(`input[name=symbols1]`)!=null) {
                 ComparingSymbol
                 .forEach((element,i) => {
@@ -287,41 +468,67 @@ function ComparingSymbols() {
                             console.log(radio.value)
                             switch (radio.value) {
                                 case "<":
-                                    if ( ComparingSymbol[i][0]>ComparingSymbol[i][1]) {
+                                    if ( ComparingSymbol[i][0]<ComparingSymbol[i][1]) {
                                         console.log(i+" dobrze")
+                                        gameData.ComparingSymbols[i+" comaprasment"]={
+                                            result: "Good",
+                                            comaprasment: `${ComparingSymbol[i][0]} < ${ComparingSymbol[i][1]}`
+                                        }
                                     }else{
                                         console.log(i+" źle")
+                                        gameData.ComparingSymbols[i+" comaprasment"]={
+                                            result: "Bad",
+                                            comaprasment: `${ComparingSymbol[i][0]} < ${ComparingSymbol[i][1]}`
+                                        }
                                     }
                                     break;
                                 case "=":
                                     if ( ComparingSymbol[i][0]=ComparingSymbol[i][1]) {
                                         console.log(i+" dobrze")
+                                        gameData.ComparingSymbols[i+" comaprasment"]={
+                                            result: "Good",
+                                            comaprasment: `${ComparingSymbol[i][0]} = ${ComparingSymbol[i][1]}`
+                                        }
                                     }else{
                                         console.log(i+" źle")
+                                        gameData.ComparingSymbols[i+" comaprasment"]={
+                                            result: "Bad",
+                                            comaprasment: `${ComparingSymbol[i][0]} = ${ComparingSymbol[i][1]}`
+                                        }
                                     }
                                     break;
                                 case ">":
-                                    if ( ComparingSymbol[i][0]<ComparingSymbol[i][1]) {
+                                    if ( ComparingSymbol[i][0]>ComparingSymbol[i][1]) {
                                         console.log(i+" dobrze")
+                                        gameData.ComparingSymbols[i+" comaprasment"]={
+                                            result: "Good",
+                                            comaprasment: `${ComparingSymbol[i][0]} > ${ComparingSymbol[i][1]}`
+                                        }
                                     }else{
                                         console.log(i+" źle")
+                                        gameData.ComparingSymbols[i+" comaprasment"]={
+                                            result: "Bad",
+                                            comaprasment: `${ComparingSymbol[i][0]} > ${ComparingSymbol[i][1]}`
+                                        }
                                     }
                                     break;
                             }
                             break;
                         }else if (radio.value == ">") {
                             console.log("brak odpowiedzi")
+                            gameData.ComparingSymbols[i+" comaprasment"]={
+                                result: "No answer",
+                                comaprasment: `${ComparingSymbol[i][0]} < ${ComparingSymbol[i][1]}`
+                            }
                         }
                         
 
                     }
                 });
             }
-            Game1.setAttribute("hidden", "hidden");
-            Menu.removeAttribute("hidden");
-            while (Game1.firstChild) {
-                Game1.removeChild(Game1.firstChild);
-            }
+            //contynuuj tutaj dodając dawanie gier----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            
+            showNextGame();
         };
         time = new Date();
         Game1.appendChild(ComparingSymbolsForm);
@@ -336,7 +543,7 @@ function Remember2Number(){
             NumberSequence[i][j]=Random(9,88);
         }
     }
-    
+    gameData.Remember2Number={};
     info = document.createElement("div");
     info.id = "info";
     info.innerHTML="Read all the numbers in the column. As you read, remember every other digit. Write the memorized numbers under the column in the correct order."
@@ -384,13 +591,7 @@ function Remember2Number(){
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function Remember2NumberResults() {
             if (iteration==NumberSequence.length-1){
-                Game1.setAttribute("hidden", "hidden");
-                Menu.removeAttribute("hidden");
-                
-               
-                while (Game1.firstChild) {
-                    Game1.removeChild(Game1.firstChild);
-                }
+                showNextGame();
             }else{
                 
                 tempArray=[];
@@ -402,11 +603,17 @@ function Remember2Number(){
                 form=document.querySelector("#Compar");
                 input=form.querySelectorAll("input[name=numbers]");
                 
+                gameData.Remember2Number[iteration+" Column"]={
+                    column: NumberSequence[iteration],
+                }
+
                 input.forEach((element,i) => {
                     if (element.valueAsNumber == NumberSequenceCorect[iteration][i]) {
                         console.log("corect")
+                        gameData.Remember2Number[iteration+" Column"][`${NumberSequenceCorect[iteration][i]} Number`] = "Corect"
                     }else{
                         console.log("wrong")
+                        gameData.Remember2Number[iteration+" Column"][`${NumberSequenceCorect[iteration][i]} Number`] = "Corect"
                     }
                 });
                 while (Remember2NumberForm.firstChild) {
@@ -538,6 +745,7 @@ function MathOnTime() {
                 window[ 'p' + i ].innerHTML= `${element.FirstNumber} ${element.OperationSymbol} ${element.SecondNumber}`;
                 window[ 'div' + `column${column}`].appendChild(window[ 'p' + i ]);
                 window[ 'input' + i ] = document.createElement("input");
+                window[ 'input' + i ].value="0"
                 window[ 'input' + i ].type = "number";
                 window[ 'input' + i ].id = `number${i}`;
                 window[ 'input' + i ].name= "numbers";
@@ -549,6 +757,7 @@ function MathOnTime() {
                 window[ 'p' + i ].innerHTML= `${element.FirstNumber} ${element.OperationSymbol} ${element.SecondNumber}`;
                 window[ 'div' + `column${column}`].appendChild(window[ 'p' + i ]);
                 window[ 'input' + i ] = document.createElement("input");
+                window[ 'input' + i ].value="0"
                 window[ 'input' + i ].type = "number";
                 window[ 'input' + i ].id = `number${i}`;
                 window[ 'input' + i ].name= "numbers";
@@ -569,6 +778,7 @@ function MathOnTime() {
         submitAnswer.onclick = function MathResults() {
             time=new Date().getTime()-time.getTime();
             console.log(time)
+            gameData.MathOnTime={time: `${time}`}
             form=document.querySelector("#Compar");
             input=form.querySelectorAll("input[name=numbers]");
             input.forEach((element,i) => {
@@ -588,18 +798,20 @@ function MathOnTime() {
                 }
                 if(element.valueAsNumber==temp){
                     console.log("corect")
+                    gameData.MathOnTime[i+"equasion"]={
+                        result: "Corect",
+                        mathEquasion: `${MathCalculations[i].FirstNumber} ${MathCalculations[i].OperationSymbol} ${MathCalculations[i].SecondNumber}`
+                    }
                 }else{
                     console.log("wrong")
+                    gameData.MathOnTime[i+"equasion"]={
+                        result: "Wrong",
+                        mathEquasion: `${MathCalculations[i].FirstNumber} ${MathCalculations[i].OperationSymbol} ${MathCalculations[i].SecondNumber}`
+                    }
                 }
             })
 
-            Game1.setAttribute("hidden", "hidden");
-            Menu.removeAttribute("hidden");
-                
-               
-            while (Game1.firstChild) {
-                Game1.removeChild(Game1.firstChild);
-            }
+            showNextGame();
         }
         time = new Date();  
         Game1.appendChild(MathOnTimeForm);
@@ -610,6 +822,7 @@ function MathOnTime() {
 function FindWords() {
     temp=0;
     selectedWordArray=[];
+    letersSequenceArray =[]
     word="";
     letter=""
     let wordFinded=0;
@@ -633,7 +846,7 @@ function FindWords() {
             }
         }
     }
-    console.log( letersSequenceArray.toString().replaceAll(",","").length) 
+    //console.log( letersSequenceArray.toString().replaceAll(",","").length) 
 
     info = document.createElement("div");
     info.id = "info";
@@ -679,15 +892,10 @@ function FindWords() {
         submitAnswer.onclick = function FindWordsResults() {
             time=new Date().getTime()-time.getTime();
             console.log(time)
+            gameData.FindWords={time: `${time}`}
             console.log(wordFinded+" / "+temp)
-
-           Game1.setAttribute("hidden", "hidden");
-            Menu.removeAttribute("hidden");
-                
-               
-            while (Game1.firstChild) {
-                Game1.removeChild(Game1.firstChild);
-            }
+            gameData.FindWords.Score=`${wordFinded} / ${temp}`
+            showNextGame();
         }
         
         Game1.appendChild(FindWordsForm);
@@ -723,6 +931,8 @@ function Sudoku() {
     }
     
     generateGoodSudoku()
+    
+
     
     SudokuArraySolution=JSON.parse(JSON.stringify(SudokuArray));
     for(let i=0;i<Random(25,50);i++){
@@ -790,17 +1000,22 @@ function Sudoku() {
         submitAnswer.style.display = 'none'
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function SudokuResults() {
-            Game1.setAttribute("hidden", "hidden");
-            Menu.removeAttribute("hidden");
-                
-               
-            while (Game1.firstChild) {
-                Game1.removeChild(Game1.firstChild);
-            }
             console.log(time)
+            showNextGame();
         }
         Game1.appendChild(window[ 'div' ]);
         Game1.appendChild(submitAnswer);
         time = new Date();
     }
+}
+
+function End() {
+    Game1.setAttribute("hidden", "hidden");
+    Menu.removeAttribute("hidden");
+    while (Game1.firstChild) {
+        Game1.removeChild(Game1.firstChild);
+    }
+    console.log(gameData)
+    writeToFile(fileHandle, gameData)
+    gameData={}
 }
