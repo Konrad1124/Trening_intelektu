@@ -312,8 +312,8 @@ async function filesNames(){
 }
 
 async function writeToFile(fileName, content){
-    const file = await fileName.getFile()
-    w.postMessage(file);
+    
+    w.postMessage([fileName, content]);
     /*const writeing = await fileName.createWritable();
     await writeing.write(JSON.stringify(content));
     await writeing.close();*/
