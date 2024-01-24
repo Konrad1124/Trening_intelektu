@@ -79,6 +79,7 @@ Start.addEventListener('click', async () => {
         }
       }
       fileNames=await filesNames()
+      selectList=document.getElementById("mySelect1")
         for (var i = 0; i < fileNames.length; i++) {
           option = document.createElement("option");
           option.value = fileNames[i];
@@ -141,6 +142,7 @@ Results.addEventListener('click', async () => {
       }
 
       fileNames=await filesNames()
+      selectList=document.getElementById("mySelect2")
         for (var i = 0; i < fileNames.length; i++) {
           option = document.createElement("option");
           option.value = fileNames[i];
@@ -201,6 +203,7 @@ DelateFile.addEventListener('click', async () => {
         document.getElementById("mySelect2").removeChild(document.getElementById("mySelect2").firstChild);
     }
     fileNames=await filesNames()
+    selectList=document.getElementById("mySelect2")
         for (var i = 0; i < fileNames.length; i++) {
           option = document.createElement("option");
           option.value = fileNames[i];
