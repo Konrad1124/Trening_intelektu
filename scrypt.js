@@ -369,8 +369,8 @@ function generateGoodSudoku(){
 }
 
 function chenged(x,i,j) {
-    if(parseInt(x.target.value)===" " || (parseInt(x.target.value) >= 1 && parseInt(x.target.value) <= 9)){
-        SudokuArray[i][j]=parseInt(x.target.value)
+    if(parseInt(x.target.value)!==" "){
+        SudokuArray[i][j]=x.target.value.toUpperCase().trim()
     }
     if(JSON.stringify(SudokuArray)===JSON.stringify(SudokuArraySolution)){
         submitAnswer.style.display = 'inline-block'
@@ -932,7 +932,15 @@ function Sudoku() {
     
     generateGoodSudoku()
     
+        temp=Random(0,letterArray.length-9)
+        tempArray=letterArray.slice(temp,temp+9)
+        SudokuArray.forEach((element,i) => {
+            element.forEach((number,j) => {
+                SudokuArray[i][j]=tempArray[number-1]
+            });
+        });
 
+        
     
     SudokuArraySolution=JSON.parse(JSON.stringify(SudokuArray));
     for(let i=0;i<Random(25,50);i++){
