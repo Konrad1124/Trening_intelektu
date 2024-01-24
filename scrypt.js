@@ -27,6 +27,7 @@ const select2 = document.getElementById("selectContainer2")
 //variuables---------------------------------------------------------------------------------------
 const checkbox = document.querySelectorAll("input[name=played]")
 let Root ;
+let w ;
 let fileNames =[];
 let gameData = {};
 let GameSequence = [];
@@ -225,7 +226,7 @@ window.onload = async function() {
     Root = await navigator.storage.getDirectory()
     if(typeof(Worker) !== "undefined") {
         if(typeof(w) == "undefined") {
-          var w = new Worker("worker.js");
+          w = new Worker("worker.js");
         }
       } else {
         console.log("Sorry, your browser does not support Web Workers...");
@@ -931,7 +932,8 @@ function Sudoku() {
     }
     
     generateGoodSudoku()
-    
+        temp=0
+        tempArray=[]
         temp=Random(0,letterArray.length-9)
         tempArray=letterArray.slice(temp,temp+9)
         SudokuArray.forEach((element,i) => {
@@ -980,6 +982,9 @@ function Sudoku() {
 
         window[ 'div' ] = document.createElement("div");
         window[ 'div' ].classList.add("sudokuDiv");
+        window[ 'p' ] = document.createElement("p");
+        window[ 'div' ].appendChild(window[ 'p' ]);
+        window[ 'p' ].innerHTML= JSON.stringify(tempArray).replaceAll(/[\[\]",]/g, "");
 
         window[ 'tabele' ] = document.createElement("table");
         window[ 'div' ].appendChild(window[ 'tabele' ]);
@@ -1024,6 +1029,10 @@ function End() {
         Game1.removeChild(Game1.firstChild);
     }
     console.log(gameData)
-    writeToFile(fileHandle, gameData)
+
+    w.postMessage(fileHandle, gameData);
+    //writeToFile(fileHandle, gameData)
+
+
     gameData={}
 }
