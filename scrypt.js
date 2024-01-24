@@ -1030,7 +1030,7 @@ function End() {
     }
     console.log(gameData)
 
-    w.postMessage(fileHandle);
+    w.postMessage(fileHandle, gameData);
     //writeToFile(fileHandle, gameData)
 
 
