@@ -92,7 +92,6 @@ startExercise.addEventListener('click', async () => {
         if (check.value==="played1" && check.checked) {
             console.log("select")
             fileHandle = await Root.getFileHandle(`${document.getElementById("mySelect1").value}`);
-            //writeToFile(fileHandle, new Date().getDate()+"."+new Date().getMonth()+"."+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes())
             gameData.time = new Date().getDate()+"."+new Date().getMonth()+"."+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes()
             while (Game1.firstChild) {
                 Game1.removeChild(Game1.firstChild);
@@ -108,7 +107,6 @@ startExercise.addEventListener('click', async () => {
             }else{
                 fileHandle = await Root.getFileHandle(`${text1.value}`, {create: true});
                 text1.value=''
-                //writeToFile(fileHandle, new Date().getDate()+"."+new Date().getMonth()+"."+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes())
                 gameData.time = new Date().getDate()+"."+new Date().getMonth()+"."+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes()
                 while (Game1.firstChild) {
                     Game1.removeChild(Game1.firstChild);
@@ -309,15 +307,6 @@ async function filesNames(){
         )
     }
     return tempArray
-}
-
-async function writeToFile(fileName, content){
-    
-    w.postMessage([fileName, content]);
-    /*const writeing = await fileName.createWritable();
-    await writeing.write(JSON.stringify(content));
-    await writeing.close();*/
-
 }
 
 function Random(min, max) {
@@ -1030,10 +1019,6 @@ function End() {
         Game1.removeChild(Game1.firstChild);
     }
     console.log(gameData)
-
-    
-    writeToFile(fileHandle, gameData)
-
-
+    w.postMessage(["save", fileHandle, gameData]);
     gameData={}
 }
