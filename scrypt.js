@@ -313,9 +313,10 @@ async function filesNames(){
 
 async function writeToFile(fileName, content){
     const file = fileName.getFile()
-    const writeing = await fileName.createWritable();
+    w.postMessage(file);
+    /*const writeing = await fileName.createWritable();
     await writeing.write(JSON.stringify(content));
-    await writeing.close();
+    await writeing.close();*/
 
 }
 
@@ -1030,8 +1031,8 @@ function End() {
     }
     console.log(gameData)
 
-    w.postMessage(fileHandle, gameData);
-    //writeToFile(fileHandle, gameData)
+    
+    writeToFile(fileHandle, gameData)
 
 
     gameData={}
