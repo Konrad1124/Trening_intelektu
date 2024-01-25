@@ -133,6 +133,10 @@
     padding: 10px;
 }
 
+.line p{
+    margin: 20px;
+}
+
 .paragraph1{
     font-family: monospace;
     position: absolute;
