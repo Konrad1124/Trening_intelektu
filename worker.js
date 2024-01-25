@@ -12,7 +12,7 @@ this.addEventListener('message', async function(e) {
             size = accessFile.getSize();
             accessFile.write(content, {at: size});
             accessFile.flush();
-
+            accessFile.close();
             break;
         case "read":
             size = accessHandle.getSize();
@@ -21,6 +21,7 @@ this.addEventListener('message', async function(e) {
             accessFile.read(dataView);
             Decoder.decode(dataView)
             this.postMessage(textDecoder.decode(dataView));
+            accessFile.close();
             break;
     }
 }, false);
