@@ -240,7 +240,12 @@ window.onload = async function() {
       w.addEventListener('message', function(e) {
         let showFile = document.createElement("div");
         showFile.id="Compar";
-        console.log(e.data)
+        tempArray=[]
+        tempArray=e.data
+        tempArray.forEach((element,i) => {
+            tempArray[i]=JSON.parse(element)
+        });
+        console.log(tempArray)
         backToFileSelect = document.createElement("button");
         backToFileSelect.id = "backToFileSelect";
         backToFileSelect.innerHTML= "Back";
