@@ -15,8 +15,8 @@ this.addEventListener('message', async function(e) {
             accessFile.close();
             break;
         case "read":
-            size = accessHandle.getSize();
             accessFile = await e.data[1].createSyncAccessHandle();
+            size = accessFile.getSize();
             const dataView = new DataView(new ArrayBuffer(size));
             accessFile.read(dataView);
             Decoder.decode(dataView)
