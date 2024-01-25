@@ -243,6 +243,7 @@ window.onload = async function() {
         tempArray=[]
         tempArray=e.data
         tempArray.forEach((element,i) => {
+            console.log(element)
             tempArray[i]=JSON.parse(element)
         });
         console.log(tempArray)
