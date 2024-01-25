@@ -199,25 +199,7 @@ showData.addEventListener('click', async () => {
     
 })
 
-w.addEventListener('message', function(e) {
-    let showFile = document.createElement("div");
-    showFile.id="Compar";
-    console.log(e.data)
-    backToFileSelect = document.createElement("button");
-    backToFileSelect.id = "backToFileSelect";
-    backToFileSelect.innerHTML= "Back";
-    backToFileSelect.classList.add("Buttons");
-    backToFileSelect.onclick = function backToFileSelectButton() {
-        Game1.setAttribute("hidden", "hidden");
-        selectResults.removeAttribute("hidden");
-        while (Game1.firstChild) {
-            Game1.removeChild(Game1.firstChild);
-        }
-        gameData={}
-    }
-    Game1.appendChild(showFile);
-    Game1.appendChild(backToFileSelect);
-}, false);
+
 
 DelateFile.addEventListener('click', async () => {
     await Root.removeEntry(`${document.getElementById("mySelect2").value}`);
@@ -254,6 +236,26 @@ window.onload = async function() {
       } else {
         console.log("Sorry, your browser does not support Web Workers...");
       }
+
+      w.addEventListener('message', function(e) {
+        let showFile = document.createElement("div");
+        showFile.id="Compar";
+        console.log(e.data)
+        backToFileSelect = document.createElement("button");
+        backToFileSelect.id = "backToFileSelect";
+        backToFileSelect.innerHTML= "Back";
+        backToFileSelect.classList.add("Buttons");
+        backToFileSelect.onclick = function backToFileSelectButton() {
+            Game1.setAttribute("hidden", "hidden");
+            selectResults.removeAttribute("hidden");
+            while (Game1.firstChild) {
+                Game1.removeChild(Game1.firstChild);
+            }
+            gameData={}
+        }
+        Game1.appendChild(showFile);
+        Game1.appendChild(backToFileSelect);
+    }, false);
 }
 
 for(const check of checkbox){
