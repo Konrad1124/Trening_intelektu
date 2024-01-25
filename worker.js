@@ -20,7 +20,7 @@ this.addEventListener('message', async function(e) {
             const dataView = new DataView(new ArrayBuffer(size));
             accessFile.read(dataView);
             Decoder.decode(dataView)
-            this.postMessage(Decoder.decode(dataView).split("^|^"));
+            this.postMessage(JSON.parse(Decoder.decode(dataView).split("^|^")));
             accessFile.close();
             break;
     }
