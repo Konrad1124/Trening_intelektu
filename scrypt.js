@@ -179,7 +179,7 @@ showData.addEventListener('click', async () => {
     showFile.id="Compar";
     
     gameData=await file.text()
-    console.log( JSON.parse(gameData))
+    console.log( gameData.split("^|^"))
     backToFileSelect = document.createElement("button");
     backToFileSelect.id = "backToFileSelect";
     backToFileSelect.innerHTML= "Back";
@@ -363,7 +363,7 @@ function generateGoodSudoku(){
 }
 
 function chenged(x,i,j) {
-    if(parseInt(x.target.value)!==" "){
+    if(x.target.value!==" " || x.target.value!=="" || tempArray.includes(x.target.value.toUpperCase().trim())){
         SudokuArray[i][j]=x.target.value.toUpperCase().trim()
         x.target.value= SudokuArray[i][j]
     }
