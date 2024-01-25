@@ -169,17 +169,40 @@ BackFromSelectResults.addEventListener('click', () => {
 
 showData.addEventListener('click', async () => {
     fileHandle = await Root.getFileHandle(`${document.getElementById("mySelect2").value}`);
-    const file = await fileHandle.getFile();
+    //const file = await fileHandle.getFile();
+    w.postMessage(["read", fileHandle]);
     selectResults.setAttribute("hidden", "hidden");
     while (Game1.firstChild) {
         Game1.removeChild(Game1.firstChild);
     }
     Game1.removeAttribute("hidden");
-    let showFile = document.createElement("div");
+    /*let showFile = document.createElement("div");
     showFile.id="Compar";
     
-    gameData=await file.text()
-    console.log( gameData.split("^|^"))
+    //gameData=await file.text()
+    //console.log( gameData.split("^|^"))
+
+    backToFileSelect = document.createElement("button");
+    backToFileSelect.id = "backToFileSelect";
+    backToFileSelect.innerHTML= "Back";
+    backToFileSelect.classList.add("Buttons");
+    backToFileSelect.onclick = function backToFileSelectButton() {
+        Game1.setAttribute("hidden", "hidden");
+        selectResults.removeAttribute("hidden");
+        while (Game1.firstChild) {
+            Game1.removeChild(Game1.firstChild);
+        }
+        gameData={}
+    }
+    Game1.appendChild(showFile);
+    Game1.appendChild(backToFileSelect);*/
+    
+})
+
+w.addEventListener('message', function(e) {
+    let showFile = document.createElement("div");
+    showFile.id="Compar";
+    console.log(e.data)
     backToFileSelect = document.createElement("button");
     backToFileSelect.id = "backToFileSelect";
     backToFileSelect.innerHTML= "Back";
@@ -194,8 +217,7 @@ showData.addEventListener('click', async () => {
     }
     Game1.appendChild(showFile);
     Game1.appendChild(backToFileSelect);
-    
-})
+}, false);
 
 DelateFile.addEventListener('click', async () => {
     await Root.removeEntry(`${document.getElementById("mySelect2").value}`);
@@ -363,9 +385,11 @@ function generateGoodSudoku(){
 }
 
 function chenged(x,i,j) {
-    if(x.target.value!==" " || x.target.value!=="" || tempArray.includes(x.target.value.toUpperCase().trim())){
+    if((x.target.value!==" " || x.target.value!=="" )&& tempArray.includes(x.target.value.toUpperCase().trim())){
         SudokuArray[i][j]=x.target.value.toUpperCase().trim()
         x.target.value= SudokuArray[i][j]
+    }else{
+        x.target.value=""
     }
     if(JSON.stringify(SudokuArray)===JSON.stringify(SudokuArraySolution)){
         submitAnswer.style.display = 'inline-block'
