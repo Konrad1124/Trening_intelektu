@@ -179,7 +179,7 @@ showData.addEventListener('click', async () => {
     showFile.id="Compar";
     
     gameData=await file.text()
-    console.log( await file.text())
+    console.log( JSON.parse(gameData))
     backToFileSelect = document.createElement("button");
     backToFileSelect.id = "backToFileSelect";
     backToFileSelect.innerHTML= "Back";
