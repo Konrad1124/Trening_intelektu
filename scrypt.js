@@ -242,8 +242,8 @@ window.onload = async function() {
         showFile.id="Compar";
         tempArray=[]
         tempArray=e.data
+        tempArray.pop();
         tempArray.forEach((element,i) => {
-            console.log(element)
             tempArray[i]=JSON.parse(element)
         });
         console.log(tempArray)
