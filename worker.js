@@ -7,7 +7,7 @@ this.addEventListener('message', async function(e) {
     
     switch (e.data[0]) {
         case "save":
-            const content = Encoder.encode(JSON.stringify(e.data[2]));
+            const content = Encoder.encode(JSON.stringify(e.data[2])+"^|^");
             accessFile = await e.data[1].createSyncAccessHandle();
             size = accessFile.getSize();
             accessFile.write(content, {at: size});

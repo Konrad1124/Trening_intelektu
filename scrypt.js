@@ -365,6 +365,7 @@ function generateGoodSudoku(){
 function chenged(x,i,j) {
     if(parseInt(x.target.value)!==" "){
         SudokuArray[i][j]=x.target.value.toUpperCase().trim()
+        x.target.value= SudokuArray[i][j]
     }
     if(JSON.stringify(SudokuArray)===JSON.stringify(SudokuArraySolution)){
         submitAnswer.style.display = 'inline-block'
