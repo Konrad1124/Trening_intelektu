@@ -443,7 +443,8 @@ function displayData(dataArray, container){
         let Remember2NumberDiv = document.createElement("div");
         for (let i = 0; i < 9; i++) {
             window[ 'p' + i ] = document.createElement("p");
-            window[ 'p' + i ].innerHTML= element.Remember2Number.window["Column"+ i].number0 +" "+ element.Remember2Number.window["Column"+ i].number1  +" "+ element.Remember2Number.window["Column"+ i].number2 +" "+ element.Remember2Number.window["Column"+ i].number3 +" "+ element.Remember2Number.window["Column"+ i].number4 +"\n"+ element.Remember2Number.window["Column"+ i].column
+            //window[ 'p' + i ].innerHTML= element.Remember2Number.window["Column"+ i].number0 +" "+ element.Remember2Number.window["Column"+ i].number1  +" "+ element.Remember2Number.window["Column"+ i].number2 +" "+ element.Remember2Number.window["Column"+ i].number3 +" "+ element.Remember2Number.window["Column"+ i].number4 +"\n"+ element.Remember2Number.window["Column"+ i].column
+                 eval('p' + i + '.innerHTML= element.Remember2Number.Column'+i+'.number0+" " +element.Remember2Number.Column'+i+'.number1+" " +element.Remember2Number.Column'+i+'.number2+" " +element.Remember2Number.Column'+i+'.number3+" " +element.Remember2Number.Column'+i+'.number4+"\\n"+ element.Remember2Number.Column'+ i+'.column')
             Remember2NumberDiv.appendChild(window[ 'p' + i ]);
         }
         container.appendChild(Remember2NumberDiv);
