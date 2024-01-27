@@ -410,8 +410,45 @@ function chenged(x,i,j) {
 
 function displayData(dataArray, container){
     dataArray.forEach((element,i) => {
-        
-        
+       let gameDate = document.createElement("p");
+        gameDate.innerHTML= "Date: " + element.time
+        container.appendChild(gameDate);
+
+        let ComparingSymbolsDiv = document.createElement("div");
+        for (let i = 0; i < 10; i++) {
+            window[ 'p' + i ] = document.createElement("p");
+            window[ 'p' + i ].innerHTML= "Comparasment " + element.ComparingSymbols.window[ "comaprasment"+i].comaprasment+"\nResult: " + element.ComparingSymbols.window[ "comaprasment"+i].result
+            ComparingSymbolsDiv.appendChild(window[ 'p' + i ]);
+        }
+        container.appendChild(ComparingSymbolsDiv);
+
+
+        let FindWordsDiv = document.createElement("div");
+        FindWordsDiv.innerHTML= "Score " + element.FindWords.Score+"\nTime: " + element.FindWords.time;
+        container.appendChild(FindWordsDiv);
+
+
+        let MathOnTimeDiv = document.createElement("div");
+        for (let i = 0; i < 22; i++) {
+            window[ 'p' + i ] = document.createElement("p");
+            window[ 'p' + i ].innerHTML= "Equasion " + element.MathOnTime.window[ "equasion"+i].mathEquasion+"\nResult: " + element.MathOnTime.window["equasion"+i].result
+            MathOnTimeDiv.appendChild(window[ 'p' + i ]);
+        }
+        container.appendChild(MathOnTimeDiv);
+
+
+        let Remember2NumberDiv = document.createElement("div");
+        for (let i = 0; i < 9; i++) {
+            window[ 'p' + i ] = document.createElement("p");
+            window[ 'p' + i ].innerHTML= element.Remember2Number.window["Column"+ i].number0 +" "+ element.Remember2Number.window["Column"+ i].number1  +" "+ element.Remember2Number.window["Column"+ i].number2 +" "+ element.Remember2Number.window["Column"+ i].number3 +" "+ element.Remember2Number.window["Column"+ i].number4 +"\n"+ element.Remember2Number.window["Column"+ i].column
+            Remember2NumberDiv.appendChild(window[ 'p' + i ]);
+        }
+        container.appendChild(Remember2NumberDiv);
+
+
+        let SudokuDiv = document.createElement("div");
+        SudokuDiv.innerHTML= "Time: " + element.Sudoku.time;
+        container.appendChild(SudokuDiv);
     });
 }
   
@@ -502,13 +539,13 @@ function ComparingSymbols() {
                                 case "<":
                                     if ( ComparingSymbol[i][0]<ComparingSymbol[i][1]) {
                                         console.log(i+" dobrze")
-                                        gameData.ComparingSymbols[i+" comaprasment"]={
+                                        gameData.ComparingSymbols["comaprasment"+i]={
                                             result: "Good",
                                             comaprasment: `${ComparingSymbol[i][0]} < ${ComparingSymbol[i][1]}`
                                         }
                                     }else{
                                         console.log(i+" źle")
-                                        gameData.ComparingSymbols[i+" comaprasment"]={
+                                        gameData.ComparingSymbols["comaprasment"+i]={
                                             result: "Bad",
                                             comaprasment: `${ComparingSymbol[i][0]} < ${ComparingSymbol[i][1]}`
                                         }
@@ -517,13 +554,13 @@ function ComparingSymbols() {
                                 case "=":
                                     if ( ComparingSymbol[i][0]=ComparingSymbol[i][1]) {
                                         console.log(i+" dobrze")
-                                        gameData.ComparingSymbols[i+" comaprasment"]={
+                                        gameData.ComparingSymbols["comaprasment"+i]={
                                             result: "Good",
                                             comaprasment: `${ComparingSymbol[i][0]} = ${ComparingSymbol[i][1]}`
                                         }
                                     }else{
                                         console.log(i+" źle")
-                                        gameData.ComparingSymbols[i+" comaprasment"]={
+                                        gameData.ComparingSymbols["comaprasment"+i]={
                                             result: "Bad",
                                             comaprasment: `${ComparingSymbol[i][0]} = ${ComparingSymbol[i][1]}`
                                         }
@@ -532,13 +569,13 @@ function ComparingSymbols() {
                                 case ">":
                                     if ( ComparingSymbol[i][0]>ComparingSymbol[i][1]) {
                                         console.log(i+" dobrze")
-                                        gameData.ComparingSymbols[i+" comaprasment"]={
+                                        gameData.ComparingSymbols["comaprasment"+i]={
                                             result: "Good",
                                             comaprasment: `${ComparingSymbol[i][0]} > ${ComparingSymbol[i][1]}`
                                         }
                                     }else{
                                         console.log(i+" źle")
-                                        gameData.ComparingSymbols[i+" comaprasment"]={
+                                        gameData.ComparingSymbols["comaprasment"+i]={
                                             result: "Bad",
                                             comaprasment: `${ComparingSymbol[i][0]} > ${ComparingSymbol[i][1]}`
                                         }
@@ -548,9 +585,9 @@ function ComparingSymbols() {
                             break;
                         }else if (radio.value == ">") {
                             console.log("brak odpowiedzi")
-                            gameData.ComparingSymbols[i+" comaprasment"]={
+                            gameData.ComparingSymbols["comaprasment"+i]={
                                 result: "No answer",
-                                comaprasment: `${ComparingSymbol[i][0]} < ${ComparingSymbol[i][1]}`
+                                comaprasment: `${ComparingSymbol[i][0]} ? ${ComparingSymbol[i][1]}`
                             }
                         }
                         
@@ -635,17 +672,17 @@ function Remember2Number(){
                 form=document.querySelector("#Compar");
                 input=form.querySelectorAll("input[name=numbers]");
                 
-                gameData.Remember2Number[iteration+" Column"]={
+                gameData.Remember2Number["Column"+iteration]={
                     column: NumberSequence[iteration],
                 }
 
                 input.forEach((element,i) => {
                     if (element.valueAsNumber == NumberSequenceCorect[iteration][i]) {
                         console.log("corect")
-                        gameData.Remember2Number[iteration+" Column"][`${i} Number`] = "Corect"
+                        gameData.Remember2Number["Column"+iteration][`Number${i}`] = "Corect"
                     }else{
                         console.log("wrong")
-                        gameData.Remember2Number[iteration+" Column"][`${i} Number`] = "Wrong"
+                        gameData.Remember2Number["Column"+iteration][`Number${i}`] = "Wrong"
                     }
                 });
                 while (Remember2NumberForm.firstChild) {
@@ -830,13 +867,13 @@ function MathOnTime() {
                 }
                 if(element.valueAsNumber==temp){
                     console.log("corect")
-                    gameData.MathOnTime[i+"equasion"]={
+                    gameData.MathOnTime["equasion"+i]={
                         result: "Corect",
                         mathEquasion: `${MathCalculations[i].FirstNumber} ${MathCalculations[i].OperationSymbol} ${MathCalculations[i].SecondNumber}`
                     }
                 }else{
                     console.log("wrong")
-                    gameData.MathOnTime[i+"equasion"]={
+                    gameData.MathOnTime["equasion"+i]={
                         result: "Wrong",
                         mathEquasion: `${MathCalculations[i].FirstNumber} ${MathCalculations[i].OperationSymbol} ${MathCalculations[i].SecondNumber}`
                     }
