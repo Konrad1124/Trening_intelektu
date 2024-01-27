@@ -429,7 +429,7 @@ function displayData(dataArray, container){
 
 
         let MathOnTimeDiv = document.createElement("div");
-        for (let i = 0; i < 22; i++) {
+        for (let i = 0; i < 21; i++) {
             window[ 'p' + i ] = document.createElement("p");
             window[ 'p' + i ].innerHTML= "Equasion " + element.MathOnTime.window[ "equasion"+i].mathEquasion+"\nResult: " + element.MathOnTime.window["equasion"+i].result
             MathOnTimeDiv.appendChild(window[ 'p' + i ]);
