@@ -143,11 +143,11 @@
     height: 600px
 }
 
-.ComparingSymbolsDiv{
+.MathOnTimeDiv{
     display: flex;
 }
 
-.ComparingSymbolsDiv p{
+.MathOnTimeDiv p{
     flex: 50%;
 }
 
