@@ -408,7 +408,12 @@ function chenged(x,i,j) {
 
 }
 
-
+function displayData(dataArray, container){
+    dataArray.forEach((element,i) => {
+        
+        
+    });
+}
   
 
 //Games--------------------------------------------------------------------------------------------
@@ -637,10 +642,10 @@ function Remember2Number(){
                 input.forEach((element,i) => {
                     if (element.valueAsNumber == NumberSequenceCorect[iteration][i]) {
                         console.log("corect")
-                        gameData.Remember2Number[iteration+" Column"][`${NumberSequenceCorect[iteration][i]} Number`] = "Corect"
+                        gameData.Remember2Number[iteration+" Column"][`${i} Number`] = "Corect"
                     }else{
                         console.log("wrong")
-                        gameData.Remember2Number[iteration+" Column"][`${NumberSequenceCorect[iteration][i]} Number`] = "Corect"
+                        gameData.Remember2Number[iteration+" Column"][`${i} Number`] = "Corect"
                     }
                 });
                 while (Remember2NumberForm.firstChild) {
