@@ -124,7 +124,7 @@
     padding: 10px;
     box-shadow: 0px 0px 14px 5px var(--color-box-shadow);
     box-sizing: border-box;
-    overflow-x:scroll
+    overflow-y:scroll
 }
 
 
