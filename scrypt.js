@@ -433,22 +433,35 @@ function displayData(dataArray, container){
 
         let MathOnTimeDiv = document.createElement("div");
         MathOnTimeDiv.classList.add("MathOnTimeDiv");
+
+        let MathOnTimeDiv1 = document.createElement("div");
+        MathOnTimeDiv1.classList.add("MathOnTimeDiv1");
+        MathOnTimeDiv.appendChild(MathOnTimeDiv1);
+
+        let MathOnTimeDiv2 = document.createElement("div");
+        MathOnTimeDiv2.classList.add("MathOnTimeDiv1");
+        MathOnTimeDiv.appendChild(MathOnTimeDiv2);
+
+        let MathOnTimeDiv3 = document.createElement("div");
+        MathOnTimeDiv3.classList.add("MathOnTimeDiv1");
+        MathOnTimeDiv.appendChild(MathOnTimeDiv3);
+
         for (let i = 0; i < 21; i++) {
             window[ 'p' + i ] = document.createElement("p");
             switch (i%3) {
                 case 0:
-                    window[ 'p' + i ].classList.add("MathOnTimeDiv1");
+                    MathOnTimeDiv1.appendChild(window[ 'p' + i ]);
                     break;
                 case 1:
-                    window[ 'p' + i ].classList.add("MathOnTimeDiv2");
+                    MathOnTimeDiv2.appendChild(window[ 'p' + i ]);
                     break;
                 case 2:
-                    window[ 'p' + i ].classList.add("MathOnTimeDiv3");
+                    MathOnTimeDiv3.appendChild(window[ 'p' + i ]);
                     break;
             }
             //window[ 'p' + i ].innerHTML= "Equasion " + element.MathOnTime.window[ "equasion"+i].mathEquasion+"\nResult: " + element.MathOnTime.window["equasion"+i].result
             eval('p' + i + '.innerHTML="Equasion " + element.MathOnTime.equasion'+i+'.mathEquasion+"\\nResult: " + element.MathOnTime.equasion'+i+'.result;')
-            MathOnTimeDiv.appendChild(window[ 'p' + i ]);
+            
         }
         container.appendChild(MathOnTimeDiv);
 
