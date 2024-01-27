@@ -416,6 +416,7 @@ function displayData(dataArray, container){
         container.appendChild(gameDate);
 
         let ComparingSymbolsDiv = document.createElement("div");
+        ComparingSymbolsDiv.classList.add("ComparingSymbolsDiv");
         for (let i = 0; i < 10; i++) {
             window[ 'p' + i ] = document.createElement("p");
             //window[ 'p' + i ].innerHTML= "Comparasment " + element.ComparingSymbols.window[ 'comaprasment'+i].comaprasment+"\nResult: " + element.ComparingSymbols.window[ 'comaprasment'+i].result
@@ -431,6 +432,7 @@ function displayData(dataArray, container){
 
 
         let MathOnTimeDiv = document.createElement("div");
+        MathOnTimeDiv.classList.add("MathOnTimeDiv");
         for (let i = 0; i < 21; i++) {
             window[ 'p' + i ] = document.createElement("p");
             //window[ 'p' + i ].innerHTML= "Equasion " + element.MathOnTime.window[ "equasion"+i].mathEquasion+"\nResult: " + element.MathOnTime.window["equasion"+i].result
@@ -441,6 +443,7 @@ function displayData(dataArray, container){
 
 
         let Remember2NumberDiv = document.createElement("div");
+        Remember2NumberDiv.classList.add("Remember2NumberDiv");
         for (let i = 0; i < 9; i++) {
             window[ 'p' + i ] = document.createElement("p");
             //window[ 'p' + i ].innerHTML= element.Remember2Number.window["Column"+ i].number0 +" "+ element.Remember2Number.window["Column"+ i].number1  +" "+ element.Remember2Number.window["Column"+ i].number2 +" "+ element.Remember2Number.window["Column"+ i].number3 +" "+ element.Remember2Number.window["Column"+ i].number4 +"\n"+ element.Remember2Number.window["Column"+ i].column

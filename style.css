@@ -132,6 +132,7 @@
     border: none;
     color: var(--color-font);
     text-decoration: none;
+    text-align: left;
     font-size: 16px;
     border-radius: 12px;
     margin: 20px;
@@ -140,6 +141,14 @@
     box-sizing: border-box;
     overflow-y:scroll;
     height: 600px
+}
+
+.ComparingSymbolsDiv{
+    display: flex;
+}
+
+.ComparingSymbolsDiv p{
+    flex: 50%;
 }
 
 
