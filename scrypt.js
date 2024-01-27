@@ -239,7 +239,7 @@ window.onload = async function() {
 
       w.addEventListener('message', function(e) {
         let showFile = document.createElement("div");
-        showFile.id="Compar";
+        showFile.id="showData";
         tempArray=[]
         tempArray=e.data
         tempArray.pop();
