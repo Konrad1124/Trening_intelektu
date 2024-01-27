@@ -247,6 +247,7 @@ window.onload = async function() {
             tempArray[i]=JSON.parse(element)
         });
         console.log(tempArray)
+        displayData(tempArray, showFile)
         backToFileSelect = document.createElement("button");
         backToFileSelect.id = "backToFileSelect";
         backToFileSelect.innerHTML= "Back";
