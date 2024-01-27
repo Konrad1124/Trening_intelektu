@@ -419,7 +419,7 @@ function displayData(dataArray, container){
         for (let i = 0; i < 10; i++) {
             window[ 'p' + i ] = document.createElement("p");
             //window[ 'p' + i ].innerHTML= "Comparasment " + element.ComparingSymbols.window[ 'comaprasment'+i].comaprasment+"\nResult: " + element.ComparingSymbols.window[ 'comaprasment'+i].result
-            eval('p' + i + '.innerHTML="Comparasment" + element.ComparingSymbols.comaprasment'+i+'.comaprasment+"\\nResult: " + element.ComparingSymbols.comaprasment'+i+'.result;' )
+            eval('p' + i + '.innerHTML="Comparasment " + element.ComparingSymbols.comaprasment'+i+'.comaprasment+"\\nResult: " + element.ComparingSymbols.comaprasment'+i+'.result;' )
             ComparingSymbolsDiv.appendChild(window[ 'p' + i ]);
         }
         container.appendChild(ComparingSymbolsDiv);
@@ -433,7 +433,8 @@ function displayData(dataArray, container){
         let MathOnTimeDiv = document.createElement("div");
         for (let i = 0; i < 21; i++) {
             window[ 'p' + i ] = document.createElement("p");
-            window[ 'p' + i ].innerHTML= "Equasion " + element.MathOnTime.window[ "equasion"+i].mathEquasion+"\nResult: " + element.MathOnTime.window["equasion"+i].result
+            //window[ 'p' + i ].innerHTML= "Equasion " + element.MathOnTime.window[ "equasion"+i].mathEquasion+"\nResult: " + element.MathOnTime.window["equasion"+i].result
+            eval('p' + i + '.innerHTML="Equasion " + element.MathOnTime.equasion'+i+'.mathEquasion+"\\nResult: " + element.MathOnTime.equasion'+i+'.result;')
             MathOnTimeDiv.appendChild(window[ 'p' + i ]);
         }
         container.appendChild(MathOnTimeDiv);
