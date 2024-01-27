@@ -419,7 +419,7 @@ function displayData(dataArray, container){
         for (let i = 0; i < 10; i++) {
             window[ 'p' + i ] = document.createElement("p");
             //window[ 'p' + i ].innerHTML= "Comparasment " + element.ComparingSymbols.window[ 'comaprasment'+i].comaprasment+"\nResult: " + element.ComparingSymbols.window[ 'comaprasment'+i].result
-            eval('p' + i + '.innerHTML="Comparasment" + element.ComparingSymbols.comaprasment'+i+'.comaprasment+"\nResult: " + element.ComparingSymbols.comaprasment'+i+'.result' )
+            eval('p' + i + '.innerHTML="Comparasment" + element.ComparingSymbols.comaprasment'+i+'.comaprasment' )
             ComparingSymbolsDiv.appendChild(window[ 'p' + i ]);
         }
         container.appendChild(ComparingSymbolsDiv);
