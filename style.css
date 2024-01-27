@@ -147,8 +147,14 @@
     display: flex;
 }
 
-.MathOnTimeDiv p{
-    flex: 50%;
+.MathOnTimeDiv1 {
+    flex: 33%;
+}
+.MathOnTimeDiv2 {
+    flex: 33%;
+}
+.MathOnTimeDiv3 {
+    flex: 33%;
 }
 
 

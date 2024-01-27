@@ -435,6 +435,17 @@ function displayData(dataArray, container){
         MathOnTimeDiv.classList.add("MathOnTimeDiv");
         for (let i = 0; i < 21; i++) {
             window[ 'p' + i ] = document.createElement("p");
+            switch (i%3) {
+                case 0:
+                    window[ 'p' + i ].classList.add("MathOnTimeDiv1");
+                    break;
+                case 1:
+                    window[ 'p' + i ].classList.add("MathOnTimeDiv2");
+                    break;
+                case 2:
+                    window[ 'p' + i ].classList.add("MathOnTimeDiv3");
+                    break;
+            }
             //window[ 'p' + i ].innerHTML= "Equasion " + element.MathOnTime.window[ "equasion"+i].mathEquasion+"\nResult: " + element.MathOnTime.window["equasion"+i].result
             eval('p' + i + '.innerHTML="Equasion " + element.MathOnTime.equasion'+i+'.mathEquasion+"\\nResult: " + element.MathOnTime.equasion'+i+'.result;')
             MathOnTimeDiv.appendChild(window[ 'p' + i ]);
