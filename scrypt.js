@@ -645,7 +645,7 @@ function Remember2Number(){
                         gameData.Remember2Number[iteration+" Column"][`${i} Number`] = "Corect"
                     }else{
                         console.log("wrong")
-                        gameData.Remember2Number[iteration+" Column"][`${i} Number`] = "Corect"
+                        gameData.Remember2Number[iteration+" Column"][`${i} Number`] = "wrong"
                     }
                 });
                 while (Remember2NumberForm.firstChild) {
