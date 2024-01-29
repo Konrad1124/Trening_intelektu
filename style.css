@@ -9,6 +9,7 @@
 
     background-color: var(--color-main-darker);
     font-family: 'Courier New', Courier, monospace;
+    color: var(--color-font);
     position: relative;
 }
 
@@ -38,6 +39,8 @@
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
+
 
 .selectScreen{
     padding: 100px ;
