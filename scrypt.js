@@ -2,7 +2,20 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register ('./sw.js')
         .catch(err => console.log("Failed to register sw.js"))
   }
-
+  /*
+  dodać ładny opis prszed rozgrywką
+   
+  wybrać pakiet kolorów
+  zmiejszyć ilość klików
+  dodać interakcje
+  wyświetlanie się czasów
+  ekran podsumowania
+  dodatkowe animacje
+  porównainie do poprzednich gier
+  czas gry ograniczony do 15 min
+  przerobić zapamietaj co 2 numer
+  
+    */
 //buttons------------------------------------------------------------------------------------------
 const Start = document.getElementById("Start");
 const Results = document.getElementById("Results");
