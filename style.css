@@ -9,7 +9,6 @@
 
     background-color: var(--color-main-darker);
     font-family: 'Courier New', Courier, monospace;
-    color: var(--color-font);
     position: relative;
 }
 
@@ -40,7 +39,13 @@
     transform: translate(-50%, -50%);
 }
 
-
+#GameTitle{
+    color: var(--color-font);
+    display: block;
+    font-size: 40px;
+    margin: auto;
+    font-weight: bold;
+}
 
 .selectScreen{
     padding: 100px ;
