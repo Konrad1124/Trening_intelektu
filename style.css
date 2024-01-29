@@ -122,6 +122,7 @@
     padding: 15px 32px;;
     box-shadow: 0px 0px 14px 5px var(--color-box-shadow);
     box-sizing: border-box;
+    font-weight: 700;
 }
 
 #Compar{
