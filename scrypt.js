@@ -212,8 +212,6 @@ showData.addEventListener('click', async () => {
     
 })
 
-
-
 DelateFile.addEventListener('click', async () => {
     await Root.removeEntry(`${document.getElementById("mySelect2").value}`);
     while (document.getElementById("mySelect2").firstChild) {
@@ -295,7 +293,7 @@ for(const check of checkbox){
 
 function DailyGames(){
     GameSequence = [];
-    GameSequenceNext = 0;
+    GameSequenceNext = -1;
     let i =0;
         do {
             theSmae=false
@@ -323,26 +321,31 @@ function showNextGame() {
     while (Game1.firstChild) {
         Game1.removeChild(Game1.firstChild);
     }
-    switch (GameSequence[GameSequenceNext]) {
-        case 1:
-            ComparingSymbols();
-            break;
-        case 2:
-            Remember2Number();
-            break;
-        case 3:
-            MathOnTime();
-            break;
-        case 4:
-            FindWords();
-            break;
-        case 5:
-            Sudoku();
-            break;
-        case 6:
-            End()
-            break;
+    if (GameSequenceNext<0) {
+        Greating()
+    } else {
+        switch (GameSequence[GameSequenceNext]) {
+            case 1:
+                ComparingSymbols();
+                break;
+            case 2:
+                Remember2Number();
+                break;
+            case 3:
+                MathOnTime();
+                break;
+            case 4:
+                FindWords();
+                break;
+            case 5:
+                Sudoku();
+                break;
+            case 6:
+                End()
+                break;
+        }
     }
+    
     GameSequenceNext++;
 }
 
@@ -494,6 +497,24 @@ function displayData(dataArray, container){
   
 
 //Games--------------------------------------------------------------------------------------------
+function Greating(){
+    info = document.createElement("div");
+    info.id = "info";
+    info.innerHTML="In the moment you will start series of short exercaices that will help you pevent dementia in the future."
+    let button = document.createElement("button");
+    button.id = "StartSudoku";
+    button.innerHTML= "OK";
+    button.classList.add("Buttons");
+    Game1.appendChild(info);
+    Game1.appendChild(button);
+    button.onclick = function StartSudoku() {
+        while (Game1.firstChild) {
+            Game1.removeChild(Game1.firstChild);
+        }
+        showNextGame();
+    }
+}
+
 function ComparingSymbols() {
     ComparNumbers=[];
     ComparingSymbol=[];
