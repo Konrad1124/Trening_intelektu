@@ -1,11 +1,11 @@
 #main {
-    --color-main-darker: #009792;
-    --color-main: #E0F1EF;
-    --color-box-shadow: #A8CEC8;
-    --color-hover: #3AB4B8;
-    --color-font: #A72DCD;
-    --color-radio: #009792;
-    --color-checked: #3AB4B8;
+    --color-main-darker: #D1682C;
+    --color-main: #1278B3;
+    --color-box-shadow: #E68E5C;
+    --color-hover: #47BCFF;
+    --color-font: #B84300;
+    --color-radio: #B84300;
+    --color-checked: #fde74c;
 
     background-color: var(--color-main-darker);
     font-family: 'Courier New', Courier, monospace;
