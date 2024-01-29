@@ -9,6 +9,7 @@
 
     background-color: var(--color-main-darker);
     font-family: 'Courier New', Courier, monospace;
+    color: var(--color-font);
     position: relative;
 }
 
