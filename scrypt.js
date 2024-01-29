@@ -117,7 +117,7 @@ startExercise.addEventListener('click', async () => {
         }else if(check.value==="played1" && !check.checked){
             console.log("textbox")
             if (text1.value===''|| /\s/g.test(text1.value)) {
-                alert("Enter filr name. It should not have space.")
+                alert("Enter file name. It should not have space.")
             }else{
                 fileHandle = await Root.getFileHandle(`${text1.value}`, {create: true});
                 text1.value=''
