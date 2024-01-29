@@ -419,7 +419,6 @@ function displayData(dataArray, container){
         ComparingSymbolsDiv.classList.add("ComparingSymbolsDiv");
         for (let i = 0; i < 10; i++) {
             window[ 'p' + i ] = document.createElement("p");
-            //window[ 'p' + i ].innerHTML= "Comparasment " + element.ComparingSymbols.window[ 'comaprasment'+i].comaprasment+"\nResult: " + element.ComparingSymbols.window[ 'comaprasment'+i].result
             eval('p' + i + '.innerHTML="Comparasment " + element.ComparingSymbols.comaprasment'+i+'.comaprasment+"\\nResult: " + element.ComparingSymbols.comaprasment'+i+'.result;' )
             ComparingSymbolsDiv.appendChild(window[ 'p' + i ]);
         }
@@ -459,9 +458,7 @@ function displayData(dataArray, container){
                     MathOnTimeDiv3.appendChild(window[ 'p' + i ]);
                     break;
             }
-            //window[ 'p' + i ].innerHTML= "Equasion " + element.MathOnTime.window[ "equasion"+i].mathEquasion+"\nResult: " + element.MathOnTime.window["equasion"+i].result
             eval('p' + i + '.innerHTML="Equasion " + element.MathOnTime.equasion'+i+'.mathEquasion+"\\nResult: " + element.MathOnTime.equasion'+i+'.result;')
-            
         }
         container.appendChild(MathOnTimeDiv);
 
@@ -470,8 +467,7 @@ function displayData(dataArray, container){
         Remember2NumberDiv.classList.add("Remember2NumberDiv");
         for (let i = 0; i < 9; i++) {
             window[ 'p' + i ] = document.createElement("p");
-            //window[ 'p' + i ].innerHTML= element.Remember2Number.window["Column"+ i].number0 +" "+ element.Remember2Number.window["Column"+ i].number1  +" "+ element.Remember2Number.window["Column"+ i].number2 +" "+ element.Remember2Number.window["Column"+ i].number3 +" "+ element.Remember2Number.window["Column"+ i].number4 +"\n"+ element.Remember2Number.window["Column"+ i].column
-                 eval('p' + i + '.innerHTML= element.Remember2Number.Column'+i+'.Number0+" " +element.Remember2Number.Column'+i+'.Number1+" " +element.Remember2Number.Column'+i+'.Number2+" " +element.Remember2Number.Column'+i+'.Number3+" " +element.Remember2Number.Column'+i+'.Number4+"\\n"+ element.Remember2Number.Column'+ i+'.column')
+            eval('p' + i + '.innerHTML= element.Remember2Number.Column'+i+'.Number0+" " +element.Remember2Number.Column'+i+'.Number1+" " +element.Remember2Number.Column'+i+'.Number2+" " +element.Remember2Number.Column'+i+'.Number3+" " +element.Remember2Number.Column'+i+'.Number4+"\\n"+ element.Remember2Number.Column'+ i+'.column')
             Remember2NumberDiv.appendChild(window[ 'p' + i ]);
         }
         container.appendChild(Remember2NumberDiv);
