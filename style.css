@@ -9,7 +9,6 @@
 
     background-color: var(--color-main-darker);
     font-family: 'Courier New', Courier, monospace;
-    color: var(--color-font);
     position: relative;
 }
 
@@ -55,6 +54,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    color: var(--color-font);
 }
 
 .Buttons{
