@@ -5,7 +5,7 @@ if ('serviceWorker' in navigator) {
   /*
   dodać ładny opis prszed rozgrywką
    
-  wybrać pakiet kolorów
+  
   zmiejszyć ilość klików
   dodać interakcje
   wyświetlanie się czasów
