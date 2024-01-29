@@ -235,6 +235,7 @@ window.onload = async function() {
     var height=1000;
     window.moveTo((window.screen.availwidth-width)/2,(window.screen.availheight-height)/2);
     window.resizeTo(width,height);
+    console.log((navigator.userAgent.indexOf("OPR") != -1))
     if(!(navigator.userAgent.indexOf("Chrome") != -1) || (navigator.userAgent.indexOf("OPR") != -1)){
         console.log("nie chrome")
         alert("If you want to instal this game as standalone app, its's recomended to use Chrome.")
