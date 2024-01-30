@@ -266,7 +266,7 @@
 
 .numbersColumns{
     position: absolute;
-    left: 15%;
+    left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
@@ -293,13 +293,13 @@
 }
 
 #number0{
-    left: 30%;
+    left: 10%;
 }
 #number1{
-    left: 45%;
+    left: 25%;
 }
 #number2{
-    left: 60%;
+    left: 50%;
 }
 #number3{
     left: 75%;
