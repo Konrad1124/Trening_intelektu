@@ -52,6 +52,7 @@ let ComparNumbers=[];
 let ComparingSymbol=[];
 let NumberSequence=new Array(10).fill(0).map(x => Array(10).fill(0));
 let NumberSequenceCorect =new Array(10).fill("");
+let fadeTime = 1000
 let MathCalculations=new Array(21);
 let submitAnswer;
 let Symbol="";
@@ -235,7 +236,6 @@ window.onload = async function() {
     var height=1000;
     window.moveTo((window.screen.availwidth-width)/2,(window.screen.availheight-height)/2);
     window.resizeTo(width,height);
-    console.log((navigator.userAgent.indexOf("OPR") != -1))
     if(!(navigator.userAgent.indexOf("Chrome") != -1) || (navigator.userAgent.indexOf("OPR") != -1)){
         console.log("nie chrome")
         alert("If you want to instal this game as standalone app, its's recomended to use Chrome.")
@@ -696,6 +696,7 @@ function Remember2Number(){
         window[ 'div' + iteration ].classList.add("exercise");
         window[ 'div' + iteration  + 'insaid'] = document.createElement("div");
         window[ 'div' + iteration  + 'insaid'].classList.add("numbersColumns");
+        window[ 'div' + iteration  + 'insaid'].delay(fadeTime).setAttribute("hidden", "hidden");
         window[ 'div' + iteration ].appendChild(window[ 'div' + iteration  + 'insaid']);
         NumberSequence[iteration].forEach((element2,y) => {
             window[ 'p' + y ] = document.createElement("p");
@@ -709,6 +710,8 @@ function Remember2Number(){
             window[ 'input' + inputNumber ].classList.add("numbers");
             window[ 'input' + inputNumber ].max= "88";
             window[ 'input' + inputNumber ].name= "numbers";
+            window[ 'input' + inputNumber ].setAttribute("hidden", "hidden");
+            window[ 'input' + inputNumber ].delay(fadeTime).removeAttribute("hidden");
             window[ 'div' + iteration ].appendChild(window[ 'input' + inputNumber ]);
             
         }
@@ -758,6 +761,7 @@ function Remember2Number(){
                 window[ 'div' + iteration ].classList.add("exercise");
                 window[ 'div' + iteration  + 'insaid'] = document.createElement("div");
                 window[ 'div' + iteration  + 'insaid'].classList.add("numbersColumns");
+                window[ 'div' + iteration  + 'insaid'].delay(fadeTime).setAttribute("hidden", "hidden");
                 window[ 'div' + iteration ].appendChild(window[ 'div' + iteration  + 'insaid']);
                 NumberSequence[iteration].forEach((element2,y) => {
                     window[ 'p' + y ] = document.createElement("p");
@@ -771,6 +775,8 @@ function Remember2Number(){
                     window[ 'input' + inputNumber ].classList.add("numbers");
                     window[ 'input' + inputNumber ].max= "88";
                     window[ 'input' + inputNumber ].name= "numbers";
+                    window[ 'input' + inputNumber ].setAttribute("hidden", "hidden");
+                    window[ 'input' + inputNumber ].delay(fadeTime).removeAttribute("hidden");
                     window[ 'div' + iteration ].appendChild(window[ 'input' + inputNumber ]);
                     
                 }
