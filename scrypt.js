@@ -696,7 +696,9 @@ function Remember2Number(){
         window[ 'div' + iteration ].classList.add("exercise");
         window[ 'div' + iteration  + 'insaid'] = document.createElement("div");
         window[ 'div' + iteration  + 'insaid'].classList.add("numbersColumns");
-        window[ 'div' + iteration  + 'insaid'].delay(fadeTime).setAttribute("hidden", "hidden");
+        setTimeout(function() {
+            window[ 'div' + iteration  + 'insaid'].setAttribute("hidden", "hidden");
+        }, fadeTime);
         window[ 'div' + iteration ].appendChild(window[ 'div' + iteration  + 'insaid']);
         NumberSequence[iteration].forEach((element2,y) => {
             window[ 'p' + y ] = document.createElement("p");
@@ -711,7 +713,9 @@ function Remember2Number(){
             window[ 'input' + inputNumber ].max= "88";
             window[ 'input' + inputNumber ].name= "numbers";
             window[ 'input' + inputNumber ].setAttribute("hidden", "hidden");
-            window[ 'input' + inputNumber ].delay(fadeTime).removeAttribute("hidden");
+            setTimeout(function() {
+                window[ 'input' + inputNumber ].removeAttribute("hidden");
+            }, fadeTime);
             window[ 'div' + iteration ].appendChild(window[ 'input' + inputNumber ]);
             
         }
@@ -761,7 +765,9 @@ function Remember2Number(){
                 window[ 'div' + iteration ].classList.add("exercise");
                 window[ 'div' + iteration  + 'insaid'] = document.createElement("div");
                 window[ 'div' + iteration  + 'insaid'].classList.add("numbersColumns");
-                window[ 'div' + iteration  + 'insaid'].delay(fadeTime).setAttribute("hidden", "hidden");
+                setTimeout(function() {
+                    window[ 'div' + iteration  + 'insaid'].setAttribute("hidden", "hidden");
+                }, fadeTime);
                 window[ 'div' + iteration ].appendChild(window[ 'div' + iteration  + 'insaid']);
                 NumberSequence[iteration].forEach((element2,y) => {
                     window[ 'p' + y ] = document.createElement("p");
@@ -776,7 +782,9 @@ function Remember2Number(){
                     window[ 'input' + inputNumber ].max= "88";
                     window[ 'input' + inputNumber ].name= "numbers";
                     window[ 'input' + inputNumber ].setAttribute("hidden", "hidden");
-                    window[ 'input' + inputNumber ].delay(fadeTime).removeAttribute("hidden");
+                    setTimeout(function() {
+                        window[ 'input' + inputNumber ].removeAttribute("hidden");
+                    }, fadeTime);
                     window[ 'div' + iteration ].appendChild(window[ 'input' + inputNumber ]);
                     
                 }
