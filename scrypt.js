@@ -749,6 +749,29 @@ function Remember2Number(){
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function Remember2NumberResults() {
             if (iteration==NumberSequence.length-1){
+                submitAnswer.style.visibility = 'hidden';
+                tempArray=[];
+                for (let j = 1; j < 10; j+=2) {
+                   tempArray.push(NumberSequence[iteration][j]);
+                }
+                NumberSequenceCorect[iteration]=tempArray;
+                
+                form=document.querySelector("#Compar");
+                input=form.querySelectorAll("input[name=numbers]");
+                
+                gameData.Remember2Number["Column"+iteration]={
+                    column: NumberSequence[iteration],
+                }
+
+                input.forEach((element,i) => {
+                    if (element.valueAsNumber == NumberSequenceCorect[iteration][i]) {
+                        console.log("corect")
+                        gameData.Remember2Number["Column"+iteration][`Number${i}`] = "Corect"
+                    }else{
+                        console.log("wrong")
+                        gameData.Remember2Number["Column"+iteration][`Number${i}`] = "Wrong"
+                    }
+                });
                 showNextGame();
             }else{
                 submitAnswer.style.visibility = 'hidden';
