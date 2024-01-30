@@ -712,11 +712,11 @@ function Remember2Number(){
             window[ 'input' + inputNumber ].classList.add("numbers");
             window[ 'input' + inputNumber ].max= "88";
             window[ 'input' + inputNumber ].name= "numbers";
-            window[ 'input' + inputNumber ].setAttribute("hidden", "hidden");
+            
             setTimeout(function() {
-                window[ 'input' + inputNumber ].removeAttribute("hidden");
+                window[ 'div' + iteration ].appendChild(window[ 'input' + inputNumber ]);
             }, fadeTime);
-            window[ 'div' + iteration ].appendChild(window[ 'input' + inputNumber ]);
+            
             
         }
        
@@ -781,11 +781,11 @@ function Remember2Number(){
                     window[ 'input' + inputNumber ].classList.add("numbers");
                     window[ 'input' + inputNumber ].max= "88";
                     window[ 'input' + inputNumber ].name= "numbers";
-                    window[ 'input' + inputNumber ].setAttribute("hidden", "hidden");
+                   
                     setTimeout(function() {
-                        window[ 'input' + inputNumber ].removeAttribute("hidden");
+                        window[ 'div' + iteration ].appendChild(window[ 'input' + inputNumber ]);
                     }, fadeTime);
-                    window[ 'div' + iteration ].appendChild(window[ 'input' + inputNumber ]);
+                    
                     
                 }
             
