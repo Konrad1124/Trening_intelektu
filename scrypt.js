@@ -52,7 +52,7 @@ let ComparNumbers=[];
 let ComparingSymbol=[];
 let NumberSequence=new Array(10).fill(0).map(x => Array(10).fill(0));
 let NumberSequenceCorect =new Array(10).fill("");
-let fadeTime = 1000
+let fadeTime = 5000
 let MathCalculations=new Array(21);
 let submitAnswer;
 let Symbol="";
@@ -692,6 +692,8 @@ function Remember2Number(){
         let Remember2NumberForm = document.createElement("form");
         Remember2NumberForm.id="Compar";
 
+        submitAnswer = document.createElement("button");
+        submitAnswer.setAttribute("hidden", "hidden");
         window[ 'div' + iteration ] = document.createElement("div");
         window[ 'div' + iteration ].classList.add("exercise");
         window[ 'div' + iteration  + 'insaid'] = document.createElement("div");
@@ -715,6 +717,7 @@ function Remember2Number(){
             
             setTimeout(function() {
                 window[ 'div' + iteration ].appendChild(window[ 'input' + inputNumber ]);
+                submitAnswer.removeAttribute("hidden");
             }, fadeTime);
             
             
@@ -723,7 +726,7 @@ function Remember2Number(){
         Remember2NumberForm.appendChild(window[ 'div' + iteration ]);
 
 
-        submitAnswer = document.createElement("button");
+        
         submitAnswer.id = "Remember2NumberResults";
         submitAnswer.innerHTML= "Submit";
         submitAnswer.classList.add("Buttons");
@@ -731,7 +734,7 @@ function Remember2Number(){
             if (iteration==NumberSequence.length-1){
                 showNextGame();
             }else{
-                
+                submitAnswer.setAttribute("hidden", "hidden");
                 tempArray=[];
                 for (let j = 1; j < 10; j+=2) {
                    tempArray.push(NumberSequence[iteration][j]);
@@ -784,6 +787,7 @@ function Remember2Number(){
                    
                     setTimeout(function() {
                         window[ 'div' + iteration ].appendChild(window[ 'input' + inputNumber ]);
+                        submitAnswer.removeAttribute("hidden");
                     }, fadeTime);
                     
                     
