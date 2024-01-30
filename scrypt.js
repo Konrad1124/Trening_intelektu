@@ -213,18 +213,24 @@ showData.addEventListener('click', async () => {
 })
 
 DelateFile.addEventListener('click', async () => {
-    await Root.removeEntry(`${document.getElementById("mySelect2").value}`);
-    while (document.getElementById("mySelect2").firstChild) {
-        document.getElementById("mySelect2").removeChild(document.getElementById("mySelect2").firstChild);
+    
+
+    if (confirm("Delate File")) {
+        await Root.removeEntry(`${document.getElementById("mySelect2").value}`);
+        while (document.getElementById("mySelect2").firstChild) {
+            document.getElementById("mySelect2").removeChild(document.getElementById("mySelect2").firstChild);
+        }
+        fileNames=await filesNames()
+        selectList=document.getElementById("mySelect2")
+            for (var i = 0; i < fileNames.length; i++) {
+            option = document.createElement("option");
+            option.value = fileNames[i];
+            option.text = fileNames[i];
+            selectList.appendChild(option);
+        }
+    } else {
+        
     }
-    fileNames=await filesNames()
-    selectList=document.getElementById("mySelect2")
-        for (var i = 0; i < fileNames.length; i++) {
-          option = document.createElement("option");
-          option.value = fileNames[i];
-          option.text = fileNames[i];
-          selectList.appendChild(option);
-      }
 })
 
 
