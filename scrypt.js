@@ -13,7 +13,6 @@ if ('serviceWorker' in navigator) {
   dodatkowe animacje
   porównainie do poprzednich gier
   czas gry ograniczony do 15 min
-  przerobić zapamietaj co 2 numer
   
     */
 //buttons------------------------------------------------------------------------------------------
@@ -1178,5 +1177,7 @@ function End() {
     }
     console.log(gameData)
     w.postMessage(["save", fileHandle, gameData]);
+    w.postMessage(["read", fileHandle]);
     gameData={}
+
 }
