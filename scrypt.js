@@ -1183,7 +1183,9 @@ function End() {
     }
     console.log(gameData)
     w.postMessage(["save", fileHandle, gameData]);
-    w.postMessage(["read", fileHandle]);
+    setTimeout(function() {
+        w.postMessage(["read", fileHandle]);
+    }, 50);
     gameData={}
 
 }
