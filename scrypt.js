@@ -269,13 +269,25 @@ window.onload = async function() {
         backToFileSelect.id = "backToFileSelect";
         backToFileSelect.innerHTML= "Back";
         backToFileSelect.classList.add("Buttons");
-        backToFileSelect.onclick = function backToFileSelectButton() {
-            Game1.setAttribute("hidden", "hidden");
-            selectResults.removeAttribute("hidden");
-            while (Game1.firstChild) {
-                Game1.removeChild(Game1.firstChild);
+        if (GameSequenceNext<0) {
+            backToFileSelect.onclick = function backToFileSelectButton() {
+                Game1.setAttribute("hidden", "hidden");
+                selectResults.removeAttribute("hidden");
+                while (Game1.firstChild) {
+                    Game1.removeChild(Game1.firstChild);
+                }
+                gameData={}
             }
-            gameData={}
+        }else{
+            GameSequenceNext=-1
+            backToFileSelect.onclick = function backToFileSelectButton() {
+                Game1.setAttribute("hidden", "hidden");
+                Menu.removeAttribute("hidden");
+                while (Game1.firstChild) {
+                    Game1.removeChild(Game1.firstChild);
+                }
+                gameData={}
+            }
         }
         Game1.appendChild(showFile);
         Game1.appendChild(backToFileSelect);
@@ -1176,12 +1188,10 @@ function Sudoku() {
 }
 
 function End() {
-    Game1.setAttribute("hidden", "hidden");
-    Menu.removeAttribute("hidden");
     while (Game1.firstChild) {
         Game1.removeChild(Game1.firstChild);
     }
-    console.log(gameData)
+    //console.log(gameData)
     w.postMessage(["save", fileHandle, gameData]);
     setTimeout(function() {
         w.postMessage(["read", fileHandle]);
