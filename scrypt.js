@@ -452,6 +452,7 @@ function displayData(dataArray, container){
         let ComparingSymbolsDiv = document.createElement("div");
         ComparingSymbolsDiv.classList.add("ComparingSymbolsDiv");
         for (let i = 0; i < 10; i++) {
+            console.log(eval('"Comparasment " + element.ComparingSymbols.comaprasment'+i+'.comaprasment+"\\nResult: " + element.ComparingSymbols.comaprasment'+i+'.result;' ))
             window[ 'p' + i ] = document.createElement("p");
             eval('p' + i + '.innerHTML="Comparasment " + element.ComparingSymbols.comaprasment'+i+'.comaprasment+"\\nResult: " + element.ComparingSymbols.comaprasment'+i+'.result;' )
             ComparingSymbolsDiv.appendChild(window[ 'p' + i ]);
