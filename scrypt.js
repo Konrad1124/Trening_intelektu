@@ -1198,7 +1198,7 @@ function Sudoku() {
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
           
-            console.log("i")
+            console.log(distance)
             timer.innerHTML =  minutes + ":" + seconds;
           
             if (distance < 0) {
