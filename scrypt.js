@@ -452,7 +452,6 @@ function displayData(dataArray, container){
         let ComparingSymbolsDiv = document.createElement("div");
         ComparingSymbolsDiv.classList.add("ComparingSymbolsDiv");
         for (let i = 0; i < 10; i++) {
-            console.log(eval('"Comparasment " + element.ComparingSymbols.comaprasment'+i+'.comaprasment+"\\nResult: " + element.ComparingSymbols.comaprasment'+i+'.result;' ))
             window[ 'p' + i ] = document.createElement("p");
             eval('p' + i + '.innerHTML="Comparasment " + element.ComparingSymbols.comaprasment'+i+'.comaprasment+"\\nResult: " + element.ComparingSymbols.comaprasment'+i+'.result;' )
             ComparingSymbolsDiv.appendChild(window[ 'p' + i ]);
@@ -500,7 +499,7 @@ function displayData(dataArray, container){
 
         let Remember2NumberDiv = document.createElement("div");
         Remember2NumberDiv.classList.add("Remember2NumberDiv");
-        for (let i = 0; i < 9; i++) {
+        for (let i = 0; i < 10; i++) {
             window[ 'p' + i ] = document.createElement("p");
             eval('p' + i + '.innerHTML= element.Remember2Number.Column'+i+'.Number0+" " +element.Remember2Number.Column'+i+'.Number1+" " +element.Remember2Number.Column'+i+'.Number2+" " +element.Remember2Number.Column'+i+'.Number3+" " +element.Remember2Number.Column'+i+'.Number4+"\\n"+ element.Remember2Number.Column'+ i+'.column')
             Remember2NumberDiv.appendChild(window[ 'p' + i ]);
