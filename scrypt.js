@@ -1167,7 +1167,8 @@ function Sudoku() {
         window[ 'p' ] = document.createElement("p");
         window[ 'div' ].appendChild(window[ 'p' ]);
         window[ 'p' ].innerHTML= JSON.stringify(tempArray).replaceAll(/[\[\]",]/g, "");
-
+        window[ 'timer' ] = document.createElement("p");
+        window[ 'div' ].appendChild(window[ 'timer' ]);
         window[ 'tabele' ] = document.createElement("table");
         window[ 'div' ].appendChild(window[ 'tabele' ]);
 
@@ -1188,6 +1189,24 @@ function Sudoku() {
                 window[ 'td' + j ].appendChild(window[ "input" + j + i]);
             }
         }
+
+
+        var timer = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = time - now;
+          
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          
+            // Display the result in the element with id="demo"
+            timer.innerHTML =  minutes + ":" + seconds;
+          
+            // If the count down is finished, write some text
+            if (distance < 0) {
+              clearInterval(timer);
+            }
+        }, 1000);
+
 
         submitAnswer = document.createElement("button");
         submitAnswer.id = "SudokuResults";
