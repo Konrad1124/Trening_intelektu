@@ -347,6 +347,7 @@
     word-wrap: break-word;
     text-align: left;
     cursor: pointer;
+    font-size:larger;
 }
 
 .linkNotClicked {

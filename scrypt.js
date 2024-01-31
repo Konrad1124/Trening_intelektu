@@ -3,15 +3,9 @@ if ('serviceWorker' in navigator) {
         .catch(err => console.log("Failed to register sw.js"))
   }
   /*
-  dodać ładny opis prszed rozgrywką
-   
-  
-  zmiejszyć ilość klików
   dodać interakcje
   wyświetlanie się czasów
-  ekran podsumowania
   dodatkowe animacje
-  porównainie do poprzednich gier
   czas gry ograniczony do 15 min
   
     */
