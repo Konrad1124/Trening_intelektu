@@ -1168,6 +1168,7 @@ function Sudoku() {
         window[ 'div' ].appendChild(window[ 'p' ]);
         window[ 'p' ].innerHTML= JSON.stringify(tempArray).replaceAll(/[\[\]",]/g, "");
         window[ 'timer' ] = document.createElement("p");
+        window[ 'timer' ].innerHTML =  0 + ":" + 0;
         window[ 'div' ].appendChild(window[ 'timer' ]);
         window[ 'tabele' ] = document.createElement("table");
         window[ 'div' ].appendChild(window[ 'tabele' ]);
