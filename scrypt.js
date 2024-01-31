@@ -1191,18 +1191,17 @@ function Sudoku() {
         }
 
 
-        var timer = setInterval(function() {
+        var stoper = setInterval(function() {
             var now = new Date().getTime();
             var distance = now - time;
           
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-          
-            console.log(distance)
-            timer.innerHTML =  minutes + ":" + seconds;
+        
+            window[ 'timer' ].innerHTML =  minutes + ":" + seconds;
           
             if (distance < 0) {
-              clearInterval(timer);
+              clearInterval(stoper);
             }
         }, 1000);
 
