@@ -580,8 +580,10 @@ function ComparingSymbols() {
         
         let ComparingSymbolsForm = document.createElement("form");
         ComparingSymbolsForm.id="Compar";
-        ComparingSymbol
-        .forEach((element,i) => {
+        window[ 'timer' ] = document.createElement("p");
+        window[ 'timer' ].innerHTML =  0 + ":" + 0;
+        ComparingSymbolsForm.appendChild(window[ 'timer' ]);
+        ComparingSymbol.forEach((element,i) => {
             window[ 'div' + i ] = document.createElement("div");
             window[ 'div' + i ].classList.add("line");
             window[ 'div' + i ].innerHTML=`<p class=\"paragraph1\">${element[0]}</p>
@@ -593,6 +595,25 @@ function ComparingSymbols() {
             <p class=\"paragraph3\">${element[1]}</p>`;
             ComparingSymbolsForm.appendChild(window[ 'div' + i ]);
         });
+
+
+        var stoper = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = now - time;
+          
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+            window[ 'timer' ].innerHTML =  minutes + ":" + seconds;
+          
+            if (distance < 0) {
+              clearInterval(stoper);
+            }
+        }, 1000);
+
+
+
+
         submitAnswer = document.createElement("button");
         submitAnswer.id = "ComparingSymbolsResults";
         submitAnswer.innerHTML= "Submit";
@@ -902,6 +923,10 @@ function MathOnTime() {
         let MathOnTimeForm = document.createElement("form");
         MathOnTimeForm.id="Compar";
 
+        window[ 'timer' ] = document.createElement("p");
+        window[ 'timer' ].innerHTML =  0 + ":" + 0;
+        MathOnTimeForm.appendChild(window[ 'timer' ]);
+
         window[ 'div' ] = document.createElement("div");
         window[ 'div' ].classList.add("row");
 
@@ -953,6 +978,24 @@ function MathOnTime() {
     
         MathOnTimeForm.appendChild( window[ 'div' ]);
         
+        
+        var stoper = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = now - time;
+          
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+            window[ 'timer' ].innerHTML =  minutes + ":" + seconds;
+          
+            if (distance < 0) {
+              clearInterval(stoper);
+            }
+        }, 1000);
+
+
+
+
         submitAnswer = document.createElement("button");
         submitAnswer.id = "MathResults";
         submitAnswer.innerHTML= "Submit";
@@ -1047,6 +1090,12 @@ function FindWords() {
         let FindWordsForm = document.createElement("form");
         FindWordsForm.id="Compar";
 
+        
+        window[ 'timer' ] = document.createElement("p");
+        window[ 'timer' ].innerHTML =  0 + ":" + 0;
+        FindWordsForm.appendChild(window[ 'timer' ]);
+
+
         window[ 'div' ] = document.createElement("div");
         window[ 'div' ].id = "sequence";
         window[ 'div' ].classList.add("sequence");
@@ -1067,6 +1116,19 @@ function FindWords() {
         window[ 'pCounter' ].innerHTML=wordFinded+" / "+temp;
         window[ 'div' ].appendChild( window[ 'pCounter' ]);
         
+        var stoper = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = now - time;
+          
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+            window[ 'timer' ].innerHTML =  minutes + ":" + seconds;
+          
+            if (distance < 0) {
+              clearInterval(stoper);
+            }
+        }, 1000);
 
         submitAnswer = document.createElement("button");
         submitAnswer.id = "FindWordsResults";
@@ -1167,9 +1229,11 @@ function Sudoku() {
         window[ 'p' ] = document.createElement("p");
         window[ 'div' ].appendChild(window[ 'p' ]);
         window[ 'p' ].innerHTML= JSON.stringify(tempArray).replaceAll(/[\[\]",]/g, "");
+        
         window[ 'timer' ] = document.createElement("p");
         window[ 'timer' ].innerHTML =  0 + ":" + 0;
         window[ 'div' ].appendChild(window[ 'timer' ]);
+
         window[ 'tabele' ] = document.createElement("table");
         window[ 'div' ].appendChild(window[ 'tabele' ]);
 
