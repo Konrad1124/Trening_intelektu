@@ -401,7 +401,7 @@ function generateGoodSudoku(){
     return true;
 }
 
-function chenged(x,i,j) {
+function chenged(x,i,j, stoper) {
     if((x.target.value!==" " || x.target.value!=="" )&& tempArray.includes(x.target.value.toUpperCase().trim())){
         SudokuArray[i][j]=x.target.value.toUpperCase().trim()
         x.target.value= SudokuArray[i][j]
@@ -412,7 +412,8 @@ function chenged(x,i,j) {
         submitAnswer.style.display = 'inline-block'
         time=new Date().getTime()-time.getTime();
         gameData.Sudoku={time: `${time}`}
-        
+        console.log(time)
+        clearInterval(stoper);
     }
 
 }
@@ -586,9 +587,7 @@ function ComparingSymbols() {
         
             window[ 'timer' ].innerHTML =  minutes + ":" + seconds;
           
-            if (distance < 0) {
-              clearInterval(stoper);
-            }
+            
         }, 1000);
 
 
@@ -600,6 +599,7 @@ function ComparingSymbols() {
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function ComparingSymbolsResults() {
             time=new Date().getTime()-time.getTime();
+            clearInterval(stoper);
             console.log(time)
             gameData.ComparingSymbols={time: `${time}`}
             if (document.querySelector(`input[name=symbols1]`)!=null) {
@@ -1013,9 +1013,7 @@ function MathOnTime() {
         
             window[ 'timer' ].innerHTML =  minutes + ":" + seconds;
           
-            if (distance < 0) {
-              clearInterval(stoper);
-            }
+            
         }, 1000);
 
 
@@ -1028,6 +1026,7 @@ function MathOnTime() {
         
         submitAnswer.onclick = function MathResults() {
             time=new Date().getTime()-time.getTime();
+            clearInterval(stoper);
             console.log(time)
             gameData.MathOnTime={time: `${time}`}
             form=document.querySelector("#Compar");
@@ -1150,9 +1149,7 @@ function FindWords() {
         
             window[ 'timer' ].innerHTML =  minutes + ":" + seconds;
           
-            if (distance < 0) {
-              clearInterval(stoper);
-            }
+            
         }, 1000);
 
         submitAnswer = document.createElement("button");
@@ -1264,6 +1261,19 @@ function Sudoku() {
 
         window[ 'tabeleBody' ] = document.createElement("tbody");
         window[ 'tabele' ].appendChild(window[ 'tabeleBody' ]);
+
+        var stoper = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = now - time;
+          
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+            window[ 'timer' ].innerHTML =  minutes + ":" + seconds;
+          
+            
+        }, 1000);
+
         for (let i = 0; i < 9; i++) {
             window[ 'tr' + i ] = document.createElement("tr");
             window[ 'tabeleBody' ].appendChild(window[ 'tr' + i ]);
@@ -1275,25 +1285,13 @@ function Sudoku() {
                 window[ "input" + j + i].classList.add("sudoku");
                 window[ "input" + j + i].value = SudokuArray[i][j];
                 window[ "input" + j + i].disabled = SudokuArray[i][j] !== " ";
-                window[ "input" + j + i].onchange = (x)=>chenged(x,i,j);
+                window[ "input" + j + i].onchange = (x)=>chenged(x,i,j, stoper);
                 window[ 'td' + j ].appendChild(window[ "input" + j + i]);
             }
         }
 
 
-        var stoper = setInterval(function() {
-            var now = new Date().getTime();
-            var distance = now - time;
-          
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
-            window[ 'timer' ].innerHTML =  minutes + ":" + seconds;
-          
-            if (distance < 0) {
-              clearInterval(stoper);
-            }
-        }, 1000);
 
 
         submitAnswer = document.createElement("button");
@@ -1302,7 +1300,7 @@ function Sudoku() {
         submitAnswer.style.display = 'none'
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function SudokuResults() {
-            console.log(time)
+            
             showNextGame();
         }
         Game1.appendChild(window[ 'div' ]);
