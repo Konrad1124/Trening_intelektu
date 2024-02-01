@@ -716,7 +716,7 @@ function Remember2Number(){
         window[ 'div' + iteration  + 'insaid'] = document.createElement("div");
         window[ 'div' + iteration  + 'insaid'].classList.add("numbersColumns");
 
-        var time = new Date().getTime() + fadeTime;
+        var time = new Date().getTime() + fadeTime + 1000;
         setTimeout(function() {
             window[ 'div' + iteration  + 'insaid'].setAttribute("hidden", "hidden");
         }, fadeTime);
@@ -841,7 +841,7 @@ function Remember2Number(){
                     window[ 'div' + iteration  + 'insaid'].appendChild(window[ 'p' + y ]);
                 });
 
-                var time = new Date().getTime() + fadeTime;
+                var time = new Date().getTime() + fadeTime+ 1000;
                 var stoper = setInterval(function() {
                     var now = new Date().getTime();
                     var distance = time - now;
