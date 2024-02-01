@@ -703,7 +703,7 @@ function Remember2Number(){
         iteration=0;
         let Remember2NumberForm = document.createElement("form");
         Remember2NumberForm.id="Compar";
-        var time = new Date().getTime() + fadeTime;
+        
 
         window[ 'timer' ] = document.createElement("p");
         window[ 'timer' ].innerHTML =  0 + ":" + Math.floor((fadeTime % (1000 * 60)) / 1000);
@@ -716,7 +716,7 @@ function Remember2Number(){
         window[ 'div' + iteration  + 'insaid'] = document.createElement("div");
         window[ 'div' + iteration  + 'insaid'].classList.add("numbersColumns");
 
-
+        var time = new Date().getTime() + fadeTime;
         setTimeout(function() {
             window[ 'div' + iteration  + 'insaid'].setAttribute("hidden", "hidden");
         }, fadeTime);
@@ -822,7 +822,7 @@ function Remember2Number(){
 
 
                 iteration++;
-                var time = new Date().getTime() + fadeTime;
+                
                 window[ 'timer' ] = document.createElement("p");
                 window[ 'timer' ].innerHTML =  0 + ":" + Math.floor((fadeTime % (1000 * 60)) / 1000);
                 Remember2NumberForm.appendChild(window[ 'timer' ]);
@@ -841,7 +841,7 @@ function Remember2Number(){
                     window[ 'div' + iteration  + 'insaid'].appendChild(window[ 'p' + y ]);
                 });
 
-
+                var time = new Date().getTime() + fadeTime;
                 var stoper = setInterval(function() {
                     var now = new Date().getTime();
                     var distance = time - now;
