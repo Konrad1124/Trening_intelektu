@@ -1,28 +1,49 @@
+html,
+body {
+    height: 100%;
+    font-size: 24px;
+}
+
 #main {
-    --color-main-darker: #348EC2;
-    --color-main: #1278B3;
-    --color-box-shadow: #47BCFF;
-    --color-hover: #572C14;
+    --color-main-darker: #348ec2;
+    --color-main: #2050aa;
+    --color-box-shadow: #47bcff;
+    --color-hover: #1e447a;
     --color-font: #ddf8e8;
     --color-radio: #031a6b;
-    --color-checked: #7A2E01;
+    --color-checked: #7a2e01;
+    --container-width: 1200px;
+    --container-height: 900px;
 
-    background-color: var(--color-main-darker);
-    font-family: 'Courier New', Courier, monospace;
+    background: rgb(155, 194, 241);
+    background: linear-gradient(135deg, rgba(155, 194, 241, 1) 0%, rgba(66, 116, 191, 1) 100%);
+    padding: 2em;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
     position: relative;
+    color: var(--color-font);
+}
+button {
+    font-family: "Open Sans", sans-serif;
+}
+h1 {
+    font-family: "Raleway";
 }
 
-#container{
-    position: relative;
-    margin: 0 auto;
-    width: 1200px;
-    height: 900px;
-
-    /*do debugu*/
-    outline: dashed 5px rgb(255, 255, 255);
+#container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: calc(-1 * var(--container-height) / 2);
+    margin-left: calc(-1 * var(--container-width) / 2);
+    width: var(--container-width);
+    height: var(--container-height);
+    background-color: #78aded;
+    border-radius: 10px;
 }
 
-#Menu{
+#Menu {
     text-align: center;
     position: absolute;
     left: 50%;
@@ -30,7 +51,7 @@
     transform: translate(-50%, -50%);
 }
 
-#game1{
+#game1 {
     text-align: center;
     width: 900px;
     position: absolute;
@@ -39,16 +60,23 @@
     transform: translate(-50%, -50%);
 }
 
-#GameTitle{
+#GameTitle {
     color: var(--color-font);
-    display: block;
-    font-size: 40px;
-    margin: auto;
-    font-weight: bold;
+    font-size: 5rem;
+    margin: 0 0 1rem 0;
+    line-height: 0.85;
+}
+#GameTitle span {
+    color: #1e447a;
 }
 
-.selectScreen{
-    padding: 100px ;
+#logo {
+    width: 256px;
+    margin-top: -192px;
+}
+
+.selectScreen {
+    padding: 100px;
     text-align: center;
     position: absolute;
     left: 50%;
@@ -58,17 +86,16 @@
     font-size: large;
     color: var(--color-font);
 }
-#info{
+#info {
     color: var(--color-font);
     font-weight: bold;
     font-size: large;
 }
 
-.Buttons{
-    background-color: var(--color-main); 
+.Buttons {
+    background-color: var(--color-main);
     border-radius: 12px;
     border: 0;
-    box-shadow: 0px 0px 14px 5px var(--color-box-shadow);
     box-sizing: border-box;
     outline: none;
     cursor: pointer;
@@ -79,19 +106,19 @@
     height: 50px;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 0.75rem;
     font-weight: 700;
     display: inline-block;
     line-height: 1;
+    text-transform: uppercase;
 }
 
 .Buttons:hover {
     background-color: var(--color-hover);
-    
 }
 
-.textBox{
-    background-color: var(--color-main); 
+.textBox {
+    background-color: var(--color-main);
     border-radius: 12px;
     border: none;
     color: var(--color-font);
@@ -104,18 +131,17 @@
     display: inline-block;
     box-shadow: 0px 0px 14px 5px var(--color-box-shadow);
     box-sizing: border-box;
-    
 }
 
-.Select{
+.Select {
     position: absolute;
     left: 50%;
     top: 39.2%;
     transform: translate(-50%, -50%);
 }
 
-.mySelect{
-    background-color: var(--color-main); 
+.mySelect {
+    background-color: var(--color-main);
     border-radius: 12px;
     border: none;
     color: var(--color-font);
@@ -124,18 +150,18 @@
     text-decoration: none;
     font-size: 16px;
     margin: 20px;
-    padding: 15px 32px;;
+    padding: 15px 32px;
     box-shadow: 0px 0px 14px 5px var(--color-box-shadow);
     box-sizing: border-box;
     font-weight: 700;
 }
 
-.mySelect option{
+.mySelect option {
     font-weight: 700;
 }
 
-#Compar{
-    background-color: var(--color-main); 
+#Compar {
+    background-color: var(--color-main);
     border: none;
     color: var(--color-font);
     text-decoration: none;
@@ -147,9 +173,8 @@
     box-sizing: border-box;
 }
 
-
-#showData{
-    background-color: var(--color-main); 
+#showData {
+    background-color: var(--color-main);
     border: none;
     color: var(--color-font);
     text-decoration: none;
@@ -160,11 +185,11 @@
     padding: 10px;
     box-shadow: 0px 0px 14px 5px var(--color-box-shadow);
     box-sizing: border-box;
-    overflow-y:scroll;
-    height: 600px
+    overflow-y: scroll;
+    height: 600px;
 }
 
-.MathOnTimeDiv{
+.MathOnTimeDiv {
     display: flex;
 }
 
@@ -178,16 +203,13 @@
     flex: 33%;
 }
 
-
-.line{
+.line {
     position: relative;
     height: 30px;
     padding: 10px;
 }
 
-
-
-.paragraph1{
+.paragraph1 {
     font-family: monospace;
     position: absolute;
     left: 20%;
@@ -196,7 +218,7 @@
     width: 320px;
 }
 
-.paragraph2{
+.paragraph2 {
     font-family: monospace;
     position: absolute;
     left: 50%;
@@ -204,7 +226,7 @@
     transform: translate(-50%, -50%);
 }
 
-.paragraph3{
+.paragraph3 {
     font-family: monospace;
     position: absolute;
     left: 80%;
@@ -214,7 +236,6 @@
 }
 
 /*radio*/
-
 
 .customRadio {
     height: 15px;
@@ -258,23 +279,22 @@
 
 /*radio end*/
 
-.exercise{
+.exercise {
     position: relative;
     height: 350px;
     padding: 10px;
 }
 
-.numbersColumns{
+.numbersColumns {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 
-
-.numbers{
+.numbers {
     position: absolute;
-    background-color: var(--color-main-darker); 
+    background-color: var(--color-main-darker);
     border-radius: 12px;
     border: 0;
     box-shadow: 0px 0px 14px 5px var(--color-box-shadow);
@@ -292,37 +312,37 @@
     transform: translate(-50%, -50%);
 }
 
-#number0{
+#number0 {
     left: 10%;
 }
-#number1{
+#number1 {
     left: 30%;
 }
-#number2{
+#number2 {
     left: 50%;
 }
-#number3{
+#number3 {
     left: 70%;
 }
-#number4{
+#number4 {
     left: 90%;
 }
 
-.row{
+.row {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
 }
 
-.column{
+.column {
     width: 300px;
     margin: 10px;
     text-align: center;
     line-height: 35px;
 }
-.result{
-    background-color: var(--color-main-darker); 
+.result {
+    background-color: var(--color-main-darker);
     border-radius: 12px;
     border: 0;
     box-shadow: 0px 0px 14px 5px var(--color-box-shadow);
@@ -338,16 +358,16 @@
     display: inline-block;
 }
 
-.sequence{
+.sequence {
     height: 350px;
     padding: 10px;
 }
 
-.sequence p{
+.sequence p {
     word-wrap: break-word;
     text-align: left;
     cursor: pointer;
-    font-size:larger;
+    font-size: larger;
 }
 
 .linkNotClicked {
@@ -357,26 +377,26 @@
 }
 
 .linkClicked {
-    text-decoration:line-through;
+    text-decoration: line-through;
     color: #f50944;
     cursor: pointer;
 }
 
-#Counter{
+#Counter {
     text-align: center;
     font-size: 24px;
 }
 
-.sudokuDiv{
+.sudokuDiv {
     text-align: center;
 }
 
-.sudokuDiv p{
+.sudokuDiv p {
     text-align: center;
     font-size: 40px;
 }
 
-.sudoku{
+.sudoku {
     width: 50px;
     height: 50px;
     font-size: 20px;
@@ -384,17 +404,17 @@
     padding: 0px;
     border: 1px solid var(--color-main-darker);
     color: var(--color-font);
-    background-color: var(--color-main); 
+    background-color: var(--color-main);
     outline: transparent;
 }
 
-td{
+td {
     padding: 0px;
 }
 
-table{
+table {
     text-align: center;
-    margin:auto;
+    margin: auto;
     border-collapse: collapse;
     border: 3px solid var(--color-box-shadow);
     background-color: var(--color-main-darker);
