@@ -4,7 +4,6 @@ if ('serviceWorker' in navigator) {
   }
   /*
   dodać interakcje
-  wyświetlanie się czasów
   dodatkowe animacje
   czas gry ograniczony do 15 min
   
@@ -1115,7 +1114,7 @@ function FindWords() {
         window[ 'pCounter' ].id = "Counter";
         window[ 'pCounter' ].innerHTML=wordFinded+" / "+temp;
         window[ 'div' ].appendChild( window[ 'pCounter' ]);
-        
+
         var stoper = setInterval(function() {
             var now = new Date().getTime();
             var distance = now - time;
