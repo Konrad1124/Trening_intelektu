@@ -182,26 +182,7 @@ showData.addEventListener('click', async () => {
         Game1.removeChild(Game1.firstChild);
     }
     Game1.removeAttribute("hidden");
-    /*let showFile = document.createElement("div");
-    showFile.id="Compar";
     
-    //gameData=await file.text()
-    //console.log( gameData.split("^|^"))
-
-    backToFileSelect = document.createElement("button");
-    backToFileSelect.id = "backToFileSelect";
-    backToFileSelect.innerHTML= "Back";
-    backToFileSelect.classList.add("Buttons");
-    backToFileSelect.onclick = function backToFileSelectButton() {
-        Game1.setAttribute("hidden", "hidden");
-        selectResults.removeAttribute("hidden");
-        while (Game1.firstChild) {
-            Game1.removeChild(Game1.firstChild);
-        }
-        gameData={}
-    }
-    Game1.appendChild(showFile);
-    Game1.appendChild(backToFileSelect);*/
     
 })
 
@@ -723,12 +704,18 @@ function Remember2Number(){
         let Remember2NumberForm = document.createElement("form");
         Remember2NumberForm.id="Compar";
 
+        window[ 'timer' ] = document.createElement("p");
+        window[ 'timer' ].innerHTML =  0 + ":" + Math.floor((fadeTime % (1000 * 60)) / 1000);
+        Remember2NumberForm.appendChild(window[ 'timer' ]);
+
         submitAnswer = document.createElement("button");
         submitAnswer.style.visibility = 'hidden';
         window[ 'div' + iteration ] = document.createElement("div");
         window[ 'div' + iteration ].classList.add("exercise");
         window[ 'div' + iteration  + 'insaid'] = document.createElement("div");
         window[ 'div' + iteration  + 'insaid'].classList.add("numbersColumns");
+
+
         setTimeout(function() {
             window[ 'div' + iteration  + 'insaid'].setAttribute("hidden", "hidden");
         }, fadeTime);
@@ -738,6 +725,22 @@ function Remember2Number(){
             window[ 'p' + y ].innerHTML= element2;
             window[ 'div' + iteration  + 'insaid'].appendChild(window[ 'p' + y ]);
         });
+        
+        var stoper = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = fadeTime - now;
+          
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+            window[ 'timer' ].innerHTML =  minutes + ":" + seconds;
+          
+            if (distance < 0) {
+              clearInterval(stoper);
+            }
+        }, 1000);
+
+
         for (let inputNumber = 0; inputNumber < 5; inputNumber++) {
             window[ 'input' + inputNumber ] = document.createElement("input");
             window[ 'input' + inputNumber ].type = "number";
@@ -749,6 +752,7 @@ function Remember2Number(){
             setTimeout(function() {
                 window[ 'div' + iteration ].appendChild(window[ 'input' + inputNumber ]);
                 submitAnswer.style.visibility = 'visible';
+                window[ 'timer' ].setAttribute("hidden", "hidden");
             }, fadeTime);
             
             
@@ -818,6 +822,10 @@ function Remember2Number(){
 
                 iteration++;
 
+                window[ 'timer' ] = document.createElement("p");
+                window[ 'timer' ].innerHTML =  0 + ":" + Math.floor((fadeTime % (1000 * 60)) / 1000);
+                Remember2NumberForm.appendChild(window[ 'timer' ]);
+
                 window[ 'div' + iteration ] = document.createElement("div");
                 window[ 'div' + iteration ].classList.add("exercise");
                 window[ 'div' + iteration  + 'insaid'] = document.createElement("div");
@@ -831,6 +839,22 @@ function Remember2Number(){
                     window[ 'p' + y ].innerHTML= element2;
                     window[ 'div' + iteration  + 'insaid'].appendChild(window[ 'p' + y ]);
                 });
+
+
+                var stoper = setInterval(function() {
+                    var now = new Date().getTime();
+                    var distance = fadeTime - now;
+                  
+                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                    window[ 'timer' ].innerHTML =  minutes + ":" + seconds;
+                  
+                    if (distance < 0) {
+                      clearInterval(stoper);
+                    }
+                }, 1000);
+
                 for (let inputNumber = 0; inputNumber < 5; inputNumber++) {
                     window[ 'input' + inputNumber ] = document.createElement("input");
                     window[ 'input' + inputNumber ].type = "number";
@@ -842,6 +866,7 @@ function Remember2Number(){
                     setTimeout(function() {
                         window[ 'div' + iteration ].appendChild(window[ 'input' + inputNumber ]);
                         submitAnswer.style.visibility = 'visible';
+                        window[ 'timer' ].setAttribute("hidden", "hidden");
                     }, fadeTime);
                     
                     
