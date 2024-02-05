@@ -614,13 +614,13 @@ function ComparingSymbols() {
                                     if ( ComparingSymbol[i][0]<ComparingSymbol[i][1]) {
                                         console.log(i+" dobrze")
                                         gameData.ComparingSymbols["comaprasment"+i]={
-                                            result: "Good",
+                                            result: "Dobrze",
                                             comaprasment: `${ComparingSymbol[i][0]} < ${ComparingSymbol[i][1]}`
                                         }
                                     }else{
                                         console.log(i+" źle")
                                         gameData.ComparingSymbols["comaprasment"+i]={
-                                            result: "Bad",
+                                            result: "Źle",
                                             comaprasment: `${ComparingSymbol[i][0]} < ${ComparingSymbol[i][1]}`
                                         }
                                     }
@@ -629,13 +629,13 @@ function ComparingSymbols() {
                                     if ( ComparingSymbol[i][0]=ComparingSymbol[i][1]) {
                                         console.log(i+" dobrze")
                                         gameData.ComparingSymbols["comaprasment"+i]={
-                                            result: "Good",
+                                            result: "Dobrze",
                                             comaprasment: `${ComparingSymbol[i][0]} = ${ComparingSymbol[i][1]}`
                                         }
                                     }else{
                                         console.log(i+" źle")
                                         gameData.ComparingSymbols["comaprasment"+i]={
-                                            result: "Bad",
+                                            result: "Źle",
                                             comaprasment: `${ComparingSymbol[i][0]} = ${ComparingSymbol[i][1]}`
                                         }
                                     }
@@ -644,13 +644,13 @@ function ComparingSymbols() {
                                     if ( ComparingSymbol[i][0]>ComparingSymbol[i][1]) {
                                         console.log(i+" dobrze")
                                         gameData.ComparingSymbols["comaprasment"+i]={
-                                            result: "Good",
+                                            result: "Dobrze",
                                             comaprasment: `${ComparingSymbol[i][0]} > ${ComparingSymbol[i][1]}`
                                         }
                                     }else{
                                         console.log(i+" źle")
                                         gameData.ComparingSymbols["comaprasment"+i]={
-                                            result: "Bad",
+                                            result: "Źle",
                                             comaprasment: `${ComparingSymbol[i][0]} > ${ComparingSymbol[i][1]}`
                                         }
                                     }
@@ -660,7 +660,7 @@ function ComparingSymbols() {
                         }else if (radio.value == ">") {
                             console.log("brak odpowiedzi")
                             gameData.ComparingSymbols["comaprasment"+i]={
-                                result: "No answer",
+                                result: "Brak odpowiedzi",
                                 comaprasment: `${ComparingSymbol[i][0]} ? ${ComparingSymbol[i][1]}`
                             }
                         }
@@ -764,7 +764,7 @@ function Remember2Number(){
 
         
         submitAnswer.id = "Remember2NumberResults";
-        submitAnswer.innerHTML= "Submit";
+        submitAnswer.innerHTML= "Zatwierdź";
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function Remember2NumberResults() {
             if (iteration==NumberSequence.length-1){
@@ -785,10 +785,10 @@ function Remember2Number(){
                 input.forEach((element,i) => {
                     if (element.valueAsNumber == NumberSequenceCorect[iteration][i]) {
                         console.log("corect")
-                        gameData.Remember2Number["Column"+iteration][`Number${i}`] = "Corect"
+                        gameData.Remember2Number["Column"+iteration][`Number${i}`] = "Dobrze"
                     }else{
                         console.log("wrong")
-                        gameData.Remember2Number["Column"+iteration][`Number${i}`] = "Wrong"
+                        gameData.Remember2Number["Column"+iteration][`Number${i}`] = "Źle"
                     }
                 });
                 showNextGame();
@@ -810,10 +810,10 @@ function Remember2Number(){
                 input.forEach((element,i) => {
                     if (element.valueAsNumber == NumberSequenceCorect[iteration][i]) {
                         console.log("corect")
-                        gameData.Remember2Number["Column"+iteration][`Number${i}`] = "Corect"
+                        gameData.Remember2Number["Column"+iteration][`Number${i}`] = "Dobrze"
                     }else{
                         console.log("wrong")
-                        gameData.Remember2Number["Column"+iteration][`Number${i}`] = "Wrong"
+                        gameData.Remember2Number["Column"+iteration][`Number${i}`] = "Źle"
                     }
                 });
                 while (Remember2NumberForm.firstChild) {
@@ -1049,13 +1049,13 @@ function MathOnTime() {
                 if(element.valueAsNumber==temp){
                     console.log("corect")
                     gameData.MathOnTime["equasion"+i]={
-                        result: "Corect",
+                        result: "Dobrze",
                         mathEquasion: `${MathCalculations[i].FirstNumber} ${MathCalculations[i].OperationSymbol} ${MathCalculations[i].SecondNumber}`
                     }
                 }else{
                     console.log("wrong")
                     gameData.MathOnTime["equasion"+i]={
-                        result: "Wrong",
+                        result: "Źle",
                         mathEquasion: `${MathCalculations[i].FirstNumber} ${MathCalculations[i].OperationSymbol} ${MathCalculations[i].SecondNumber}`
                     }
                 }
