@@ -56,11 +56,12 @@ let time;
 let iteration=0;
 let temp=0;
 let tempArray=[];
-let wordArray='And Fix Own Are Fly Odd Ape Fry Our Ace For Pet Act Got Pat Ask Get Peg Arm God Paw Age Gel Pup Ago Gas Pit Air Hat Put Ate Hit Pot All Has Pop But Had Pin Bye How Rat Bad Her Rag Big His Rub Bed Hen Row Bat Ink Rug Boy Ice Run Bus Ill Rap Bag Jab Ram Box Jug Sow Bit Jet See Bee Jam Saw Buy Jar Set Bun Job Sit Cub Jog Sir Cat Kit Sat Car Key Sob Cut Lot Tap Cow Lit Tip Cry Let Top Cab Lay Tug Can Mat Tow Dad Man Toe Dab Mad Tan Dam Mug Ten Did Mix Two Dug Map Use Den Mum Van Dot Mud Vet Dip Mom Was Day May Wet Ear Met Win Eye Net Won Eat New Wig End Nap War Elf Now Why Egg Nod Who Far Net Way Fat Not Wow Few Nut You Fan Oar Yes Fun One Yak Fit Out Yet Fin Owl Zip Fox Old Zap'.toUpperCase().split(' ')
+//let wordArray='And Fix Own Are Fly Odd Ape Fry Our Ace For Pet Act Got Pat Ask Get Peg Arm God Paw Age Gel Pup Ago Gas Pit Air Hat Put Ate Hit Pot All Has Pop But Had Pin Bye How Rat Bad Her Rag Big His Rub Bed Hen Row Bat Ink Rug Boy Ice Run Bus Ill Rap Bag Jab Ram Box Jug Sow Bit Jet See Bee Jam Saw Buy Jar Set Bun Job Sit Cub Jog Sir Cat Kit Sat Car Key Sob Cut Lot Tap Cow Lit Tip Cry Let Top Cab Lay Tug Can Mat Tow Dad Man Toe Dab Mad Tan Dam Mug Ten Did Mix Two Dug Map Use Den Mum Van Dot Mud Vet Dip Mom Was Day May Wet Ear Met Win Eye Net Won Eat New Wig End Nap War Elf Now Why Egg Nod Who Far Net Way Fat Not Wow Few Nut You Fan Oar Yes Fun One Yak Fit Out Yet Fin Owl Zip Fox Old Zap'.toUpperCase().split(' ')
+let wordArray='ABY ACH AHA AJĆ AKR AKT ALE ALG ANI ARA ASY AUA AUĆ AUT BAĆ BAK BAM BAŃ BAR BAŹ BĄK BEK BEZ BEŻ BĘC BIĆ BIŁ BIO BOA BOK BON BÓB BÓG BÓJ BÓL BÓR BUC BUK BUS BYĆ BYK BYŁ BYM BYŚ BYT CAL CEL CEP CIĘ CIP CIŹ CIŻ CLI CŁO CNA CNI CNY COŚ CÓŻ CUĆ CUD CUG CUM CYC CYG CYK CYT CZE CZI CZY ĆMA ĆMĄ ĆMĘ ĆMI ĆMO ĆMY DAĆ DAJ DAL DAŁ DAM DAŃ DAR DĄB DĄĆ DĄŁ DĄS DĄŻ DBA DEK DĘĆ DLA DMĄ DMĘ DNI DNO DOK DOM DÓŁ DRĄ DRĘ DWA DWU DYM ECH EGO EKO ELF EMO EMU ENT EON ERA ERY EWA EWE EWĘ EWY FEZ FUJ GAD GAJ GAR GAZ GAŻ GDY GĘŚ GIN GIŃ GNĄ GNĘ GON GOŃ GRA GRĄ GRĘ GRR GRY GUL GUZ GZĘ GZY HAK HAU HEH HEJ HEL HIT HMM HOP HUT HYC ICH IDĄ IDĘ IDŹ ILE ILU IŚĆ JAD JAJ JAK JAM JAŚ JAW JEJ JEM JEN JEŻ JĘK JUK JUŻ KAC KAŃ KAT KAŹ KAŻ KĄP KĄT KEG KĘS KIC KIJ KIT KŁA KŁY KOC KOG KOŃ KOP KOS KOT KÓŁ KÓP KÓZ KRA KRY KTO KUC KUĆ KUJ KUP KUŚ LAĆ LAG LAK LAS LAT LĄD LEĆ LEJ LEK LEN LEŃ LEP LEW LEŹ LEŻ LĘK LIS LIŻ LNU LNY LOK LOR LÓD LUB LUD LUK LUZ LWY LŻĄ LŻĘ LŻY ŁAD ŁAJ ŁAŁ ŁAM ŁAN ŁAŃ ŁAP ŁAT ŁAŹ ŁĄK ŁBA ŁBY ŁEB ŁEZ ŁOM ŁOŚ ŁÓJ ŁÓW ŁÓŻ ŁUK ŁUP ŁUT ŁYK ŁZA ŁZĄ ŁZĘ ŁZO ŁZY ŁŻĄ ŁŻE ŁŻĘ MAG MAJ MAK MAŹ MAŻ MĄŻ MĘT MIG MIK MIŚ MIT MNĄ MNĘ MOB MOC MOD MOL MÓC MÓD MÓJ MÓL MÓR MÓW MÓŻ MRĘ MUC MUF MUŁ MUR MUS MYĆ MYJ MYK NAĆ NAD NAJ NAM NAS NĘĆ NIĄ NIC NIĆ NIE NIL NIM NIŻ NOC NOS NÓG NÓW NÓŻ NUĆ NUŻ NYŻ OBA OBU OBY OCH ODA ODĄ ODE ODĘ OGR OHO OJĆ OKA OKI OKO OKU OLE ONA ONE ONI ONO ORK OSA OSĄ OSĘ OSY OŚĆ OTO OWA OWĄ OWE OWO ÓCZ PAC PAL PAN PAŃ PAS PAŹ PĄK PĄS PĘD PĘK PĘZ PIĆ PIJ PIŁ PIN PIT PNĄ PNĘ PNI POR PÓL PÓŁ PÓR PRĄ PRĘ PRO PSA PSY PUB PUC PUK PYK PYŁ PYŚ RAD RAF RAJ RAK RAM RAP RAZ RAŹ RĄB RĄK REN ROK ROL RÓB RÓD RÓG RÓJ RÓL RÓW RÓŻ RUM RWĄ RWĘ RYĆ RYK RYŁ RYS RYŚ RYT RYŻ RŻĄ RŻE RŻY SAD SAK SAM SAŃ SĄD SĄG SEN SER SĘK SĘP SIE SIĘ SIŁ SNĄ SNĘ SNU SNY SOK SOS SÓD SÓL SÓW SPA SSĄ SSĘ STO SUM SUŃ SUW SWE SYK SYN SZA ŚLĄ ŚLE ŚLĘ ŚNI ŚPI TAK TAM TAN TAŚ TAŻ TEJ TEN TEŻ TĘP TIK TKA TLĄ TLE TLĘ TLI TŁO TNĄ TNĘ TOM TON TOŃ TOR TOŻ TÓG TRĄ TRĘ TUP TUR TUŻ TYĆ TYŁ TYM TYP TYŚ UCZ UDA UDO UFO ULE ULG UPS UST WAB WAL WAŁ WAM WAN WAS WAT WAŻ WĄS WĄŻ WEŃ WEŹ WĘZ WIĆ WIE WIJ WIŁ WIŃ WIO WIR WIŚ WIZ WOK WOŃ WÓD WÓŁ WÓR WÓZ WRĄ WRE WRĘ WSI WUJ WYĆ WYŁ WYŻ ZAD ZAŚ ZĄB ZDA ZEŃ ZER ZEW ZEZ ZĘZ ZJE ZŁA ZŁĄ ZŁE ZŁO ZŁY ZNA ZOO ZWĄ ZWĘ ZWY ZZA ŹLE ŹLI ŻAK ŻAL ŻAR ŻĄP ŻEL ŻEŃ ŻER ŻRĄ ŻRE ŻRĘ ŻUĆ ŻUJ ŻUK ŻUL ŻUŁ ŻUP ŻUR ŻYĆ ŻYJ ŻYŁ ŻYW'.toUpperCase().split(' ')
 let selectedWordArray=[];
 let word="";
 let letter=""
-let letterArray='abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('')
+let letterArray='a, ą, b, c, ć, d, e, ę, f, g, h, i, j, k, l, ł, m, n, o, ó, p, q, r, s, ś, t, u, v, w, x, y, z, ź, ż, z'.toUpperCase().split(', ')
 let letersSequenceArray =[];
 let SudokuArray =new Array(9).fill('1').map(x => Array(9).fill('1'));
 let SudokuArraySolution;
@@ -110,7 +111,7 @@ startExercise.addEventListener('click', async () => {
         }else if(check.value==="played1" && !check.checked){
             console.log("textbox")
             if (text1.value===''|| /\s/g.test(text1.value)) {
-                alert("Enter file name. It should not have space.")
+                alert("Wprowadź nazwę pliku. Nie powinna zawierać spacji.")
             }else{
                 fileHandle = await Root.getFileHandle(`${text1.value}`, {create: true});
                 text1.value=''
@@ -217,7 +218,7 @@ window.onload = async function() {
     window.resizeTo(width,height);
     if(!(navigator.userAgent.indexOf("Chrome") != -1) || (navigator.userAgent.indexOf("OPR") != -1)){
         console.log("nie chrome")
-        alert("If you want to instal this game as standalone app, its's recomended to use Chrome.")
+        alert("jeśli chcesz zainastalować aplikacje jako osobnę alikoacje, użyj przeglądarki Chrome.")
     }
     Root = await navigator.storage.getDirectory()
     if(typeof(Worker) !== "undefined") {
@@ -241,7 +242,7 @@ window.onload = async function() {
         displayData(tempArray, showFile)
         backToFileSelect = document.createElement("button");
         backToFileSelect.id = "backToFileSelect";
-        backToFileSelect.innerHTML= "Back";
+        backToFileSelect.innerHTML= "Wróć";
         backToFileSelect.classList.add("Buttons");
         if (GameSequenceNext<0) {
             backToFileSelect.onclick = function backToFileSelectButton() {
@@ -306,7 +307,6 @@ function DailyGames(){
             }
         } while ( i!=5);
         GameSequence.push(6)
-    document.getElementById("game1").innerText=GameSequence;
 }
 
 function showNextGame() {
@@ -493,7 +493,7 @@ function displayData(dataArray, container){
 function Greating(){
     info = document.createElement("div");
     info.id = "info";
-    info.innerHTML="In the moment you will start series of short exercaices that will help you pevent dementia in the future."
+    info.innerHTML="W tej chwili rozpoczniesz serię krótkich ćwiczeń, które pomogą Ci zapobiec demencji w przyszłości."
     let button = document.createElement("button");
     button.id = "StartSudoku";
     button.innerHTML= "OK";
@@ -546,7 +546,7 @@ function ComparingSymbols() {
     });
     info = document.createElement("div");
     info.id = "info";
-    info.innerHTML="Visually compare the number of the same symbols on the left and right. Select the =,<,> sign. Try to keep the time as short as possible."
+    info.innerHTML="Porównaj wizualnie liczbę tych samych symboli po lewej i prawej stronie. Wybierz znak =,<,>. Staraj się, aby czas był jak najkrótszy."
     let button = document.createElement("button");
     button.id = "StartComparingSymbols";
     button.innerHTML= "OK";
@@ -595,7 +595,7 @@ function ComparingSymbols() {
 
         submitAnswer = document.createElement("button");
         submitAnswer.id = "ComparingSymbolsResults";
-        submitAnswer.innerHTML= "Submit";
+        submitAnswer.innerHTML= "Zatwierdź";
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function ComparingSymbolsResults() {
             time=new Date().getTime()-time.getTime();
@@ -932,7 +932,7 @@ function MathOnTime() {
 
     info = document.createElement("div");
     info.id = "info";
-    info.innerHTML="Do arithmetic calculations as quickly as possible."
+    info.innerHTML="Wykonaj obliczenia arytmetyczne tak szybko, jak to możliwe."
     let button = document.createElement("button");
     button.id = "StartMath";
     button.innerHTML= "OK";
@@ -1021,7 +1021,7 @@ function MathOnTime() {
 
         submitAnswer = document.createElement("button");
         submitAnswer.id = "MathResults";
-        submitAnswer.innerHTML= "Submit";
+        submitAnswer.innerHTML= "Zatwierdź";
         submitAnswer.classList.add("Buttons");
         
         submitAnswer.onclick = function MathResults() {
@@ -1100,7 +1100,7 @@ function FindWords() {
 
     info = document.createElement("div");
     info.id = "info";
-    info.innerHTML="Find the tree letter words in the sequence. Try to do it as quickly as possible."
+    info.innerHTML="Znajdź w sekwencji słowa z literami drzewa. Spróbuj zrobić to tak szybko, jak to możliwe."
     let button = document.createElement("button");
     button.id = "StartFindWords";
     button.innerHTML= "OK";
@@ -1154,7 +1154,7 @@ function FindWords() {
 
         submitAnswer = document.createElement("button");
         submitAnswer.id = "FindWordsResults";
-        submitAnswer.innerHTML= "Submit";
+        submitAnswer.innerHTML= "Zatwierdź";
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function FindWordsResults() {
             time=new Date().getTime()-time.getTime();
@@ -1234,7 +1234,7 @@ function Sudoku() {
 
     info = document.createElement("div");
     info.id = "info";
-    info.innerHTML="Complete the letter Sudoku puzzle as quickly as possible, remembering that a given letter can only appear once in each small square (3x3 fields), in each column and each row."
+    info.innerHTML="Ułóż jak najszybciej sudoku z literami, pamiętając, że dana litera może pojawić się tylko raz w każdym małym kwadracie (pola 3x3), w każdej kolumnie i każdym rzędzie."
     let button = document.createElement("button");
     button.id = "StartSudoku";
     button.innerHTML= "OK";
@@ -1296,7 +1296,7 @@ function Sudoku() {
 
         submitAnswer = document.createElement("button");
         submitAnswer.id = "SudokuResults";
-        submitAnswer.innerHTML= "Submit";
+        submitAnswer.innerHTML= "Zatwierdź";
         submitAnswer.style.display = 'none'
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function SudokuResults() {
