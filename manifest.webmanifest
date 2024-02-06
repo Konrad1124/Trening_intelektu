@@ -38,6 +38,11 @@
             "src": "assets/trening-of-mind192.png",
             "sizes": "192x192",
             "type": "image/png"
+          },
+          {
+            "src": "assets/trening-of-mind512.png",
+            "sizes": "512x512",
+            "type": "image/png"
           }
       ]
 }
