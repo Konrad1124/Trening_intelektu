@@ -76,7 +76,7 @@ h1 {
 }
 
 .image{
-    width: 0.75rem;
+    width: 3.5rem;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -95,6 +95,7 @@ h1 {
     font-size: large;
     color: var(--color-font);
 }
+
 #info {
     color: var(--color-font);
     font-weight: bold;
@@ -115,6 +116,9 @@ h1 {
     height: 50px;
     text-align: center;
     text-decoration: none;
+    text-shadow: 0.2em 0.5em 0.5em var(--color-box-shadow),
+                -0.3em 0.1em 0.5em var(--color-box-shadow),
+                0.4em -0.3em 0.5em var(--color-box-shadow);
     font-size: 0.75rem;
     font-weight: 700;
     display: inline-block;
@@ -126,9 +130,9 @@ h1 {
 .Buttons p{
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 16%;
     transform: translate(-50%, -50%);
-    z-index: 1;
+    z-index: 6;
 }
 
 .Buttons:hover {
@@ -154,7 +158,7 @@ h1 {
 .Select {
     position: absolute;
     left: 50%;
-    top: 39.2%;
+    top: 34.5%;
     transform: translate(-50%, -50%);
 }
 
