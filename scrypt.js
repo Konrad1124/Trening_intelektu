@@ -151,7 +151,43 @@ startExercise.addEventListener('click', async () => {
             }else{
                 fileHandle = await Root.getFileHandle(`${text1.value}`, {create: true});
                 text1.value=''
-                gameData.time = new Date().getDate()+"."+(new Date().getMonth()+1)+"."+new Date().getFullYear()+" "+new Date().getHours()+":"
+                gameData.time = new Date().getDate()+"."+(new Date().getMonth()+1)+"."+new Date().getFullYear()+" "
+                switch (new Date().getHours()) {
+                    case 0:
+                        gameData.time+="00"+":"
+                        break;
+                    case 1:
+                        gameData.time+="01"+":"
+                        break;
+                    case 2:
+                        gameData.time+="02"+":"
+                        break;
+                    case 3:
+                        gameData.time+="03"+":"
+                        break;
+                    case 4:
+                        gameData.time+="04"+":"
+                        break;
+                    case 5:
+                        gameData.time+="05"+":"
+                        break;
+                    case 6:
+                        gameData.time+="06"+":"
+                        break;
+                    case 7:
+                        gameData.time+="07"+":"
+                        break;
+                    case 8:
+                        gameData.time+="08"+":"
+                        break;
+                    case 9:
+                        gameData.time+="09"+":"
+                        break;
+                    default:
+                        gameData.time+=new Date().getHours()+":"
+                        break;
+                }
+
                 switch (new Date().getMinutes()) {
                     case 0:
                         gameData.time+="00"
