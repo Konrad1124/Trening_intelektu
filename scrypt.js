@@ -444,7 +444,7 @@ function displayData(dataArray, container){
             ComparingSymbolsDiv.appendChild(window[ 'p' + i + 1 ]);
             window[ 'p' + i + 2 ] = document.createElement("p");
             window[ 'p' + i + 2 ].style.cssText = `
-                    font-size: 16px;
+                    font-size: 12px;
                     text-align: center;
                 `;
             eval('p' + i + '2.innerHTML= element.ComparingSymbols.comaprasment'+i+'.comaprasment' )
@@ -487,7 +487,7 @@ function displayData(dataArray, container){
         let MathOnTimeDiv1 = document.createElement("div");
         MathOnTimeDiv1.classList.add("MathOnTimeDiv1");
         MathOnTimeDiv.appendChild(MathOnTimeDiv1);
-        
+
 
         let MathOnTimeDiv2 = document.createElement("div");
         MathOnTimeDiv2.classList.add("MathOnTimeDiv1");
@@ -529,11 +529,11 @@ function displayData(dataArray, container){
 
         for (let i = 0; i < 10; i++) {
             window[ 'p' + i ] = document.createElement("p");
-            eval('p' + i + '.innerHTML= element.Remember2Number.Column'+i+'.Number0+" " +element.Remember2Number.Column'+i+'.Number1+" " +element.Remember2Number.Column'+i+'.Number2+" " +element.Remember2Number.Column'+i+'.Number3+" " +element.Remember2Number.Column'+i+'.Number4+"\<\/br\>"+ element.Remember2Number.Column'+ i+'.column')
+            eval('p' + i + '.innerHTML= element.Remember2Number.Column'+i+'.Number0+" " +element.Remember2Number.Column'+i+'.Number1+" " +element.Remember2Number.Column'+i+'.Number2+" " +element.Remember2Number.Column'+i+'.Number3+" " +element.Remember2Number.Column'+i+'.Number4+"\<\/br\>\<\/br\>\<\/br\>"+ element.Remember2Number.Column'+ i+'.column')
             Remember2NumberDiv.appendChild(window[ 'p' + i ]);
             window[ 'p' + i ].style.cssText = `
             font-size: 16px;
-            text-align: left;
+            text-align: center;
             `;
         }
         container.appendChild(Remember2NumberDiv);
@@ -550,7 +550,7 @@ function displayData(dataArray, container){
         window[ 'p' ].innerHTML="Czas: " + element.Sudoku.time;
         window[ 'p' ].style.cssText = `
             font-size: 16px;
-            text-align: left;
+            text-align: center;
             `;
         SudokuDiv.appendChild(window[ 'p' ]);
         container.appendChild(SudokuDiv);
