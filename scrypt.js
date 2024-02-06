@@ -424,7 +424,6 @@ function displayData(dataArray, container){
         gameDate.innerHTML= "Data: " + element.time
         container.appendChild(gameDate);
         gameDate.style.cssText = `
-        text-align: left;
         font-size: 20px;
         `;
 
