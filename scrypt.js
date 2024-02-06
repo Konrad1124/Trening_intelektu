@@ -133,7 +133,7 @@ startExercise.addEventListener('click', async () => {
                     gameData.time+="09"
                     break;
                 default:
-                    new Date().getMinutes()
+                    gameData.time+=new Date().getMinutes()
                     break;
             }
 
@@ -184,7 +184,7 @@ startExercise.addEventListener('click', async () => {
                         gameData.time+="09"
                         break;
                     default:
-                        new Date().getMinutes()
+                        gameData.time+=new Date().getMinutes()
                         break;
                 }
     
