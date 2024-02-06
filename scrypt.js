@@ -430,6 +430,10 @@ function displayData(dataArray, container){
         let ComparingSymbolsDiv = document.createElement("div");
         ComparingSymbolsDiv.classList.add("ComparingSymbolsDiv");
         ComparingSymbolsDiv.innerHTML = "Porównanie symboli"
+        ComparingSymbolsDiv.style.cssText = `
+        font-size: 25px;
+        text-align: center;
+        `;
         for (let i = 0; i < 10; i++) {
             window[ 'p' + i + 1 ] = document.createElement("p");
             window[ 'p' + i + 1 ].innerHTML="Porównanie\<\/br\>" ;
@@ -447,14 +451,25 @@ function displayData(dataArray, container){
         container.appendChild(ComparingSymbolsDiv);
 
         let FindWordsDiv = document.createElement("div");
-        FindWordsDiv.innerHTML= "Wynik " + element.FindWords.Score+"\<\/br\>Czas: " + element.FindWords.time;
+        FindWordsDiv.innerHTML="Znajdywanie słów"
+        FindWordsDiv.style.cssText = `
+        font-size: 25px;
+        text-align: center;
+        `;
+
+        let innerP= document.createElement("p");
+        innerP.innerHTML= "Wynik " + element.FindWords.Score+"\<\/br\>Czas: " + element.FindWords.time;
+        FindWordsDiv.appendChild(innerP);
         container.appendChild(FindWordsDiv);
 
 
         let MathOnTimeDiv = document.createElement("div");
         MathOnTimeDiv.classList.add("MathOnTimeDiv");
         MathOnTimeDiv.innerHTML = "Obliczenia na czas"
-
+        MathOnTimeDiv.style.cssText = `
+        font-size: 25px;
+        text-align: center;
+        `;
 
         let MathOnTimeDiv1 = document.createElement("div");
         MathOnTimeDiv1.classList.add("MathOnTimeDiv1");
@@ -489,6 +504,10 @@ function displayData(dataArray, container){
         let Remember2NumberDiv = document.createElement("div");
         Remember2NumberDiv.classList.add("Remember2NumberDiv");
         Remember2NumberDiv.innerHTML = "Zapamiętywanie co drugiego numeru"
+        Remember2NumberDiv.style.cssText = `
+        font-size: 25px;
+        text-align: center;
+        `;
 
         for (let i = 0; i < 10; i++) {
             window[ 'p' + i ] = document.createElement("p");
@@ -500,7 +519,14 @@ function displayData(dataArray, container){
 
         let SudokuDiv = document.createElement("div");
         SudokuDiv.classList.add("SudokuDiv");
-        SudokuDiv.innerHTML= "Sudoku\<\/br\>Czas: " + element.Sudoku.time;
+        SudokuDiv.style.cssText = `
+        font-size: 25px;
+        text-align: center;
+        `;
+        SudokuDiv.innerHTML= "Sudoku\<\/br\>"
+        window[ 'p' ] = document.createElement("p");
+        window[ 'p' ].innerHTML="Czas: " + element.Sudoku.time;
+        SudokuDiv.appendChild(window[ 'p' ]);
         container.appendChild(SudokuDiv);
     });
 }
