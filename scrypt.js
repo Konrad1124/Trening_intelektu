@@ -100,7 +100,7 @@ startExercise.addEventListener('click', async () => {
         if (check.value==="played1" && check.checked) {
             console.log("select")
             fileHandle = await Root.getFileHandle(`${document.getElementById("mySelect1").value}`);
-            gameData.time = new Date().getDate()+"."+new Date().getMonth()+"."+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes()
+            gameData.time = new Date().getDate()+"."+(new Date().getMonth()+1)+"."+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes()
             while (Game1.firstChild) {
                 Game1.removeChild(Game1.firstChild);
             }
@@ -115,7 +115,7 @@ startExercise.addEventListener('click', async () => {
             }else{
                 fileHandle = await Root.getFileHandle(`${text1.value}`, {create: true});
                 text1.value=''
-                gameData.time = new Date().getDate()+"."+new Date().getMonth()+"."+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes()
+                gameData.time = new Date().getDate()+"."+(new Date().getMonth()+1)+"."+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes()
                 while (Game1.firstChild) {
                     Game1.removeChild(Game1.firstChild);
                 }
@@ -423,6 +423,10 @@ function displayData(dataArray, container){
        let gameDate = document.createElement("p");
         gameDate.innerHTML= "Data: " + element.time
         container.appendChild(gameDate);
+        gameDate.style.cssText = `
+        text-align: left;
+        font-size: 20px;
+        `;
 
         let ComparingSymbolsDiv = document.createElement("div");
         ComparingSymbolsDiv.classList.add("ComparingSymbolsDiv");
@@ -432,7 +436,6 @@ function displayData(dataArray, container){
             ComparingSymbolsDiv.appendChild(window[ 'p' + i ]);
         }
         container.appendChild(ComparingSymbolsDiv);
-
 
         let FindWordsDiv = document.createElement("div");
         FindWordsDiv.innerHTML= "Wynik " + element.FindWords.Score+"\nCzas: " + element.FindWords.time;
@@ -689,7 +692,7 @@ function Remember2Number(){
     gameData.Remember2Number={};
     info = document.createElement("div");
     info.id = "info";
-    info.innerHTML="Read all the numbers in the column. As you read, remember every other digit. Write the memorized numbers under the column in the correct order."
+    info.innerHTML="Przeczytaj wszystkie liczby w kolumnie. Czytając, zapamiętaj o co drugą cyfre. Następnie wpisz zapamiętane liczby we właściwej kolejności.    "
     let button = document.createElement("button");
     button.id = "StartRemember2Number";
     button.innerHTML= "OK";
