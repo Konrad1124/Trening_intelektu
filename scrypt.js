@@ -421,21 +421,21 @@ function chenged(x,i,j, stoper) {
 function displayData(dataArray, container){
     dataArray.forEach((element,i) => {
        let gameDate = document.createElement("p");
-        gameDate.innerHTML= "Date: " + element.time
+        gameDate.innerHTML= "Data: " + element.time
         container.appendChild(gameDate);
 
         let ComparingSymbolsDiv = document.createElement("div");
         ComparingSymbolsDiv.classList.add("ComparingSymbolsDiv");
         for (let i = 0; i < 10; i++) {
             window[ 'p' + i ] = document.createElement("p");
-            eval('p' + i + '.innerHTML="Comparasment " + element.ComparingSymbols.comaprasment'+i+'.comaprasment+"\\nResult: " + element.ComparingSymbols.comaprasment'+i+'.result;' )
+            eval('p' + i + '.innerHTML="Porównanie " + element.ComparingSymbols.comaprasment'+i+'.comaprasment+"\\nWynik: " + element.ComparingSymbols.comaprasment'+i+'.result;' )
             ComparingSymbolsDiv.appendChild(window[ 'p' + i ]);
         }
         container.appendChild(ComparingSymbolsDiv);
 
 
         let FindWordsDiv = document.createElement("div");
-        FindWordsDiv.innerHTML= "Score " + element.FindWords.Score+"\nTime: " + element.FindWords.time;
+        FindWordsDiv.innerHTML= "Wynik " + element.FindWords.Score+"\nCzas: " + element.FindWords.time;
         container.appendChild(FindWordsDiv);
 
 
@@ -467,7 +467,7 @@ function displayData(dataArray, container){
                     MathOnTimeDiv3.appendChild(window[ 'p' + i ]);
                     break;
             }
-            eval('p' + i + '.innerHTML="Equasion " + element.MathOnTime.equasion'+i+'.mathEquasion+"\\nResult: " + element.MathOnTime.equasion'+i+'.result;')
+            eval('p' + i + '.innerHTML="Równanie " + element.MathOnTime.equasion'+i+'.mathEquasion+"\\nWynik: " + element.MathOnTime.equasion'+i+'.result;')
         }
         container.appendChild(MathOnTimeDiv);
 
@@ -483,7 +483,7 @@ function displayData(dataArray, container){
 
 
         let SudokuDiv = document.createElement("div");
-        SudokuDiv.innerHTML= "Time: " + element.Sudoku.time;
+        SudokuDiv.innerHTML= "Czas: " + element.Sudoku.time;
         container.appendChild(SudokuDiv);
     });
 }
