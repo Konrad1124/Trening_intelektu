@@ -478,11 +478,17 @@ function displayData(dataArray, container){
 
         let MathOnTimeDiv = document.createElement("div");
         MathOnTimeDiv.classList.add("MathOnTimeDiv");
-        MathOnTimeDiv.innerHTML = "Obliczenia na czas"
-        MathOnTimeDiv.style.cssText = `
+        
+        let MathOnTimeDivTitle = document.createElement("div");
+        MathOnTimeDivTitle.classList.add("MathOnTimeDivTitle");
+
+        MathOnTimeDivTitle.innerHTML = "Obliczenia na czas"
+        MathOnTimeDivTitle.style.cssText = `
         font-size: 25px;
         text-align: center;
         `;
+        MathOnTimeDiv.appendChild(MathOnTimeDivTitle);
+
 
         let MathOnTimeDiv1 = document.createElement("div");
         MathOnTimeDiv1.classList.add("MathOnTimeDiv1");
