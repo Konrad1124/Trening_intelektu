@@ -217,6 +217,10 @@ h1 {
     display: flex;
 }
 
+
+.MathOnTimeDivTitle {
+    flex: 100%;
+}
 .MathOnTimeDiv1 {
     flex: 33%;
 }
