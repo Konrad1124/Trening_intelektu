@@ -76,7 +76,7 @@ h1 {
 }
 
 .image{
-    width: 50px;
+    width: 0.75rem;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -121,6 +121,11 @@ h1 {
     line-height: 1;
     text-transform: uppercase;
     position: relative;
+}
+
+.Buttons p{
+    position: absolute;
+    z-index: 1;
 }
 
 .Buttons:hover {
