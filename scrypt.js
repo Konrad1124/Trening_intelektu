@@ -432,7 +432,7 @@ function displayData(dataArray, container){
         ComparingSymbolsDiv.classList.add("ComparingSymbolsDiv");
         for (let i = 0; i < 10; i++) {
             window[ 'p' + i ] = document.createElement("p");
-            eval('p' + i + '.innerHTML="Porównanie " + element.ComparingSymbols.comaprasment'+i+'.comaprasment+"\<\/br\>Wynik: " + element.ComparingSymbols.comaprasment'+i+'.result;' )
+            eval('p' + i + '.innerHTML="Porównanie\<\/br\>" + element.ComparingSymbols.comaprasment'+i+'.comaprasment+"\<\/br\>Wynik: " + element.ComparingSymbols.comaprasment'+i+'.result;' )
             ComparingSymbolsDiv.appendChild(window[ 'p' + i ]);
         }
         container.appendChild(ComparingSymbolsDiv);
