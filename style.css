@@ -119,6 +119,7 @@ h1 {
     display: inline-block;
     line-height: 1;
     text-transform: uppercase;
+    position: relative;
 }
 
 .Buttons:hover {
