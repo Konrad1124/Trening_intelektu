@@ -75,6 +75,11 @@ h1 {
     margin-top: -192px;
 }
 
+.image{
+    width: 50px;
+    margin-top: -25px;
+}
+
 .selectScreen {
     padding: 100px;
     text-align: center;
