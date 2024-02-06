@@ -437,6 +437,10 @@ function displayData(dataArray, container){
         for (let i = 0; i < 10; i++) {
             window[ 'p' + i + 1 ] = document.createElement("p");
             window[ 'p' + i + 1 ].innerHTML="Porównanie\<\/br\>" ;
+            window[ 'p' + i + 1 ].style.cssText = `
+                    font-size: 16px;
+                    text-align: center;
+                `;
             ComparingSymbolsDiv.appendChild(window[ 'p' + i + 1 ]);
             window[ 'p' + i + 2 ] = document.createElement("p");
             window[ 'p' + i + 2 ].style.cssText = `
@@ -464,6 +468,10 @@ function displayData(dataArray, container){
 
         let innerP= document.createElement("p");
         innerP.innerHTML= "Wynik " + element.FindWords.Score+"\<\/br\>Czas: " + element.FindWords.time;
+        innerP.style.cssText = `
+        font-size: 16px;
+        text-align: center;
+        `;
         FindWordsDiv.appendChild(innerP);
         container.appendChild(FindWordsDiv);
 
@@ -479,6 +487,7 @@ function displayData(dataArray, container){
         let MathOnTimeDiv1 = document.createElement("div");
         MathOnTimeDiv1.classList.add("MathOnTimeDiv1");
         MathOnTimeDiv.appendChild(MathOnTimeDiv1);
+        
 
         let MathOnTimeDiv2 = document.createElement("div");
         MathOnTimeDiv2.classList.add("MathOnTimeDiv1");
