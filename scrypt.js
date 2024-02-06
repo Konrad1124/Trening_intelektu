@@ -440,12 +440,17 @@ function displayData(dataArray, container){
             ComparingSymbolsDiv.appendChild(window[ 'p' + i + 1 ]);
             window[ 'p' + i + 2 ] = document.createElement("p");
             window[ 'p' + i + 2 ].style.cssText = `
+                    font-size: 16px;
                     text-align: center;
                 `;
             eval('p' + i + '2.innerHTML= element.ComparingSymbols.comaprasment'+i+'.comaprasment' )
             ComparingSymbolsDiv.appendChild(window[ 'p' + i + 2  ]);
             window[ 'p' + i + 3 ] = document.createElement("p");
             eval('p' + i + '3.innerHTML= "Wynik: " + element.ComparingSymbols.comaprasment'+i+'.result;' )
+            window[ 'p' + i + 3 ].style.cssText = `
+            font-size: 16px;
+            text-align: left;
+            `;
             ComparingSymbolsDiv.appendChild(window[ 'p' + i + 3  ]);
         }
         container.appendChild(ComparingSymbolsDiv);
@@ -497,6 +502,10 @@ function displayData(dataArray, container){
                     break;
             }
             eval('p' + i + '.innerHTML="Równanie " + element.MathOnTime.equasion'+i+'.mathEquasion+"\<\/br\>Wynik: " + element.MathOnTime.equasion'+i+'.result;')
+            window[ 'p' + i ].style.cssText = `
+            font-size: 16px;
+            text-align: left;
+            `;
         }
         container.appendChild(MathOnTimeDiv);
 
@@ -513,6 +522,10 @@ function displayData(dataArray, container){
             window[ 'p' + i ] = document.createElement("p");
             eval('p' + i + '.innerHTML= element.Remember2Number.Column'+i+'.Number0+" " +element.Remember2Number.Column'+i+'.Number1+" " +element.Remember2Number.Column'+i+'.Number2+" " +element.Remember2Number.Column'+i+'.Number3+" " +element.Remember2Number.Column'+i+'.Number4+"\<\/br\>"+ element.Remember2Number.Column'+ i+'.column')
             Remember2NumberDiv.appendChild(window[ 'p' + i ]);
+            window[ 'p' + i ].style.cssText = `
+            font-size: 16px;
+            text-align: left;
+            `;
         }
         container.appendChild(Remember2NumberDiv);
 
@@ -526,6 +539,10 @@ function displayData(dataArray, container){
         SudokuDiv.innerHTML= "Sudoku\<\/br\>"
         window[ 'p' ] = document.createElement("p");
         window[ 'p' ].innerHTML="Czas: " + element.Sudoku.time;
+        window[ 'p' ].style.cssText = `
+            font-size: 16px;
+            text-align: left;
+            `;
         SudokuDiv.appendChild(window[ 'p' ]);
         container.appendChild(SudokuDiv);
     });
