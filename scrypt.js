@@ -100,7 +100,41 @@ startExercise.addEventListener('click', async () => {
         if (check.value==="played1" && check.checked) {
             console.log("select")
             fileHandle = await Root.getFileHandle(`${document.getElementById("mySelect1").value}`);
-            gameData.time = new Date().getDate()+"."+(new Date().getMonth()+1)+"."+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes()
+            gameData.time = new Date().getDate()+"."+(new Date().getMonth()+1)+"."+new Date().getFullYear()+" "+new Date().getHours()+":"
+            switch (new Date().getMinutes()) {
+                case 0:
+                    gameData.time+="00"
+                    break;
+                case 1:
+                    gameData.time+="01"
+                    break;
+                case 2:
+                    gameData.time+="02"
+                    break;
+                case 3:
+                    gameData.time+="03"
+                    break;
+                case 4:
+                    gameData.time+="04"
+                    break;
+                case 5:
+                    gameData.time+="05"
+                    break;
+                case 6:
+                    gameData.time+="06"
+                    break;
+                case 7:
+                    gameData.time+="07"
+                    break;
+                case 8:
+                    gameData.time+="08"
+                    break;
+                case 9:
+                    gameData.time+="09"
+                    break;
+
+            }
+
             while (Game1.firstChild) {
                 Game1.removeChild(Game1.firstChild);
             }
@@ -115,7 +149,42 @@ startExercise.addEventListener('click', async () => {
             }else{
                 fileHandle = await Root.getFileHandle(`${text1.value}`, {create: true});
                 text1.value=''
-                gameData.time = new Date().getDate()+"."+(new Date().getMonth()+1)+"."+new Date().getFullYear()+" "+new Date().getHours()+":"+new Date().getMinutes()
+                gameData.time = new Date().getDate()+"."+(new Date().getMonth()+1)+"."+new Date().getFullYear()+" "+new Date().getHours()+":"
+                switch (new Date().getMinutes()) {
+                    case 0:
+                        gameData.time+="00"
+                        break;
+                    case 1:
+                        gameData.time+="01"
+                        break;
+                    case 2:
+                        gameData.time+="02"
+                        break;
+                    case 3:
+                        gameData.time+="03"
+                        break;
+                    case 4:
+                        gameData.time+="04"
+                        break;
+                    case 5:
+                        gameData.time+="05"
+                        break;
+                    case 6:
+                        gameData.time+="06"
+                        break;
+                    case 7:
+                        gameData.time+="07"
+                        break;
+                    case 8:
+                        gameData.time+="08"
+                        break;
+                    case 9:
+                        gameData.time+="09"
+                        break;
+    
+                }
+    
+
                 while (Game1.firstChild) {
                     Game1.removeChild(Game1.firstChild);
                 }
@@ -659,6 +728,78 @@ function ComparingSymbols() {
           
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            switch (minutes) {
+                case -1:
+                    minutes="00"
+                    break;
+                case 0:
+                    minutes="00"
+                    break;
+                case 1:
+                    minutes="01"
+                    break;
+                case 2:
+                    minutes="02"
+                    break;
+                case 3:
+                    minutes="03"
+                    break;
+                case 4:
+                    minutes="04"
+                    break;
+                case 5:
+                    minutes="05"
+                    break;
+                case 6:
+                    minutes="06"
+                    break;
+                case 7:
+                    minutes="07"
+                    break;
+                case 8:
+                    minutes="08"
+                    break;
+                case 9:
+                    minutes="09"
+                    break;
+            }
+            switch (seconds) {
+                case -1:
+                    minutes="00"
+                    break;
+                case 0:
+                    seconds="00"
+                    break;
+                case 1:
+                    seconds="01"
+                    break;
+                case 2:
+                    seconds="02"
+                    break;
+                case 3:
+                    seconds="03"
+                    break;
+                case 4:
+                    seconds="04"
+                    break;
+                case 5:
+                    seconds="05"
+                    break;
+                case 6:
+                    seconds="06"
+                    break;
+                case 7:
+                    seconds="07"
+                    break;
+                case 8:
+                    seconds="08"
+                    break;
+                case 9:
+                    seconds="09"
+                    break;
+            }
+
+
         
             window[ 'timer' ].innerHTML =  minutes + ":" + seconds;
           
@@ -809,6 +950,77 @@ function Remember2Number(){
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
+            switch (minutes) {
+                case -1:
+                    minutes="00"
+                    break;
+                case 0:
+                    minutes="00"
+                    break;
+                case 1:
+                    minutes="01"
+                    break;
+                case 2:
+                    minutes="02"
+                    break;
+                case 3:
+                    minutes="03"
+                    break;
+                case 4:
+                    minutes="04"
+                    break;
+                case 5:
+                    minutes="05"
+                    break;
+                case 6:
+                    minutes="06"
+                    break;
+                case 7:
+                    minutes="07"
+                    break;
+                case 8:
+                    minutes="08"
+                    break;
+                case 9:
+                    minutes="09"
+                    break;
+            }
+            switch (seconds) {
+                case -1:
+                    minutes="00"
+                    break;
+                case 0:
+                    seconds="00"
+                    break;
+                case 1:
+                    seconds="01"
+                    break;
+                case 2:
+                    seconds="02"
+                    break;
+                case 3:
+                    seconds="03"
+                    break;
+                case 4:
+                    seconds="04"
+                    break;
+                case 5:
+                    seconds="05"
+                    break;
+                case 6:
+                    seconds="06"
+                    break;
+                case 7:
+                    seconds="07"
+                    break;
+                case 8:
+                    seconds="08"
+                    break;
+                case 9:
+                    seconds="09"
+                    break;
+            }
+
             window[ 'timer' ].innerHTML =  minutes + ":" + seconds;
           
             if (distance < 0) {
@@ -924,6 +1136,77 @@ function Remember2Number(){
                     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
                 
+                    switch (minutes) {
+                        case -1:
+                            minutes="00"
+                            break;
+                        case 0:
+                            minutes="00"
+                            break;
+                        case 1:
+                            minutes="01"
+                            break;
+                        case 2:
+                            minutes="02"
+                            break;
+                        case 3:
+                            minutes="03"
+                            break;
+                        case 4:
+                            minutes="04"
+                            break;
+                        case 5:
+                            minutes="05"
+                            break;
+                        case 6:
+                            minutes="06"
+                            break;
+                        case 7:
+                            minutes="07"
+                            break;
+                        case 8:
+                            minutes="08"
+                            break;
+                        case 9:
+                            minutes="09"
+                            break;
+                    }
+                    switch (seconds) {
+                        case -1:
+                            minutes="00"
+                            break;
+                        case 0:
+                            seconds="00"
+                            break;
+                        case 1:
+                            seconds="01"
+                            break;
+                        case 2:
+                            seconds="02"
+                            break;
+                        case 3:
+                            seconds="03"
+                            break;
+                        case 4:
+                            seconds="04"
+                            break;
+                        case 5:
+                            seconds="05"
+                            break;
+                        case 6:
+                            seconds="06"
+                            break;
+                        case 7:
+                            seconds="07"
+                            break;
+                        case 8:
+                            seconds="08"
+                            break;
+                        case 9:
+                            seconds="09"
+                            break;
+                    }
+
                     window[ 'timer' ].innerHTML =  minutes + ":" + seconds;
                   
                     if (distance < 0) {
@@ -1086,6 +1369,77 @@ function MathOnTime() {
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
+            switch (minutes) {
+                case -1:
+                    minutes="00"
+                    break;
+                case 0:
+                    minutes="00"
+                    break;
+                case 1:
+                    minutes="01"
+                    break;
+                case 2:
+                    minutes="02"
+                    break;
+                case 3:
+                    minutes="03"
+                    break;
+                case 4:
+                    minutes="04"
+                    break;
+                case 5:
+                    minutes="05"
+                    break;
+                case 6:
+                    minutes="06"
+                    break;
+                case 7:
+                    minutes="07"
+                    break;
+                case 8:
+                    minutes="08"
+                    break;
+                case 9:
+                    minutes="09"
+                    break;
+            }
+            switch (seconds) {
+                case -1:
+                    minutes="00"
+                    break;
+                case 0:
+                    seconds="00"
+                    break;
+                case 1:
+                    seconds="01"
+                    break;
+                case 2:
+                    seconds="02"
+                    break;
+                case 3:
+                    seconds="03"
+                    break;
+                case 4:
+                    seconds="04"
+                    break;
+                case 5:
+                    seconds="05"
+                    break;
+                case 6:
+                    seconds="06"
+                    break;
+                case 7:
+                    seconds="07"
+                    break;
+                case 8:
+                    seconds="08"
+                    break;
+                case 9:
+                    seconds="09"
+                    break;
+            }
+
             window[ 'timer' ].innerHTML =  minutes + ":" + seconds;
           
             
@@ -1222,6 +1576,77 @@ function FindWords() {
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
+            switch (minutes) {
+                case -1:
+                    minutes="00"
+                    break;
+                case 0:
+                    minutes="00"
+                    break;
+                case 1:
+                    minutes="01"
+                    break;
+                case 2:
+                    minutes="02"
+                    break;
+                case 3:
+                    minutes="03"
+                    break;
+                case 4:
+                    minutes="04"
+                    break;
+                case 5:
+                    minutes="05"
+                    break;
+                case 6:
+                    minutes="06"
+                    break;
+                case 7:
+                    minutes="07"
+                    break;
+                case 8:
+                    minutes="08"
+                    break;
+                case 9:
+                    minutes="09"
+                    break;
+            }
+            switch (seconds) {
+                case -1:
+                    minutes="00"
+                    break;
+                case 0:
+                    seconds="00"
+                    break;
+                case 1:
+                    seconds="01"
+                    break;
+                case 2:
+                    seconds="02"
+                    break;
+                case 3:
+                    seconds="03"
+                    break;
+                case 4:
+                    seconds="04"
+                    break;
+                case 5:
+                    seconds="05"
+                    break;
+                case 6:
+                    seconds="06"
+                    break;
+                case 7:
+                    seconds="07"
+                    break;
+                case 8:
+                    seconds="08"
+                    break;
+                case 9:
+                    seconds="09"
+                    break;
+            }
+
             window[ 'timer' ].innerHTML =  minutes + ":" + seconds;
           
             
@@ -1344,6 +1769,77 @@ function Sudoku() {
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
+            switch (minutes) {
+                case -1:
+                    minutes="00"
+                    break;
+                case 0:
+                    minutes="00"
+                    break;
+                case 1:
+                    minutes="01"
+                    break;
+                case 2:
+                    minutes="02"
+                    break;
+                case 3:
+                    minutes="03"
+                    break;
+                case 4:
+                    minutes="04"
+                    break;
+                case 5:
+                    minutes="05"
+                    break;
+                case 6:
+                    minutes="06"
+                    break;
+                case 7:
+                    minutes="07"
+                    break;
+                case 8:
+                    minutes="08"
+                    break;
+                case 9:
+                    minutes="09"
+                    break;
+            }
+            switch (seconds) {
+                case -1:
+                    minutes="00"
+                    break;
+                case 0:
+                    seconds="00"
+                    break;
+                case 1:
+                    seconds="01"
+                    break;
+                case 2:
+                    seconds="02"
+                    break;
+                case 3:
+                    seconds="03"
+                    break;
+                case 4:
+                    seconds="04"
+                    break;
+                case 5:
+                    seconds="05"
+                    break;
+                case 6:
+                    seconds="06"
+                    break;
+                case 7:
+                    seconds="07"
+                    break;
+                case 8:
+                    seconds="08"
+                    break;
+                case 9:
+                    seconds="09"
+                    break;
+            }
+
             window[ 'timer' ].innerHTML =  minutes + ":" + seconds;
           
             
