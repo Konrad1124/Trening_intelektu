@@ -132,7 +132,9 @@ startExercise.addEventListener('click', async () => {
                 case 9:
                     gameData.time+="09"
                     break;
-
+                default:
+                    new Date().getMinutes()
+                    break;
             }
 
             while (Game1.firstChild) {
@@ -181,7 +183,9 @@ startExercise.addEventListener('click', async () => {
                     case 9:
                         gameData.time+="09"
                         break;
-    
+                    default:
+                        new Date().getMinutes()
+                        break;
                 }
     
 
