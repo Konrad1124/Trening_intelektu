@@ -429,10 +429,20 @@ function displayData(dataArray, container){
 
         let ComparingSymbolsDiv = document.createElement("div");
         ComparingSymbolsDiv.classList.add("ComparingSymbolsDiv");
+        ComparingSymbolsDiv.innerHTML = "Porównanie symboli"
         for (let i = 0; i < 10; i++) {
-            window[ 'p' + i ] = document.createElement("p");
-            eval('p' + i + '.innerHTML="Porównanie\<\/br\>" + element.ComparingSymbols.comaprasment'+i+'.comaprasment+"\<\/br\>Wynik: " + element.ComparingSymbols.comaprasment'+i+'.result;' )
-            ComparingSymbolsDiv.appendChild(window[ 'p' + i ]);
+            window[ 'p' + i + 1 ] = document.createElement("p");
+            window[ 'p' + i + 1 ].innerHTML="Porównanie\<\/br\>" ;
+            ComparingSymbolsDiv.appendChild(window[ 'p' + i + 1 ]);
+            window[ 'p' + i + 2 ] = document.createElement("p");
+            window[ 'p' + i + 2 ].style.cssText = `
+                    text-align: center;
+                `;
+            eval('p' + i + '2.innerHTML= element.ComparingSymbols.comaprasment'+i+'.comaprasment' )
+            ComparingSymbolsDiv.appendChild(window[ 'p' + i + 2  ]);
+            window[ 'p' + i + 3 ] = document.createElement("p");
+            eval('p' + i + '3.innerHTML= "Wynik: " + element.ComparingSymbols.comaprasment'+i+'.result;' )
+            ComparingSymbolsDiv.appendChild(window[ 'p' + i + 3  ]);
         }
         container.appendChild(ComparingSymbolsDiv);
 
@@ -443,6 +453,8 @@ function displayData(dataArray, container){
 
         let MathOnTimeDiv = document.createElement("div");
         MathOnTimeDiv.classList.add("MathOnTimeDiv");
+        MathOnTimeDiv.innerHTML = "Obliczenia na czas"
+
 
         let MathOnTimeDiv1 = document.createElement("div");
         MathOnTimeDiv1.classList.add("MathOnTimeDiv1");
@@ -476,6 +488,8 @@ function displayData(dataArray, container){
 
         let Remember2NumberDiv = document.createElement("div");
         Remember2NumberDiv.classList.add("Remember2NumberDiv");
+        Remember2NumberDiv.innerHTML = "Zapamiętywanie co drugiego numeru"
+
         for (let i = 0; i < 10; i++) {
             window[ 'p' + i ] = document.createElement("p");
             eval('p' + i + '.innerHTML= element.Remember2Number.Column'+i+'.Number0+" " +element.Remember2Number.Column'+i+'.Number1+" " +element.Remember2Number.Column'+i+'.Number2+" " +element.Remember2Number.Column'+i+'.Number3+" " +element.Remember2Number.Column'+i+'.Number4+"\<\/br\>"+ element.Remember2Number.Column'+ i+'.column')
@@ -485,7 +499,8 @@ function displayData(dataArray, container){
 
 
         let SudokuDiv = document.createElement("div");
-        SudokuDiv.innerHTML= "Czas: " + element.Sudoku.time;
+        SudokuDiv.classList.add("SudokuDiv");
+        SudokuDiv.innerHTML= "Sudoku\<\/br\>Czas: " + element.Sudoku.time;
         container.appendChild(SudokuDiv);
     });
 }
