@@ -1003,7 +1003,7 @@ function Remember2Number(){
 
         window[ 'timer' ] = document.createElement("p");
         window[ 'timer' ].innerHTML =  "0" + ":0" + Math.floor((fadeTime % (1000 * 60)) / 1000);
-        Remember2NumberForm.appendChild(window[ 'timer' ]);
+        Game1.appendChild(window[ 'timer' ]);
         window[ 'timer' ].style.cssText = `
         font-size: 25px;
         text-align: right;
@@ -1397,7 +1397,7 @@ function MathOnTime() {
 
         window[ 'timer' ] = document.createElement("p");
         window[ 'timer' ].innerHTML =  "00" + ":" + "00";
-        MathOnTimeForm.appendChild(window[ 'timer' ]);
+        Game1.appendChild(window[ 'timer' ]);
         window[ 'timer' ].style.cssText = `
                 font-size: 25px;
                 text-align: right;
@@ -1639,7 +1639,7 @@ function FindWords() {
         
         window[ 'timer' ] = document.createElement("p");
         window[ 'timer' ].innerHTML =  "00" + ":" + "00";
-        FindWordsForm.appendChild(window[ 'timer' ]);
+        Game1.appendChild(window[ 'timer' ]);
         window[ 'timer' ].style.cssText = `
         font-size: 25px;
         text-align: right;
@@ -1852,10 +1852,6 @@ function Sudoku() {
         window[ 'timer' ] = document.createElement("p");
         window[ 'timer' ].innerHTML =  "00" + ":" + "00";
         window[ 'div' ].appendChild(window[ 'timer' ]);
-        window[ 'timer' ].style.cssText = `
-        font-size: 25px;
-        text-align: right;
-        `;
 
         window[ 'tabele' ] = document.createElement("table");
         window[ 'div' ].appendChild(window[ 'tabele' ]);
