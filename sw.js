@@ -42,7 +42,6 @@ self.addEventListener('fetch', (e) => {
   }
 
 e.respondWith((async () => {
-  console.log(caches);
   const request = await caches.match(e.request);
   console.log(`[Service Worker] Fetching resource: ${e.request.url}`);
   if (request) {
@@ -59,7 +58,7 @@ e.respondWith((async () => {
 
 self.addEventListener("activate", (e) => {
   e.waitUntil(self.registration?.navigationPreload.enable());
-  console.log(caches);
+  console.log("caches");
   e.waitUntil(
     caches.keys().then((keyList) => {
       return Promise.all(
