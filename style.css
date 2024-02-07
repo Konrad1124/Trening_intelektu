@@ -388,7 +388,7 @@ h1 {
 }
 
 .sequence {
-    height: 350px;
+    height: 500px;
     padding: 10px;
 }
 
@@ -397,6 +397,8 @@ h1 {
     text-align: left;
     cursor: pointer;
     font-size: larger;
+    font-family: monospace;
+    font-kerning: auto;
 }
 
 .linkNotClicked {
