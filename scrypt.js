@@ -781,8 +781,13 @@ function ComparingSymbols() {
         let ComparingSymbolsForm = document.createElement("form");
         ComparingSymbolsForm.id="Compar";
         window[ 'timer' ] = document.createElement("p");
-        window[ 'timer' ].innerHTML =  0 + ":" + 0;
+        window[ 'timer' ].innerHTML =  "00" + ":" + "00";
         ComparingSymbolsForm.appendChild(window[ 'timer' ]);
+        window[ 'timer' ].style.cssText = `
+        font-size: 25px;
+        text-align: right;
+        `;
+
         ComparingSymbol.forEach((element,i) => {
             window[ 'div' + i ] = document.createElement("div");
             window[ 'div' + i ].classList.add("line");
@@ -997,8 +1002,12 @@ function Remember2Number(){
         
 
         window[ 'timer' ] = document.createElement("p");
-        window[ 'timer' ].innerHTML =  0 + ":" + Math.floor((fadeTime % (1000 * 60)) / 1000);
+        window[ 'timer' ].innerHTML =  "0" + ":0" + Math.floor((fadeTime % (1000 * 60)) / 1000);
         Remember2NumberForm.appendChild(window[ 'timer' ]);
+        window[ 'timer' ].style.cssText = `
+        font-size: 25px;
+        text-align: right;
+        `;
 
         submitAnswer = document.createElement("button");
         submitAnswer.style.visibility = 'hidden';
@@ -1186,8 +1195,12 @@ function Remember2Number(){
                 iteration++;
                 
                 window[ 'timer' ] = document.createElement("p");
-                window[ 'timer' ].innerHTML =  0 + ":" + Math.floor((fadeTime % (1000 * 60)) / 1000);
+                window[ 'timer' ].innerHTML =  "00" + ": 0" + Math.floor((fadeTime % (1000 * 60)) / 1000);
                 Remember2NumberForm.appendChild(window[ 'timer' ]);
+                window[ 'timer' ].style.cssText = `
+                font-size: 25px;
+                text-align: right;
+                `;
 
                 window[ 'div' + iteration ] = document.createElement("div");
                 window[ 'div' + iteration ].classList.add("exercise");
@@ -1382,8 +1395,12 @@ function MathOnTime() {
         MathOnTimeForm.id="Compar";
 
         window[ 'timer' ] = document.createElement("p");
-        window[ 'timer' ].innerHTML =  0 + ":" + 0;
+        window[ 'timer' ].innerHTML =  "00" + ":" + "00";
         MathOnTimeForm.appendChild(window[ 'timer' ]);
+        window[ 'timer' ].style.cssText = `
+                font-size: 25px;
+                text-align: right;
+                `;
 
         window[ 'div' ] = document.createElement("div");
         window[ 'div' ].classList.add("row");
@@ -1620,8 +1637,12 @@ function FindWords() {
 
         
         window[ 'timer' ] = document.createElement("p");
-        window[ 'timer' ].innerHTML =  0 + ":" + 0;
+        window[ 'timer' ].innerHTML =  "00" + ":" + "00";
         FindWordsForm.appendChild(window[ 'timer' ]);
+        window[ 'timer' ].style.cssText = `
+        font-size: 25px;
+        text-align: right;
+        `;
 
 
         window[ 'div' ] = document.createElement("div");
@@ -1828,8 +1849,12 @@ function Sudoku() {
         window[ 'p' ].innerHTML= JSON.stringify(tempArray).replaceAll(/[\[\]",]/g, "");
         
         window[ 'timer' ] = document.createElement("p");
-        window[ 'timer' ].innerHTML =  0 + ":" + 0;
+        window[ 'timer' ].innerHTML =  "00" + ":" + "00";
         window[ 'div' ].appendChild(window[ 'timer' ]);
+        window[ 'timer' ].style.cssText = `
+        font-size: 25px;
+        text-align: right;
+        `;
 
         window[ 'tabele' ] = document.createElement("table");
         window[ 'div' ].appendChild(window[ 'tabele' ]);
