@@ -75,6 +75,7 @@ self.addEventListener("activate", (e) => {
 
 self.addEventListener("sync", (event) => {
   if (event.tag === "event1") {
+    console.log("event1")
     event.waitUntil(doSomething());
   }
 });
