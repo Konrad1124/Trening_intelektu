@@ -1,6 +1,6 @@
 var GHPATH = '/Trening_intelektu';
 var APP_PREFIX = 'TI_';
-var VERSION = 'Beta14';
+var VERSION = 'Beta13';
  
 var URLS = [    
   `${GHPATH}/`,
@@ -25,38 +25,51 @@ var URLS = [
 ]
 
 self.addEventListener("install", (e) => {
-  async function onInstall() {
-    const cache = await caches
-      .open(VERSION);
-    return await cache.addAll(URLS);
-  }
- 
-  e.waitUntil(onInstall(e));
+  console.log("[Service Worker] Install");
+  e.waitUntil((async () => {
+    const cache = await caches.open(VERSION);
+    console.log('[Service Worker] Caching all: app shell and content');
+    await cache.addAll(URLS);
+  })());
 });
 
 self.addEventListener('fetch', (e) => {
 
-  e.respondWith(
-    caches.match(e.request).then((response) => {
-      if (response) {
-        return response;
-      }
-      return fetch(e.request);
-    })
-  );
+  if (!(
+     e.request.url.startsWith('http:') || e.request.url.startsWith('https:')
+  )) {
+      return; 
+  }
+
+e.respondWith((async () => {
+  const request = await caches.match(e.request);
+  console.log(`[Service Worker] Fetching resource: ${e.request.url}`);
+  if (request) {
+    return request;
+  }
+  const response = await fetch(e.request);
+  const cache = await caches.open(VERSION);
+  console.log(`[Service Worker] Caching new resource: ${e.request.url}`);
+  cache.put(e.request, response.clone());
+  return response;
+})());
 
 });
 
 self.addEventListener("activate", (e) => {
-  async function onActivate() {
-    console.log(`active`);
-    const keys = await caches.keys();
-    return await Promise.all(
-      keys.filter((key) => key !== VERSION).map((key_1) => caches.delete(key_1))
-    );
-  }
- 
-  e.waitUntil(onActivate(e));
+  console.log(`active`);
+  e.waitUntil(
+    caches.keys().then((keyList) => {
+      return Promise.all(
+        keyList.map((key) => {
+          if (key === VERSION) {
+            return;
+          }
+          return caches.delete(key);
+        }),
+      );
+    }),
+  );
 });
 
 
