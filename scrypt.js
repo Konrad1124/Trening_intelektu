@@ -1002,6 +1002,7 @@ function Remember2Number(){
         
 
         window[ 'timer' ] = document.createElement("p");
+        window[ 'timer' ].id="timer";
         window[ 'timer' ].innerHTML =  "00" + ":0" + Math.floor((fadeTime % (1000 * 60)) / 1000);
         Game1.appendChild(window[ 'timer' ]);
         window[ 'timer' ].style.cssText = `
@@ -1031,78 +1032,78 @@ function Remember2Number(){
             var now = new Date().getTime();
             var distance = time - now;
           
-            var minutes ="00"
-            var seconds ="00"
+            var minutes ="00";
+            var seconds ="00";
             minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             seconds = Math.floor((distance % (1000 * 60)) / 1000);
             switch (minutes) {
                 case -1:
-                    minutes="00"
+                    minutes="00";
                     break;
                 case 0:
-                    minutes="00"
+                    minutes="00";
                     break;
                 case 1:
-                    minutes="01"
+                    minutes="01";
                     break;
                 case 2:
-                    minutes="02"
+                    minutes="02";
                     break;
                 case 3:
-                    minutes="03"
+                    minutes="03";
                     break;
                 case 4:
-                    minutes="04"
+                    minutes="04";
                     break;
                 case 5:
-                    minutes="05"
+                    minutes="05";
                     break;
                 case 6:
-                    minutes="06"
+                    minutes="06";
                     break;
                 case 7:
-                    minutes="07"
+                    minutes="07";
                     break;
                 case 8:
-                    minutes="08"
+                    minutes="08";
                     break;
                 case 9:
-                    minutes="09"
+                    minutes="09";
                     break;
             }
             switch (seconds) {
                 case -1:
-                    minutes="00"
+                    minutes="00";
                     break;
                 case 0:
-                    seconds="00"
+                    seconds="00";
                     break;
                 case 1:
-                    seconds="01"
+                    seconds="01";
                     break;
                 case 2:
-                    seconds="02"
+                    seconds="02";
                     break;
                 case 3:
-                    seconds="03"
+                    seconds="03";
                     break;
                 case 4:
-                    seconds="04"
+                    seconds="04";
                     break;
                 case 5:
-                    seconds="05"
+                    seconds="05";
                     break;
                 case 6:
-                    seconds="06"
+                    seconds="06";
                     break;
                 case 7:
-                    seconds="07"
+                    seconds="07";
                     break;
                 case 8:
-                    seconds="08"
+                    seconds="08";
                     break;
                 case 9:
-                    seconds="09"
+                    seconds="09";
                     break;
             }
 
@@ -1195,7 +1196,7 @@ function Remember2Number(){
 
                 iteration++;
                 
-                
+                window[ 'timer' ]=document.getElementById("timer")
                 window[ 'timer' ].innerHTML =  "00" + ": 0" + Math.floor((fadeTime % (1000 * 60)) / 1000);
                 Game1.appendChild(window[ 'timer' ]);
                 window[ 'timer' ].style.cssText = `
@@ -1227,72 +1228,72 @@ function Remember2Number(){
                     seconds = Math.floor((distance % (1000 * 60)) / 1000);
                     switch (minutes) {
                         case -1:
-                            minutes="00"
+                            minutes="00";
                             break;
                         case 0:
-                            minutes="00"
+                            minutes="00";
                             break;
                         case 1:
-                            minutes="01"
+                            minutes="01";
                             break;
                         case 2:
-                            minutes="02"
+                            minutes="02";
                             break;
                         case 3:
-                            minutes="03"
+                            minutes="03";
                             break;
                         case 4:
-                            minutes="04"
+                            minutes="04";
                             break;
                         case 5:
-                            minutes="05"
+                            minutes="05";
                             break;
                         case 6:
-                            minutes="06"
+                            minutes="06";
                             break;
                         case 7:
-                            minutes="07"
+                            minutes="07";
                             break;
                         case 8:
-                            minutes="08"
+                            minutes="08";
                             break;
                         case 9:
-                            minutes="09"
+                            minutes="09";
                             break;
                     }
                     switch (seconds) {
                         case -1:
-                            minutes="00"
+                            minutes="00";
                             break;
                         case 0:
-                            seconds="00"
+                            seconds="00";
                             break;
                         case 1:
-                            seconds="01"
+                            seconds="01";
                             break;
                         case 2:
-                            seconds="02"
+                            seconds="02";
                             break;
                         case 3:
-                            seconds="03"
+                            seconds="03";
                             break;
                         case 4:
-                            seconds="04"
+                            seconds="04";
                             break;
                         case 5:
-                            seconds="05"
+                            seconds="05";
                             break;
                         case 6:
-                            seconds="06"
+                            seconds="06";
                             break;
                         case 7:
-                            seconds="07"
+                            seconds="07";
                             break;
                         case 8:
-                            seconds="08"
+                            seconds="08";
                             break;
                         case 9:
-                            seconds="09"
+                            seconds="09";
                             break;
                     }
 
