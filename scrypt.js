@@ -1750,6 +1750,7 @@ function FindWords() {
         submitAnswer.classList.add("Buttons");
         submitAnswer.onclick = function FindWordsResults() {
             time=new Date().getTime()-time.getTime();
+            clearInterval(stoper);
             console.log(time)
             gameData.FindWords={time: `${time}`}
             console.log(wordFinded+" / "+temp)
