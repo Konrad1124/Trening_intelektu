@@ -8,6 +8,9 @@ if ('serviceWorker' in navigator) {
   czas gry ograniczony do 15 min
   
     */
+  navigator.serviceWorker.ready.then((swRegistration) => {
+    return swRegistration.sync.register("event1");
+  });
 //buttons------------------------------------------------------------------------------------------
 const Start = document.getElementById("Start");
 const Results = document.getElementById("Results");

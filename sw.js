@@ -7,8 +7,21 @@ var URLS = [
   `${GHPATH}/index.html`,
   `${GHPATH}/styles.css`,
   `${GHPATH}/scrypt.js`,
-  `${GHPATH}/icon.ico`,
-  `${GHPATH}/styles.css`
+  `${GHPATH}/worker.js`,
+  `${GHPATH}assets/begin-game.png`,
+  `${GHPATH}assets/come-back.png`,
+  `${GHPATH}assets/delate-file.png`,
+  `${GHPATH}assets/exit.png`,
+  `${GHPATH}assets/my-results.png`,
+  `${GHPATH}assets/start-intellect-exercise.png`,
+  `${GHPATH}assets/training-of-intellect.png`,
+  `${GHPATH}assets/trening-of-mind48.png`,
+  `${GHPATH}assets/trening-of-mind72.png`,
+  `${GHPATH}assets/trening-of-mind96.png`,
+  `${GHPATH}assets/trening-of-mind144.png`,
+  `${GHPATH}assets/trening-of-mind168.png`,
+  `${GHPATH}assets/trening-of-mind192.png`,
+  `${GHPATH}assets/trening-of-mind512.png`,
 ]
 
 self.addEventListener("install", (e) => {
@@ -40,6 +53,7 @@ e.respondWith((async () => {
   cache.put(e.request, response.clone());
   return response;
 })());
+
 });
 
 self.addEventListener("activate", (e) => {
@@ -56,4 +70,11 @@ self.addEventListener("activate", (e) => {
       );
     }),
   );
+});
+
+
+self.addEventListener("sync", (event) => {
+  if (event.tag === "event1") {
+    event.waitUntil(doSomething());
+  }
 });
