@@ -1,7 +1,7 @@
-var APP_PREFIX = 'TI_';
 var VERSION = 'Beta19';
  
-var URLS = [ 
+var URLS = [    
+  ``,
   `index.html`,
   `style.css`,
   `scrypt.js`,
