@@ -28,7 +28,7 @@ self.addEventListener("install", (e) => {
   async function onInstall() {
     console.log('[Service Worker] Caching all: app shell and content');
     const cache = await caches
-      .open("static");
+      .open(VERSION);
     return await cache.addAll(URLS);
   }
  
