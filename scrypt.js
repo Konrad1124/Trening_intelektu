@@ -1033,7 +1033,7 @@ function Remember2Number(){
           
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
+            console.log(seconds)
             switch (minutes) {
                 case -1:
                     minutes="00"
@@ -1223,7 +1223,7 @@ function Remember2Number(){
                   
                     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                
+                    console.log(seconds)
                     switch (minutes) {
                         case -1:
                             minutes="00"
