@@ -43,7 +43,7 @@ const filesUpdate = cache => {
 self.addEventListener('fetch', (e) => {
   
   e.respondWith(
-    caches.match(e.request).then((response) => {
+    caches.match(e.request).then(async (response) => {
       if (response) {
         return response;
       }
