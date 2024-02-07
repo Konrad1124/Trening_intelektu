@@ -56,7 +56,7 @@ e.respondWith((async () => {
 
 });
 
-self.addEventListener("activate", (e) => {
+self.addEventListener('activate', (e) => {
   e.waitUntil(self.registration.navigationPreload.enable());
   console.log("caches");
   e.waitUntil(
