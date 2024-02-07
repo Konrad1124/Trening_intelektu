@@ -8,9 +8,7 @@ if ('serviceWorker' in navigator) {
   czas gry ograniczony do 15 min
   
     */
-  navigator.serviceWorker.ready.then((swRegistration) => {
-    return swRegistration.sync.register("event1");
-  });
+  
 //buttons------------------------------------------------------------------------------------------
 const Start = document.getElementById("Start");
 const Results = document.getElementById("Results");
@@ -358,15 +356,15 @@ DelateFile.addEventListener('click', async () => {
 
 //functions----------------------------------------------------------------------------------------
 window.onload = async function() {
+    navigator.serviceWorker.ready.then((swRegistration) => {
+        return swRegistration.sync.register("event1");
+      });
     console.log("ss")
     var width=1300;
     var height=1000;
     window.moveTo((window.screen.availwidth-width)/2,(window.screen.availheight-height)/2);
     window.resizeTo(width,height);
-    if(!(navigator.userAgent.indexOf("Chrome") != -1) || (navigator.userAgent.indexOf("OPR") != -1)){
-        console.log("nie chrome")
-        alert("jeśli chcesz zainastalować aplikacje jako osobnę alikoacje, użyj przeglądarki Chrome.")
-    }
+    
     Root = await navigator.storage.getDirectory()
     if(typeof(Worker) !== "undefined") {
         if(typeof(w) == "undefined") {
@@ -413,6 +411,10 @@ window.onload = async function() {
         }
         Game1.appendChild(showFile);
         Game1.appendChild(backToFileSelect);
+        if(!(navigator.userAgent.indexOf("Chrome") != -1) || (navigator.userAgent.indexOf("OPR") != -1)){
+            console.log("nie chrome")
+            alert("jeśli chcesz zainastalować aplikacje jako osobnę alikoacje, użyj przeglądarki Chrome.")
+        }
     }, false);
 }
 
