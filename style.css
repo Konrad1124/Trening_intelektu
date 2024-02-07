@@ -397,8 +397,8 @@ h1 {
     text-align: left;
     cursor: pointer;
     font-size: larger;
-    font-family: monospace;
-    font-kerning: auto;
+    font-family: "Open Sans", sans-serif, monospace;
+    letter-spacing: 0.3rem;
 }
 
 .linkNotClicked {
