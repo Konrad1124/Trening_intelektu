@@ -41,12 +41,14 @@ const filesUpdate = cache => {
 };
 
 self.addEventListener('fetch', (e) => {
-
-  if (!(
-     e.request.url.startsWith('http:') || e.request.url.startsWith('https:')
-  )) {
-      return; 
-  }
+  e.waitUntil(()=>{
+    if (!(
+      e.request.url.startsWith('http:') || e.request.url.startsWith('https:')
+   )) {
+       return; 
+   }
+  })
+  
 
 e.respondWith((async () => {
   const request = await caches.match(e.request);
