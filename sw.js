@@ -43,11 +43,6 @@ const filesUpdate = cache => {
 self.addEventListener('fetch', (e) => {
   
 e.respondWith((async () => {
-  if (!(
-    e.request.url.startsWith('http:') || e.request.url.startsWith('https:')
- )) {
-     return; 
- }
   const request = await caches.match(e.request);
   console.log(`[Service Worker] Fetching resource: ${e.request.url}`);
   if (request) {
