@@ -240,6 +240,7 @@ h1 {
 
 .paragraph1 {
     font-family: monospace;
+    letter-spacing: 0.05rem;
     position: absolute;
     left: 20%;
     top: 10%;
@@ -257,6 +258,7 @@ h1 {
 
 .paragraph3 {
     font-family: monospace;
+    letter-spacing: 0.05rem;
     position: absolute;
     left: 80%;
     top: 10%;
@@ -398,7 +400,7 @@ h1 {
     cursor: pointer;
     font-size: larger;
     font-family: "Open Sans", sans-serif, monospace;
-    letter-spacing: 0.3rem;
+    letter-spacing: 0.05rem;
 }
 
 .linkNotClicked {
