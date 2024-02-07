@@ -367,11 +367,13 @@ h1 {
 }
 
 .column {
-    width: 260px;
+    width: 250px;
     margin: 10px;
     text-align: center;
     line-height: 25px;
+    padding: 2px;
 }
+
 .result {
     background-color: var(--color-main-darker);
     border-radius: 12px;
