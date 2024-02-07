@@ -26,7 +26,6 @@ var URLS = [
 
 self.addEventListener("install", (e) => {
   async function onInstall() {
-    console.log('[Service Worker] Caching all: app shell and content');
     const cache = await caches
       .open(VERSION);
     return await cache.addAll(URLS);
@@ -53,7 +52,7 @@ self.addEventListener("activate", (e) => {
     console.log(`active`);
     const keys = await caches.keys();
     return await Promise.all(
-      keys.filter((key) => key !== "static").map((key_1) => caches.delete(key_1))
+      keys.filter((key) => key !== VERSION).map((key_1) => caches.delete(key_1))
     );
   }
  
