@@ -695,7 +695,7 @@ function displayData(dataArray, container){
         font-size: 25px;
         text-align: center;
         `;
-        SudokuDiv.innerHTML= "Sudoku\<\/br\>"
+        SudokuDiv.innerHTML= "Sudoku"
         window[ 'p' ] = document.createElement("p");
         window[ 'p' ].innerHTML="Czas: " + element.Sudoku.time;
         window[ 'p' ].style.cssText = `
