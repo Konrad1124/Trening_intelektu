@@ -57,7 +57,6 @@ e.respondWith((async () => {
 });
 
 self.addEventListener("activate", (e) => {
-  e.waitUntil(deleteOldCaches());
   console.log(`active`);
   e.waitUntil(
     caches.keys().then((keyList) => {
@@ -72,15 +71,3 @@ self.addEventListener("activate", (e) => {
     }),
   );
 });
-
-
-const deleteCache = async (key) => {
-  await caches.delete(key);
-};
-
-const deleteOldCaches = async () => {
-  const cacheKeepList = VERSION;
-  const keyList = await caches.keys();
-  const cachesToDelete = keyList.filter((key) => !cacheKeepList.includes(key));
-  await Promise.all(cachesToDelete.map(deleteCache));
-};
