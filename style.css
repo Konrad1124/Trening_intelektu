@@ -240,7 +240,8 @@ h1 {
 
 .paragraph1 {
     font-family: monospace;
-    letter-spacing: 0.01rem;
+    text-align: center;
+    overflow: visible;
     position: absolute;
     left: 20%;
     top: 10%;
@@ -258,7 +259,8 @@ h1 {
 
 .paragraph3 {
     font-family: monospace;
-    letter-spacing: 0.01rem;
+    text-align: center;
+    overflow: visible;
     position: absolute;
     left: 80%;
     top: 10%;
