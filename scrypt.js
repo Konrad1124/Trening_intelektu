@@ -1031,9 +1031,7 @@ function Remember2Number(){
         var stoper = setInterval(function() {
             var now = new Date().getTime();
             var distance = time - now;
-            if (distance < 0) {
-                clearInterval(stoper);
-              }
+            
             var minutes ="00";
             var seconds ="00";
             minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -1110,7 +1108,6 @@ function Remember2Number(){
             }
 
             window[ 'timer' ].innerHTML =  minutes + ":" + seconds;
-          
         }, 1000);
 
 
@@ -1126,6 +1123,7 @@ function Remember2Number(){
                 window[ 'div' + iteration ].appendChild(window[ 'input' + inputNumber ]);
                 submitAnswer.style.visibility = 'visible';
                 window[ 'timer' ].setAttribute("hidden", "hidden");
+                clearInterval(stoper);
             }, fadeTime);
             
             
@@ -1222,9 +1220,7 @@ function Remember2Number(){
                 var stoper = setInterval(function() {
                     var now = new Date().getTime();
                     var distance = time - now;
-                    if (distance < 0) {
-                        clearInterval(stoper);
-                      }
+                    
                     var minutes ="00"
                     var seconds ="00"
                     minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -1317,6 +1313,7 @@ function Remember2Number(){
                         window[ 'div' + iteration ].appendChild(window[ 'input' + inputNumber ]);
                         submitAnswer.style.visibility = 'visible';
                         window[ 'timer' ].setAttribute("hidden", "hidden");
+                        clearInterval(stoper);
                     }, fadeTime);
                     
                     
