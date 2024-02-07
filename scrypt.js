@@ -1195,7 +1195,7 @@ function Remember2Number(){
 
                 iteration++;
                 
-                window[ 'timer' ] = document.createElement("p");
+                
                 window[ 'timer' ].innerHTML =  "00" + ": 0" + Math.floor((fadeTime % (1000 * 60)) / 1000);
                 Game1.appendChild(window[ 'timer' ]);
                 window[ 'timer' ].style.cssText = `
