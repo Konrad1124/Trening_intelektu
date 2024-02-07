@@ -25,12 +25,11 @@ var URLS = [
 ]
 
 self.addEventListener("install", (e) => {
-  function onInstall() {
-    return caches
-      .open("static")
-      .then((cache) =>
-        cache.addAll(URLS)
-      );
+  async function onInstall() {
+    console.log('[Service Worker] Caching all: app shell and content');
+    const cache = await caches
+      .open("static");
+    return await cache.addAll(URLS);
   }
  
   e.waitUntil(onInstall(e));
@@ -41,7 +40,6 @@ self.addEventListener('fetch', (e) => {
   e.respondWith(
     caches.match(e.request).then((response) => {
       if (response) {
-        //entry found in cache
         return response;
       }
       return fetch(e.request);
@@ -51,12 +49,12 @@ self.addEventListener('fetch', (e) => {
 });
 
 self.addEventListener("activate", (e) => {
-  function onActivate() {
-    return caches.keys().then((keys) => {
-      return Promise.all(
-        keys.filter((key) => key !== "static").map((key) => caches.delete(key))
-      );
-    });
+  async function onActivate() {
+    console.log(`active`);
+    const keys = await caches.keys();
+    return await Promise.all(
+      keys.filter((key) => key !== "static").map((key_1) => caches.delete(key_1))
+    );
   }
  
   e.waitUntil(onActivate(e));
