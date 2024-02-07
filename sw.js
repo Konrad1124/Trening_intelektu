@@ -29,9 +29,18 @@ self.addEventListener("install", (e) => {
   e.waitUntil((async () => {
     const cache = await caches.open(VERSION);
     console.log('[Service Worker] Caching all: app shell and content');
-    await cache.addAll(URLS);
+    filesUpdate()
+
   })());
 });
+
+const filesUpdate = cache => {
+  const stack = [];
+  URLS.forEach(file => stack.push(
+      cache.add(file).catch(_=>console.error(`can't load ${file} to cache`))
+  ));
+  return Promise.all(stack);
+};
 
 self.addEventListener('fetch', (e) => {
 
