@@ -42,18 +42,14 @@ const filesUpdate = cache => {
 
 self.addEventListener('fetch', (e) => {
   
-e.respondWith((async () => {
-  const request = await caches.match(e.request);
-  console.log(`[Service Worker] Fetching resource: ${e.request.url}`);
-  if (request) {
-    return request;
-  }
-  const response = await fetch(e.request);
-  const cache = await caches.open(VERSION);
-  console.log(`[Service Worker] Caching new resource: ${e.request.url}`);
-  cache.put(e.request, response.clone());
-  return response;
-})());
+  e.respondWith(
+    caches.match(e.request).then((response) => {
+      if (response) {
+        return response;
+      }
+      return fetch(e.request);
+    })
+  );
 
 });
 
