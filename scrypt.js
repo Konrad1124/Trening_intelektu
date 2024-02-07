@@ -782,7 +782,7 @@ function ComparingSymbols() {
         ComparingSymbolsForm.id="Compar";
         window[ 'timer' ] = document.createElement("p");
         window[ 'timer' ].innerHTML =  "00" + ":" + "00";
-        ComparingSymbolsForm.appendChild(window[ 'timer' ]);
+        Game1.appendChild(window[ 'timer' ]);
         window[ 'timer' ].style.cssText = `
         font-size: 25px;
         text-align: right;
