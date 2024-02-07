@@ -75,5 +75,5 @@ self.addEventListener('activate', (e) => {
     );
   }
  
-  e.waitUntil(onActivate(eveent));
+  e.waitUntil(onActivate(e));
 });
