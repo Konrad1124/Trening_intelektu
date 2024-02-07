@@ -563,6 +563,7 @@ function chenged(x,i,j, stoper) {
 }
 
 function displayData(dataArray, container){
+    dataArray.reverse();
     dataArray.forEach((element,i) => {
        let gameDate = document.createElement("p");
         gameDate.innerHTML= "Data: " + element.time
@@ -1426,7 +1427,7 @@ function MathOnTime() {
                 window[ 'input' + i ] = document.createElement("input");
                 window[ 'input' + i ].value="0"
                 window[ 'input' + i ].type = "number";
-                window[ 'input' + i ].id = `number${i}`;
+                window[ 'input' + i ].id = `number${i}i`;
                 window[ 'input' + i ].name= "numbers";
                 window[ 'input' + i ].classList.add("result");
                 window[ 'div' + `column${column}`].appendChild(window[ 'input' + i ]);
@@ -1438,7 +1439,7 @@ function MathOnTime() {
                 window[ 'input' + i ] = document.createElement("input");
                 window[ 'input' + i ].value="0"
                 window[ 'input' + i ].type = "number";
-                window[ 'input' + i ].id = `number${i}`;
+                window[ 'input' + i ].id = `number${i}i`;
                 window[ 'input' + i ].name= "numbers";
                 window[ 'input' + i ].classList.add("result");
                 window[ 'div' + `column${column}`].appendChild(window[ 'input' + i ]);
