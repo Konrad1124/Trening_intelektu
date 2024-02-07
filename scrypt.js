@@ -1196,11 +1196,7 @@ function Remember2Number(){
                 window[ 'timer' ]=document.getElementById("timer")
                 window[ 'timer' ].removeAttribute("hidden")
                 window[ 'timer' ].innerHTML =  "00" + ": 0" + Math.floor((fadeTime % (1000 * 60)) / 1000);
-                Game1.appendChild(window[ 'timer' ]);
-                window[ 'timer' ].style.cssText = `
-                font-size: 25px;
-                text-align: right;
-                `;
+    
 
                 window[ 'div' + iteration ] = document.createElement("div");
                 window[ 'div' + iteration ].classList.add("exercise");
