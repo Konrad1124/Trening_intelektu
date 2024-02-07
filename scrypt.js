@@ -1031,9 +1031,10 @@ function Remember2Number(){
             var now = new Date().getTime();
             var distance = time - now;
           
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            console.log(seconds)
+            var minutes ="00"
+            var seconds ="00"
+            minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            seconds = Math.floor((distance % (1000 * 60)) / 1000);
             switch (minutes) {
                 case -1:
                     minutes="00"
@@ -1220,10 +1221,10 @@ function Remember2Number(){
                 var stoper = setInterval(function() {
                     var now = new Date().getTime();
                     var distance = time - now;
-                  
-                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                    console.log(seconds)
+                    var minutes ="00"
+                    var seconds ="00"
+                    minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    seconds = Math.floor((distance % (1000 * 60)) / 1000);
                     switch (minutes) {
                         case -1:
                             minutes="00"
