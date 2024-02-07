@@ -356,10 +356,6 @@ DelateFile.addEventListener('click', async () => {
 
 //functions----------------------------------------------------------------------------------------
 window.onload = async function() {
-    navigator.serviceWorker.ready.then((swRegistration) => {
-        console.log("event1")
-        return swRegistration.sync.register("event1");
-      });
     console.log("ss")
     var width=1300;
     var height=1000;
