@@ -1,11 +1,9 @@
-var GHPATH = 'Trening_intelektu';
 var APP_PREFIX = 'TI_';
-var VERSION = 'Beta18';
+var VERSION = 'Beta19';
  
-var URLS = [    
-  ``,
+var URLS = [ 
   `index.html`,
-  `styles.css`,
+  `style.css`,
   `scrypt.js`,
   `worker.js`,
   `assets/begin-game.png`,
