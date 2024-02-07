@@ -1,4 +1,4 @@
-var GHPATH = '/Trening_intelektu';
+var GHPATH = 'Trening_intelektu';
 var APP_PREFIX = 'TI_';
 var VERSION = 'Beta18';
  
@@ -8,20 +8,20 @@ var URLS = [
   `${GHPATH}/styles.css`,
   `${GHPATH}/scrypt.js`,
   `${GHPATH}/worker.js`,
-  `${GHPATH}assets/begin-game.png`,
-  `${GHPATH}assets/come-back.png`,
-  `${GHPATH}assets/delate-file.png`,
-  `${GHPATH}assets/exit.png`,
-  `${GHPATH}assets/my-results.png`,
-  `${GHPATH}assets/start-intellect-exercise.png`,
-  `${GHPATH}assets/training-of-intellect.png`,
-  `${GHPATH}assets/trening-of-mind48.png`,
-  `${GHPATH}assets/trening-of-mind72.png`,
-  `${GHPATH}assets/trening-of-mind96.png`,
-  `${GHPATH}assets/trening-of-mind144.png`,
-  `${GHPATH}assets/trening-of-mind168.png`,
-  `${GHPATH}assets/trening-of-mind192.png`,
-  `${GHPATH}assets/trening-of-mind512.png`,
+  `${GHPATH}/assets/begin-game.png`,
+  `${GHPATH}/assets/come-back.png`,
+  `${GHPATH}/assets/delate-file.png`,
+  `${GHPATH}/assets/exit.png`,
+  `${GHPATH}/assets/my-results.png`,
+  `${GHPATH}/assets/start-intellect-exercise.png`,
+  `${GHPATH}/assets/training-of-intellect.png`,
+  `${GHPATH}/assets/trening-of-mind48.png`,
+  `${GHPATH}/assets/trening-of-mind72.png`,
+  `${GHPATH}/assets/trening-of-mind96.png`,
+  `${GHPATH}/assets/trening-of-mind144.png`,
+  `${GHPATH}/assets/trening-of-mind168.png`,
+  `${GHPATH}/assets/trening-of-mind192.png`,
+  `${GHPATH}/assets/trening-of-mind512.png`,
 ]
 
 self.addEventListener("install", (e) => {
