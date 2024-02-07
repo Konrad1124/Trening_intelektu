@@ -59,16 +59,12 @@ e.respondWith((async () => {
 self.addEventListener('activate', (e) => {
   e.waitUntil(self.registration.navigationPreload.enable());
   console.log("caches");
-  e.waitUntil(
-    caches.keys().then((keyList) => {
-      return Promise.all(
-        keyList.map((key) => {
-          if (key === VERSION) {
-            return;
-          }
-          return caches.delete(key);
-        }),
-      );
-    }),
-  );
+  async function onActivate() {
+    const keys = await caches.keys();
+    return await Promise.all(
+      keys.filter((key) => key !== VERSION).map((key_1) => caches.delete(key_1))
+    );
+  }
+ 
+  e.waitUntil(onActivate(eveent));
 });
