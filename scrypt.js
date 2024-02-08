@@ -407,13 +407,15 @@ window.onload = async function() {
                 gameData={}
             }
         }
+        
         Game1.appendChild(showFile);
         Game1.appendChild(backToFileSelect);
-        if(!(navigator.userAgent.indexOf("Chrome") != -1) || (navigator.userAgent.indexOf("OPR") != -1)){
-            //console.log("nie chrome")
-            alert("jeśli chcesz zainastalować aplikacje jako osobnę alikoacje, użyj przeglądarki Chrome.")
-        }
+        
     }, false);
+    if(!(navigator.userAgent.indexOf("Chrome") != -1) || (navigator.userAgent.indexOf("OPR") != -1)){
+        //console.log("nie chrome")
+        alert("Jeśli chcesz zainastalować aplikacje jako osobnę alikoacje, użyj przeglądarki Chrome.")
+    }
 }
 
 for(const check of checkbox){
