@@ -882,7 +882,7 @@ function displayData(dataArray, container){
 
         for (let i = 0; i < 10; i++) {
             window[ 'p' + i ] = document.createElement("p");
-            eval('p' + i + '.innerHTML= element.Remember2Number.Column'+i+'.Number0+" " +element.Remember2Number.Column'+i+'.Number1+" " +element.Remember2Number.Column'+i+'.Number2+" " +element.Remember2Number.Column'+i+'.Number3+" " +element.Remember2Number.Column'+i+'.Number4+"\<\/br\>\<\/br\>\<\/br\>"+ element.Remember2Number.Column'+ i+'.column')
+            eval('p' + i + '.innerHTML= element.Remember2Number.Column'+i+'.Number0+" " +element.Remember2Number.Column'+i+'.Number1+" " +element.Remember2Number.Column'+i+'.Number2+" " +element.Remember2Number.Column'+i+'.Number3+" " +element.Remember2Number.Column'+i+'.Number4+"\<\/br\>"+ element.Remember2Number.Column'+ i+'.column+"\<\/br\>\<\/br\>\<\/br\>"')
             Remember2NumberDiv.appendChild(window[ 'p' + i ]);
         }
         container.appendChild(Remember2NumberDiv);
