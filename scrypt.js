@@ -2250,6 +2250,7 @@ function Sudoku() {
         }
         Game1.appendChild(window[ 'div' ]);
         Game1.appendChild(submitAnswer);
+        Game1.appendChild(skip);
         time = new Date();
     }
 }
