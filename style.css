@@ -459,12 +459,17 @@ h1 {
 
 .sudokuDiv {
     text-align: center;
-    font-size: 25px;
+    font-size: 60px;
 }
 
 .sudokuDiv p {
     text-align: center;
     font-size: 40px;
+}
+
+.spacer{
+    width: auto;
+    background-color: var(--color-main);
 }
 
 .sudoku {

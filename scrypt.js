@@ -962,6 +962,10 @@ function displayData(dataArray, container){
         SudokuDiv.appendChild(window[ 'p' ]);
         container.appendChild(SudokuDiv);
     });
+
+    let spacer = document.createElement("p");
+    spacer.classList.add("spacer");
+    container.appendChild(spacer);
 }
   
 
