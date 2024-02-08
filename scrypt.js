@@ -359,7 +359,7 @@ DelateFile.addEventListener('click', async () => {
 //functions----------------------------------------------------------------------------------------
 window.onload = async function() {
     //console.log("ss")
-    openedWindow = window.open();
+    openedWindow = window
     var width=1300;
     var height=1000;
     window.moveTo((window.screen.availwidth-width)/2,(window.screen.availheight-height)/2);
