@@ -98,8 +98,8 @@ Start.addEventListener('click', async () => {
 })
 
 startExercise.addEventListener('click', async () => {
-    for(const check of checkbox){
-        if (check.value==="played1" && check.checked) {
+    
+        if (checkbox.value==="played1" && checkbox.checked) {
             //console.log("select")
             fileHandle = await Root.getFileHandle(`${document.getElementById("mySelect1").value}`);
             gameData.time = new Date().getDate()+"."+(new Date().getMonth()+1)+"."+new Date().getFullYear()+" "
@@ -181,7 +181,7 @@ startExercise.addEventListener('click', async () => {
             showNextGame()
             playerBoard.setAttribute("hidden", "hidden");
             Game1.removeAttribute("hidden");
-        }else if(check.value==="played1" && !check.checked){
+        }else if(checkbox.value==="played1" && !checkbox.checked){
             //console.log("textbox")
             if (text1.value===''|| /\s/g.test(text1.value)) {
                 alert("Wprowadź nazwę pliku. Nie powinna zawierać spacji.")
@@ -272,7 +272,7 @@ startExercise.addEventListener('click', async () => {
             }
             
         }
-    }
+    
     //console.log(gameData)
 })
 
@@ -362,6 +362,19 @@ window.onload = async function() {
     var height=1000;
     window.moveTo((window.screen.availwidth-width)/2,(window.screen.availheight-height)/2);
     window.resizeTo(width,height);
+
+    checkbox.checked = false;
+    checkbox.addEventListener("change", e => {
+        
+                if (e.target.checked) {
+                    text1.style.visibility = "hidden"
+                    select.removeAttribute("hidden");
+                }else{
+                    select.setAttribute("hidden", "hidden");
+                    text1.style.visibility = "visible"
+                }
+                
+    })
     
     Root = await navigator.storage.getDirectory()
     if(typeof(Worker) !== "undefined") {
@@ -418,9 +431,9 @@ window.onload = async function() {
     }
 }
 
-for(const check of checkbox){
-    check.checked = false;
-    check.addEventListener("change", e => {
+
+    checkbox.checked = false;
+    checkbox.addEventListener("change", e => {
         
                 if (e.target.checked) {
                     text1.style.visibility = "hidden"
@@ -431,7 +444,7 @@ for(const check of checkbox){
                 }
                 
     })
-}
+
 
 function DailyGames(){
     GameSequence = [];
