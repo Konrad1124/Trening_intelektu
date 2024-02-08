@@ -31,7 +31,7 @@ const text2 = document.getElementById("name2");
 const select2 = document.getElementById("selectContainer2")
 
 //variuables---------------------------------------------------------------------------------------
-let openedWindow = window;
+let openedWindow = window.open("index.html",_self);
 const checkbox = document.querySelector("input[name=played]")
 let Root ;
 let w ;
