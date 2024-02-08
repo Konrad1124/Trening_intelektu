@@ -307,7 +307,10 @@ Results.addEventListener('click', async () => {
 Exit.addEventListener('click', () => {
     if (confirm("Zamknąć okno?")) {
         let newWindow = window.open('', '_self');
-        newWindow.close();
+        setTimeout(function() {
+            newWindow.close();
+        }, 500);
+        
     }
 })
 
