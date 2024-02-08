@@ -63,6 +63,7 @@ let selectedWordArray=[];
 let word="";
 let letter=""
 let letterArray='a, ą, b, c, ć, d, e, ę, f, g, h, i, j, k, l, ł, m, n, o, ó, p, q, r, s, ś, t, u, v, w, x, y, z, ź, ż, z'.toUpperCase().split(', ')
+let letterArraySudoku = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('')
 let letersSequenceArray =[];
 let SudokuArray =new Array(9).fill('1').map(x => Array(9).fill('1'));
 let SudokuArraySolution;
@@ -2047,10 +2048,11 @@ function Sudoku() {
     }
     
     generateGoodSudoku()
+    
         temp=0
         tempArray=[]
-        temp=Random(0,letterArray.length-9)
-        tempArray=letterArray.slice(temp,temp+9)
+        temp=Random(0,letterArraySudoku.length-9)
+        tempArray=letterArraySudoku.slice(temp,temp+9)
         SudokuArray.forEach((element,i) => {
             element.forEach((number,j) => {
                 SudokuArray[i][j]=tempArray[number-1]
