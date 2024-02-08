@@ -432,19 +432,6 @@ window.onload = async function() {
 }
 
 
-    checkbox.checked = false;
-    checkbox.addEventListener("change", e => {
-        
-                if (e.target.checked) {
-                    text1.style.visibility = "hidden"
-                    select.removeAttribute("hidden");
-                }else{
-                    select.setAttribute("hidden", "hidden");
-                    text1.style.visibility = "visible"
-                }
-                
-    })
-
 
 function DailyGames(){
     GameSequence = [];
