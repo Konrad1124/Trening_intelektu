@@ -577,10 +577,80 @@ function displayData(dataArray, container){
         let ComparingSymbolsDiv = document.createElement("div");
         ComparingSymbolsDiv.classList.add("ComparingSymbolsDiv");
         ComparingSymbolsDiv.innerHTML = "Porównanie symboli"
-        ComparingSymbolsDiv.style.cssText = `
-        font-size: 25px;
-        text-align: center;
+        window[ 'ptime' ] = document.createElement("p");
+        var minutes = Math.floor((element.ComparingSymbols.time % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((element.ComparingSymbols.time % (1000 * 60)) / 1000);
+        switch (minutes) {
+            case 0:
+                minutes="00"
+                break;
+            case 1:
+                minutes="01"
+                break;
+            case 2:
+                minutes="02"
+                break;
+            case 3:
+                minutes="03"
+                break;
+            case 4:
+                minutes="04"
+                break;
+            case 5:
+                minutes="05"
+                break;
+            case 6:
+                minutes="06"
+                break;
+            case 7:
+                minutes="07"
+                break;
+            case 8:
+                minutes="08"
+                break;
+            case 9:
+                minutes="09"
+                break;
+        }
+        switch (seconds) {
+            case 0:
+                seconds="00"
+                break;
+            case 1:
+                seconds="01"
+                break;
+            case 2:
+                seconds="02"
+                break;
+            case 3:
+                seconds="03"
+                break;
+            case 4:
+                seconds="04"
+                break;
+            case 5:
+                seconds="05"
+                break;
+            case 6:
+                seconds="06"
+                break;
+            case 7:
+                seconds="07"
+                break;
+            case 8:
+                seconds="08"
+                break;
+            case 9:
+                seconds="09"
+                break;
+        }
+        window[ 'ptime' ].innerHTML = "Czas" + minutes + ":" + seconds;
+        window[ 'ptime' ].style.cssText = `
+        font-size: 16px;
+        text-align: left;
         `;
+        ComparingSymbolsDiv.appendChild( window[ 'ptime' ]);
+
         for (let i = 0; i < 10; i++) {
             window[ 'p' + i + 1 ] = document.createElement("p");
             window[ 'p' + i + 1 ].innerHTML="Porównanie\<\/br\>" ;
@@ -589,6 +659,7 @@ function displayData(dataArray, container){
                     text-align: center;
                 `;
             ComparingSymbolsDiv.appendChild(window[ 'p' + i + 1 ]);
+
             window[ 'p' + i + 2 ] = document.createElement("p");
             window[ 'p' + i + 2 ].style.cssText = `
                     font-size: 12px;
@@ -596,6 +667,7 @@ function displayData(dataArray, container){
                 `;
             eval('p' + i + '2.innerHTML= element.ComparingSymbols.comaprasment'+i+'.comaprasment' )
             ComparingSymbolsDiv.appendChild(window[ 'p' + i + 2  ]);
+
             window[ 'p' + i + 3 ] = document.createElement("p");
             eval('p' + i + '3.innerHTML= "Wynik: " + element.ComparingSymbols.comaprasment'+i+'.result;' )
             window[ 'p' + i + 3 ].style.cssText = `
@@ -614,7 +686,75 @@ function displayData(dataArray, container){
         `;
 
         let innerP= document.createElement("p");
-        innerP.innerHTML= "Wynik " + element.FindWords.Score+"\<\/br\>Czas: " + element.FindWords.time;
+        minutes = Math.floor((element.FindWords.time % (1000 * 60 * 60)) / (1000 * 60));
+        seconds = Math.floor((element.FindWords.time % (1000 * 60)) / 1000);
+        switch (minutes) {
+            case 0:
+                minutes="00"
+                break;
+            case 1:
+                minutes="01"
+                break;
+            case 2:
+                minutes="02"
+                break;
+            case 3:
+                minutes="03"
+                break;
+            case 4:
+                minutes="04"
+                break;
+            case 5:
+                minutes="05"
+                break;
+            case 6:
+                minutes="06"
+                break;
+            case 7:
+                minutes="07"
+                break;
+            case 8:
+                minutes="08"
+                break;
+            case 9:
+                minutes="09"
+                break;
+        }
+        switch (seconds) {
+            case 0:
+                seconds="00"
+                break;
+            case 1:
+                seconds="01"
+                break;
+            case 2:
+                seconds="02"
+                break;
+            case 3:
+                seconds="03"
+                break;
+            case 4:
+                seconds="04"
+                break;
+            case 5:
+                seconds="05"
+                break;
+            case 6:
+                seconds="06"
+                break;
+            case 7:
+                seconds="07"
+                break;
+            case 8:
+                seconds="08"
+                break;
+            case 9:
+                seconds="09"
+                break;
+        }
+
+
+        innerP.innerHTML= "Wynik " + element.FindWords.Score+"\<\/br\>Czas: " + minutes + ":" + seconds;
         innerP.style.cssText = `
         font-size: 16px;
         text-align: center;
@@ -628,13 +768,79 @@ function displayData(dataArray, container){
         
         let MathOnTimeDivTitle = document.createElement("div");
         MathOnTimeDivTitle.classList.add("MathOnTimeDivTitle");
-
-        MathOnTimeDivTitle.innerHTML = "Obliczenia na czas"
-        MathOnTimeDivTitle.style.cssText = `
-        font-size: 25px;
-        text-align: center;
-        `;
+        MathOnTimeDivTitle.innerHTML = "Obliczenia na czas";
         MathOnTimeDiv.appendChild(MathOnTimeDivTitle);
+
+        let MathOnTimeDivTime = document.createElement("div");
+        MathOnTimeDivTime.classList.add("MathOnTimeDivTime");
+        minutes = Math.floor((element.MathOnTime.time % (1000 * 60 * 60)) / (1000 * 60));
+        seconds = Math.floor((element.MathOnTime.time % (1000 * 60)) / 1000);
+        switch (minutes) {
+            case 0:
+                minutes="00"
+                break;
+            case 1:
+                minutes="01"
+                break;
+            case 2:
+                minutes="02"
+                break;
+            case 3:
+                minutes="03"
+                break;
+            case 4:
+                minutes="04"
+                break;
+            case 5:
+                minutes="05"
+                break;
+            case 6:
+                minutes="06"
+                break;
+            case 7:
+                minutes="07"
+                break;
+            case 8:
+                minutes="08"
+                break;
+            case 9:
+                minutes="09"
+                break;
+        }
+        switch (seconds) {
+            case 0:
+                seconds="00"
+                break;
+            case 1:
+                seconds="01"
+                break;
+            case 2:
+                seconds="02"
+                break;
+            case 3:
+                seconds="03"
+                break;
+            case 4:
+                seconds="04"
+                break;
+            case 5:
+                seconds="05"
+                break;
+            case 6:
+                seconds="06"
+                break;
+            case 7:
+                seconds="07"
+                break;
+            case 8:
+                seconds="08"
+                break;
+            case 9:
+                seconds="09"
+                break;
+        }
+        MathOnTimeDivTime.innerHTML = "Czas: " + minutes + ":" + seconds;
+        MathOnTimeDiv.appendChild(MathOnTimeDivTime);
 
 
         let MathOnTimeDiv1 = document.createElement("div");
@@ -663,48 +869,95 @@ function displayData(dataArray, container){
                     MathOnTimeDiv3.appendChild(window[ 'p' + i ]);
                     break;
             }
-            eval('p' + i + '.innerHTML="Równanie " + element.MathOnTime.equasion'+i+'.mathEquasion+"\<\/br\>Wynik: " + element.MathOnTime.equasion'+i+'.result;')
-            window[ 'p' + i ].style.cssText = `
-            font-size: 16px;
-            text-align: left;
-            `;
+            eval('p' + i + '.innerHTML="Równanie " + element.MathOnTime.equasion'+i+'.mathEquasion+"\<\/br\>Wynik: " + element.MathOnTime.equasion'+i+'.result;');
         }
         container.appendChild(MathOnTimeDiv);
 
 
         let Remember2NumberDiv = document.createElement("div");
         Remember2NumberDiv.classList.add("Remember2NumberDiv");
-        Remember2NumberDiv.innerHTML = "Zapamiętywanie co drugiego numeru"
-        Remember2NumberDiv.style.cssText = `
-        font-size: 25px;
-        text-align: center;
-        `;
+        Remember2NumberDiv.innerHTML = "Zapamiętywanie co drugiego numeru";
+        
 
         for (let i = 0; i < 10; i++) {
             window[ 'p' + i ] = document.createElement("p");
             eval('p' + i + '.innerHTML= element.Remember2Number.Column'+i+'.Number0+" " +element.Remember2Number.Column'+i+'.Number1+" " +element.Remember2Number.Column'+i+'.Number2+" " +element.Remember2Number.Column'+i+'.Number3+" " +element.Remember2Number.Column'+i+'.Number4+"\<\/br\>\<\/br\>\<\/br\>"+ element.Remember2Number.Column'+ i+'.column')
             Remember2NumberDiv.appendChild(window[ 'p' + i ]);
-            window[ 'p' + i ].style.cssText = `
-            font-size: 16px;
-            text-align: center;
-            `;
         }
         container.appendChild(Remember2NumberDiv);
 
 
         let SudokuDiv = document.createElement("div");
         SudokuDiv.classList.add("SudokuDiv");
-        SudokuDiv.style.cssText = `
-        font-size: 25px;
-        text-align: center;
-        `;
         SudokuDiv.innerHTML= "Sudoku"
         window[ 'p' ] = document.createElement("p");
-        window[ 'p' ].innerHTML="Czas: " + element.Sudoku.time;
-        window[ 'p' ].style.cssText = `
-            font-size: 16px;
-            text-align: center;
-            `;
+        minutes = Math.floor((element.Sudoku.time % (1000 * 60 * 60)) / (1000 * 60));
+        seconds = Math.floor((element.Sudoku.time % (1000 * 60)) / 1000);
+        switch (minutes) {
+            case 0:
+                minutes="00"
+                break;
+            case 1:
+                minutes="01"
+                break;
+            case 2:
+                minutes="02"
+                break;
+            case 3:
+                minutes="03"
+                break;
+            case 4:
+                minutes="04"
+                break;
+            case 5:
+                minutes="05"
+                break;
+            case 6:
+                minutes="06"
+                break;
+            case 7:
+                minutes="07"
+                break;
+            case 8:
+                minutes="08"
+                break;
+            case 9:
+                minutes="09"
+                break;
+        }
+        switch (seconds) {
+            case 0:
+                seconds="00"
+                break;
+            case 1:
+                seconds="01"
+                break;
+            case 2:
+                seconds="02"
+                break;
+            case 3:
+                seconds="03"
+                break;
+            case 4:
+                seconds="04"
+                break;
+            case 5:
+                seconds="05"
+                break;
+            case 6:
+                seconds="06"
+                break;
+            case 7:
+                seconds="07"
+                break;
+            case 8:
+                seconds="08"
+                break;
+            case 9:
+                seconds="09"
+                break;
+        }
+        window[ 'p' ].innerHTML="Czas: " + minutes + ":" + seconds;
         SudokuDiv.appendChild(window[ 'p' ]);
         container.appendChild(SudokuDiv);
     });

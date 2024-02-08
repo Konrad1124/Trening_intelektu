@@ -213,6 +213,11 @@ h1 {
     height: 600px;
 }
 
+.ComparingSymbolsDiv{
+    font-size: 25px;
+    text-align: center;
+}
+
 .MathOnTimeDiv {
     display: flex;
     flex-wrap: wrap;
@@ -221,15 +226,31 @@ h1 {
 
 .MathOnTimeDivTitle {
     flex: 100%;
+    font-size: 25px;
+    text-align: center;
 }
+
+.MathOnTimeDivTime{
+    flex: 100%;
+    font-size: 16px;
+    text-align: left;
+}
+
 .MathOnTimeDiv1 {
     flex: 33%;
 }
+
 .MathOnTimeDiv2 {
     flex: 33%;
 }
+
 .MathOnTimeDiv3 {
     flex: 33%;
+}
+
+.MathOnTimeDiv1, .MathOnTimeDiv2 , .MathOnTimeDiv3 p{
+    font-size: 16px;
+    text-align: left;
 }
 
 .line {
@@ -424,8 +445,21 @@ h1 {
     font-size: 24px;
 }
 
+
+
+.Remember2NumberDiv{
+    font-size: 25px;
+    text-align: center;
+}
+
+.Remember2NumberDiv p{
+    font-size: 16px;
+    text-align: center;
+}
+
 .sudokuDiv {
     text-align: center;
+    font-size: 25px;
 }
 
 .sudokuDiv p {
