@@ -31,7 +31,7 @@ const text2 = document.getElementById("name2");
 const select2 = document.getElementById("selectContainer2")
 
 //variuables---------------------------------------------------------------------------------------
-let openedWindow;
+let openedWindow = window;
 const checkbox = document.querySelector("input[name=played]")
 let Root ;
 let w ;
@@ -359,7 +359,7 @@ DelateFile.addEventListener('click', async () => {
 //functions----------------------------------------------------------------------------------------
 window.onload = async function() {
     //console.log("ss")
-    openedWindow = window
+    
     var width=1300;
     var height=1000;
     window.moveTo((window.screen.availwidth-width)/2,(window.screen.availheight-height)/2);
