@@ -326,7 +326,6 @@ BackFromSelectResults.addEventListener('click', () => {
 
 showData.addEventListener('click', async () => {
     fileHandle = await Root.getFileHandle(`${document.getElementById("mySelect2").value}`);
-    //const file = await fileHandle.getFile();
     w.postMessage(["read", fileHandle]);
     selectResults.setAttribute("hidden", "hidden");
     while (Game1.firstChild) {

@@ -19,7 +19,6 @@ this.addEventListener('message', async function(e) {
             size = accessFile.getSize();
             const dataView = new DataView(new ArrayBuffer(size));
             accessFile.read(dataView);
-            Decoder.decode(dataView)
             this.postMessage(Decoder.decode(dataView).split("^|^"));
             accessFile.close();
             break;
