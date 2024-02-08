@@ -892,80 +892,90 @@ function displayData(dataArray, container){
         SudokuDiv.classList.add("SudokuDiv");
         SudokuDiv.innerHTML= "Sudoku"
         window[ 'p' ] = document.createElement("p");
-        minutes = Math.floor((element.Sudoku.time % (1000 * 60 * 60)) / (1000 * 60));
-        seconds = Math.floor((element.Sudoku.time % (1000 * 60)) / 1000);
-        switch (minutes) {
-            case 0:
-                minutes="00"
-                break;
-            case 1:
-                minutes="01"
-                break;
-            case 2:
-                minutes="02"
-                break;
-            case 3:
-                minutes="03"
-                break;
-            case 4:
-                minutes="04"
-                break;
-            case 5:
-                minutes="05"
-                break;
-            case 6:
-                minutes="06"
-                break;
-            case 7:
-                minutes="07"
-                break;
-            case 8:
-                minutes="08"
-                break;
-            case 9:
-                minutes="09"
-                break;
+        if (element.Sudoku.time !== "Pominięto") {
+            window[ 'p' ].innerHTML="Pominięto";
+        }else{
+            minutes = Math.floor((element.Sudoku.time % (1000 * 60 * 60)) / (1000 * 60));
+            seconds = Math.floor((element.Sudoku.time % (1000 * 60)) / 1000);
+            switch (minutes) {
+                case 0:
+                    minutes="00"
+                    break;
+                case 1:
+                    minutes="01"
+                    break;
+                case 2:
+                    minutes="02"
+                    break;
+                case 3:
+                    minutes="03"
+                    break;
+                case 4:
+                    minutes="04"
+                    break;
+                case 5:
+                    minutes="05"
+                    break;
+                case 6:
+                    minutes="06"
+                    break;
+                case 7:
+                    minutes="07"
+                    break;
+                case 8:
+                    minutes="08"
+                    break;
+                case 9:
+                    minutes="09"
+                    break;
+            }
+            switch (seconds) {
+                case 0:
+                    seconds="00"
+                    break;
+                case 1:
+                    seconds="01"
+                    break;
+                case 2:
+                    seconds="02"
+                    break;
+                case 3:
+                    seconds="03"
+                    break;
+                case 4:
+                    seconds="04"
+                    break;
+                case 5:
+                    seconds="05"
+                    break;
+                case 6:
+                    seconds="06"
+                    break;
+                case 7:
+                    seconds="07"
+                    break;
+                case 8:
+                    seconds="08"
+                    break;
+                case 9:
+                    seconds="09"
+                    break;
+            }
+            window[ 'p' ].innerHTML="Czas: " + minutes + ":" + seconds;
         }
-        switch (seconds) {
-            case 0:
-                seconds="00"
-                break;
-            case 1:
-                seconds="01"
-                break;
-            case 2:
-                seconds="02"
-                break;
-            case 3:
-                seconds="03"
-                break;
-            case 4:
-                seconds="04"
-                break;
-            case 5:
-                seconds="05"
-                break;
-            case 6:
-                seconds="06"
-                break;
-            case 7:
-                seconds="07"
-                break;
-            case 8:
-                seconds="08"
-                break;
-            case 9:
-                seconds="09"
-                break;
-        }
-        window[ 'p' ].innerHTML="Czas: " + minutes + ":" + seconds;
+
+        
+
+
         SudokuDiv.appendChild(window[ 'p' ]);
         container.appendChild(SudokuDiv);
+
+        let spacer = document.createElement("p");
+        spacer.classList.add("spacer");
+        container.appendChild(spacer);
     });
 
-    let spacer = document.createElement("p");
-    spacer.classList.add("spacer");
-    container.appendChild(spacer);
+    
 }
   
 
@@ -976,7 +986,7 @@ function Greating(){
     info.innerHTML="W tej chwili rozpoczniesz serię krótkich ćwiczeń, które pomogą Ci zapobiec demencji w przyszłości."
     let button = document.createElement("button");
     button.id = "StartSudoku";
-    button.innerHTML= "OK";
+    button.innerHTML= "Dalej";
     button.classList.add("Buttons");
     Game1.appendChild(info);
     Game1.appendChild(button);
@@ -1029,7 +1039,7 @@ function ComparingSymbols() {
     info.innerHTML="Porównaj wizualnie liczbę tych samych symboli po lewej i prawej stronie. Wybierz znak =,<,>. Staraj się, aby czas był jak najkrótszy."
     let button = document.createElement("button");
     button.id = "StartComparingSymbols";
-    button.innerHTML= "OK";
+    button.innerHTML= "Dalej";
     button.classList.add("Buttons");
     Game1.appendChild(info);
     Game1.appendChild(button);
@@ -1249,7 +1259,7 @@ function Remember2Number(){
     info.innerHTML="Przeczytaj wszystkie liczby w kolumnie. Czytając, zapamiętaj o co drugą cyfre. Następnie wpisz zapamiętane liczby we właściwej kolejności.    "
     let button = document.createElement("button");
     button.id = "StartRemember2Number";
-    button.innerHTML= "OK";
+    button.innerHTML= "Dalej";
     button.classList.add("Buttons");
     Game1.appendChild(info);
     Game1.appendChild(button);
@@ -1638,7 +1648,7 @@ function MathOnTime() {
     info.innerHTML="Wykonaj obliczenia arytmetyczne tak szybko, jak to możliwe."
     let button = document.createElement("button");
     button.id = "StartMath";
-    button.innerHTML= "OK";
+    button.innerHTML= "Dalej";
     button.classList.add("Buttons");
     Game1.appendChild(info);
     Game1.appendChild(button);
@@ -1881,7 +1891,7 @@ function FindWords() {
     info.innerHTML="Znajdź w sekwencji słowa z literami drzewa. Spróbuj zrobić to tak szybko, jak to możliwe."
     let button = document.createElement("button");
     button.id = "StartFindWords";
-    button.innerHTML= "OK";
+    button.innerHTML= "Dalej";
     button.classList.add("Buttons");
     Game1.appendChild(info);
     Game1.appendChild(button);
@@ -2092,7 +2102,7 @@ function Sudoku() {
     info.innerHTML="Ułóż jak najszybciej sudoku z literami, pamiętając, że dana litera może pojawić się tylko raz w każdym małym kwadracie (pola 3x3), w każdej kolumnie i każdym rzędzie."
     let button = document.createElement("button");
     button.id = "StartSudoku";
-    button.innerHTML= "OK";
+    button.innerHTML= "Dalej";
     button.classList.add("Buttons");
     Game1.appendChild(info);
     Game1.appendChild(button);
@@ -2126,72 +2136,72 @@ function Sudoku() {
         
             switch (minutes) {
                 case -1:
-                    minutes="00"
+                    minutes="00";
                     break;
                 case 0:
-                    minutes="00"
+                    minutes="00";
                     break;
                 case 1:
-                    minutes="01"
+                    minutes="01";
                     break;
                 case 2:
-                    minutes="02"
+                    minutes="02";
                     break;
                 case 3:
-                    minutes="03"
+                    minutes="03";
                     break;
                 case 4:
-                    minutes="04"
+                    minutes="04";
                     break;
                 case 5:
-                    minutes="05"
+                    minutes="05";
                     break;
                 case 6:
-                    minutes="06"
+                    minutes="06";
                     break;
                 case 7:
-                    minutes="07"
+                    minutes="07";
                     break;
                 case 8:
-                    minutes="08"
+                    minutes="08";
                     break;
                 case 9:
-                    minutes="09"
+                    minutes="09";
                     break;
             }
             switch (seconds) {
                 case -1:
-                    minutes="00"
+                    minutes="00";
                     break;
                 case 0:
-                    seconds="00"
+                    seconds="00";
                     break;
                 case 1:
-                    seconds="01"
+                    seconds="01";
                     break;
                 case 2:
-                    seconds="02"
+                    seconds="02";
                     break;
                 case 3:
-                    seconds="03"
+                    seconds="03";
                     break;
                 case 4:
-                    seconds="04"
+                    seconds="04";
                     break;
                 case 5:
-                    seconds="05"
+                    seconds="05";
                     break;
                 case 6:
-                    seconds="06"
+                    seconds="06";
                     break;
                 case 7:
-                    seconds="07"
+                    seconds="07";
                     break;
                 case 8:
-                    seconds="08"
+                    seconds="08";
                     break;
                 case 9:
-                    seconds="09"
+                    seconds="09";
                     break;
             }
 
@@ -2209,6 +2219,7 @@ function Sudoku() {
                 window[ "input" + j + i] = document.createElement("input");
                 window[ "input" + j + i].id = `input${i}${j}`;
                 window[ "input" + j + i].classList.add("sudoku");
+                window[ "input" + j + i].maxlength="1";
                 window[ "input" + j + i].value = SudokuArray[i][j];
                 window[ "input" + j + i].disabled = SudokuArray[i][j] !== " ";
                 window[ "input" + j + i].onchange = (x)=>chenged(x,i,j, stoper);
@@ -2216,7 +2227,15 @@ function Sudoku() {
             }
         }
 
-
+        skip = document.createElement("button");
+        skip.id = "SudokuResults";
+        skip.innerHTML= "Pomiń";
+        skip.classList.add("Buttons");
+        skip.onclick = function SudokuResults() {
+            clearInterval(stoper);
+            gameData.Sudoku={time: `Pominięto`}
+            showNextGame();
+        }
         
 
 

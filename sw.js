@@ -1,4 +1,4 @@
-var VERSION = 'Relise05';
+var VERSION = 'Relise06';
  
 var URLS = [    
   ``,
