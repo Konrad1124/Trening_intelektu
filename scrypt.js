@@ -100,7 +100,7 @@ Start.addEventListener('click', async () => {
 startExercise.addEventListener('click', async () => {
     for(const check of checkbox){
         if (check.value==="played1" && check.checked) {
-            console.log("select")
+            //console.log("select")
             fileHandle = await Root.getFileHandle(`${document.getElementById("mySelect1").value}`);
             gameData.time = new Date().getDate()+"."+(new Date().getMonth()+1)+"."+new Date().getFullYear()+" "
                 switch (new Date().getHours()) {
@@ -182,7 +182,7 @@ startExercise.addEventListener('click', async () => {
             playerBoard.setAttribute("hidden", "hidden");
             Game1.removeAttribute("hidden");
         }else if(check.value==="played1" && !check.checked){
-            console.log("textbox")
+            //console.log("textbox")
             if (text1.value===''|| /\s/g.test(text1.value)) {
                 alert("Wprowadź nazwę pliku. Nie powinna zawierać spacji.")
             }else{
@@ -273,7 +273,7 @@ startExercise.addEventListener('click', async () => {
             
         }
     }
-    console.log(gameData)
+    //console.log(gameData)
 })
 
 Results.addEventListener('click', async () => {
@@ -357,7 +357,7 @@ DelateFile.addEventListener('click', async () => {
 
 //functions----------------------------------------------------------------------------------------
 window.onload = async function() {
-    console.log("ss")
+    //console.log("ss")
     var width=1300;
     var height=1000;
     window.moveTo((window.screen.availwidth-width)/2,(window.screen.availheight-height)/2);
@@ -381,7 +381,7 @@ window.onload = async function() {
         tempArray.forEach((element,i) => {
             tempArray[i]=JSON.parse(element)
         });
-        console.log(tempArray)
+        //console.log(tempArray)
         displayData(tempArray, showFile)
         backToFileSelect = document.createElement("button");
         backToFileSelect.id = "backToFileSelect";
@@ -410,7 +410,7 @@ window.onload = async function() {
         Game1.appendChild(showFile);
         Game1.appendChild(backToFileSelect);
         if(!(navigator.userAgent.indexOf("Chrome") != -1) || (navigator.userAgent.indexOf("OPR") != -1)){
-            console.log("nie chrome")
+            //console.log("nie chrome")
             alert("jeśli chcesz zainastalować aplikacje jako osobnę alikoacje, użyj przeglądarki Chrome.")
         }
     }, false);
@@ -559,7 +559,7 @@ function chenged(x,i,j, stoper) {
         submitAnswer.style.display = 'inline-block'
         time=new Date().getTime()-time.getTime();
         gameData.Sudoku={time: `${time}`}
-        console.log(time)
+        //console.log(time)
         clearInterval(stoper);
     }
 
@@ -1157,7 +1157,7 @@ function ComparingSymbols() {
         submitAnswer.onclick = function ComparingSymbolsResults() {
             time=new Date().getTime()-time.getTime();
             clearInterval(stoper);
-            console.log(time)
+            //console.log(time)
             gameData.ComparingSymbols={time: `${time}`}
             if (document.querySelector(`input[name=symbols1]`)!=null) {
                 ComparingSymbol
@@ -1165,17 +1165,17 @@ function ComparingSymbols() {
                     input = document.querySelectorAll(`input[name=symbols${i}]`);
                     for (const radio of input) {
                         if (radio.checked) {
-                            console.log(radio.value)
+                            //console.log(radio.value)
                             switch (radio.value) {
                                 case "<":
                                     if ( ComparingSymbol[i][0]<ComparingSymbol[i][1]) {
-                                        console.log(i+" dobrze")
+                                        //console.log(i+" dobrze")
                                         gameData.ComparingSymbols["comaprasment"+i]={
                                             result: "Dobrze",
                                             comaprasment: `${ComparingSymbol[i][0]} < ${ComparingSymbol[i][1]}`
                                         }
                                     }else{
-                                        console.log(i+" źle")
+                                        ////console.log(i+" źle")
                                         gameData.ComparingSymbols["comaprasment"+i]={
                                             result: "Źle",
                                             comaprasment: `${ComparingSymbol[i][0]} < ${ComparingSymbol[i][1]}`
@@ -1184,13 +1184,13 @@ function ComparingSymbols() {
                                     break;
                                 case "=":
                                     if ( ComparingSymbol[i][0]=ComparingSymbol[i][1]) {
-                                        console.log(i+" dobrze")
+                                        //console.log(i+" dobrze")
                                         gameData.ComparingSymbols["comaprasment"+i]={
                                             result: "Dobrze",
                                             comaprasment: `${ComparingSymbol[i][0]} = ${ComparingSymbol[i][1]}`
                                         }
                                     }else{
-                                        console.log(i+" źle")
+                                        //console.log(i+" źle")
                                         gameData.ComparingSymbols["comaprasment"+i]={
                                             result: "Źle",
                                             comaprasment: `${ComparingSymbol[i][0]} = ${ComparingSymbol[i][1]}`
@@ -1199,13 +1199,13 @@ function ComparingSymbols() {
                                     break;
                                 case ">":
                                     if ( ComparingSymbol[i][0]>ComparingSymbol[i][1]) {
-                                        console.log(i+" dobrze")
+                                        //console.log(i+" dobrze")
                                         gameData.ComparingSymbols["comaprasment"+i]={
                                             result: "Dobrze",
                                             comaprasment: `${ComparingSymbol[i][0]} > ${ComparingSymbol[i][1]}`
                                         }
                                     }else{
-                                        console.log(i+" źle")
+                                        //console.log(i+" źle")
                                         gameData.ComparingSymbols["comaprasment"+i]={
                                             result: "Źle",
                                             comaprasment: `${ComparingSymbol[i][0]} > ${ComparingSymbol[i][1]}`
@@ -1215,7 +1215,7 @@ function ComparingSymbols() {
                             }
                             break;
                         }else if (radio.value == ">") {
-                            console.log("brak odpowiedzi")
+                            //console.log("brak odpowiedzi")
                             gameData.ComparingSymbols["comaprasment"+i]={
                                 result: "Brak odpowiedzi",
                                 comaprasment: `${ComparingSymbol[i][0]} ? ${ComparingSymbol[i][1]}`
@@ -1292,7 +1292,7 @@ function Remember2Number(){
         var stoper = setInterval(function() {
             var now = new Date().getTime();
             var distance = time - now;
-            console.log(distance)
+            //console.log(distance)
             var minutes ="00";
             var seconds ="00";
             minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -1415,10 +1415,10 @@ function Remember2Number(){
 
                 input.forEach((element,i) => {
                     if (element.valueAsNumber == NumberSequenceCorect[iteration][i]) {
-                        console.log("corect")
+                        //console.log("corect")
                         gameData.Remember2Number["Column"+iteration][`Number${i}`] = "Dobrze"
                     }else{
-                        console.log("wrong")
+                        //console.log("wrong")
                         gameData.Remember2Number["Column"+iteration][`Number${i}`] = "Źle"
                     }
                 });
@@ -1440,10 +1440,10 @@ function Remember2Number(){
 
                 input.forEach((element,i) => {
                     if (element.valueAsNumber == NumberSequenceCorect[iteration][i]) {
-                        console.log("corect")
+                        //console.log("corect")
                         gameData.Remember2Number["Column"+iteration][`Number${i}`] = "Dobrze"
                     }else{
-                        console.log("wrong")
+                        //console.log("wrong")
                         gameData.Remember2Number["Column"+iteration][`Number${i}`] = "Źle"
                     }
                 });
@@ -1477,7 +1477,7 @@ function Remember2Number(){
                 var stoper = setInterval(function() {
                     var now = new Date().getTime();
                     var distance = time - now;
-                    console.log(distance)
+                    //console.log(distance)
                     var minutes ="00"
                     var seconds ="00"
                     minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -1805,7 +1805,7 @@ function MathOnTime() {
         submitAnswer.onclick = function MathResults() {
             time=new Date().getTime()-time.getTime();
             clearInterval(stoper);
-            console.log(time)
+            //console.log(time)
             gameData.MathOnTime={time: `${time}`}
             form=document.querySelector("#Compar");
             input=form.querySelectorAll("input[name=numbers]");
@@ -1825,13 +1825,13 @@ function MathOnTime() {
                         break;
                 }
                 if(element.valueAsNumber==temp){
-                    console.log("corect")
+                    //console.log("corect")
                     gameData.MathOnTime["equasion"+i]={
                         result: "Dobrze",
                         mathEquasion: `${MathCalculations[i].FirstNumber} ${MathCalculations[i].OperationSymbol} ${MathCalculations[i].SecondNumber}`
                     }
                 }else{
-                    console.log("wrong")
+                    //console.log("wrong")
                     gameData.MathOnTime["equasion"+i]={
                         result: "Źle",
                         mathEquasion: `${MathCalculations[i].FirstNumber} ${MathCalculations[i].OperationSymbol} ${MathCalculations[i].SecondNumber}`
@@ -2012,9 +2012,9 @@ function FindWords() {
         submitAnswer.onclick = function FindWordsResults() {
             time=new Date().getTime()-time.getTime();
             clearInterval(stoper);
-            console.log(time)
+            //console.log(time)
             gameData.FindWords={time: `${time}`}
-            console.log(wordFinded+" / "+temp)
+            //console.log(wordFinded+" / "+temp)
             gameData.FindWords.Score=`${wordFinded} / ${temp}`
             showNextGame();
         }
@@ -2069,7 +2069,7 @@ function Sudoku() {
     for(let i=0;i<Random(25,50);i++){
         SudokuArray[Random(0,8)][Random(0,8)]=" "
     }
-    
+    /*
     console.log(" -----------------------------")
       for(let i=0; i<SudokuArraySolution.length; i++){
           if(i !== 0 && i%3 === 0){
@@ -2085,7 +2085,7 @@ function Sudoku() {
           console.log(string + "|")
       }
       console.log(" -----------------------------")
-
+    */
 
     info = document.createElement("div");
     info.id = "info";
