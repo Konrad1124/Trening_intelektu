@@ -892,7 +892,7 @@ function displayData(dataArray, container){
         SudokuDiv.classList.add("SudokuDiv");
         SudokuDiv.innerHTML= "Sudoku"
         window[ 'p' ] = document.createElement("p");
-        if (element.Sudoku.time !== "Pominięto") {
+        if (element.Sudoku.time === "Pominięto") {
             window[ 'p' ].innerHTML="Pominięto";
         }else{
             minutes = Math.floor((element.Sudoku.time % (1000 * 60 * 60)) / (1000 * 60));
