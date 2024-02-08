@@ -306,8 +306,8 @@ Results.addEventListener('click', async () => {
 
 Exit.addEventListener('click', () => {
     if (confirm("Zamknąć okno?")) {
-        let Window = window.open("", "_blank");
-        Window.close();
+        let newWindow = window.open("", "_blank");
+        newWindow.close();
     }
 })
 
