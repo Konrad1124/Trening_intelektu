@@ -645,7 +645,7 @@ function displayData(dataArray, container){
                 seconds="09"
                 break;
         }
-        window[ 'ptime' ].innerHTML = "Czas" + minutes + ":" + seconds;
+        window[ 'ptime' ].innerHTML = "Czas: " + minutes + ":" + seconds;
         window[ 'ptime' ].style.cssText = `
         font-size: 16px;
         text-align: left;
