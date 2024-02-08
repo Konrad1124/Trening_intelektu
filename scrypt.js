@@ -305,7 +305,7 @@ Results.addEventListener('click', async () => {
   })
 
 Exit.addEventListener('click', () => {
-    if (confirm("Close Window?")) {
+    if (confirm("Zamknąć okno?")) {
         close();
     }
 })
@@ -414,7 +414,7 @@ window.onload = async function() {
     }, false);
     if(!(navigator.userAgent.indexOf("Chrome") != -1) || (navigator.userAgent.indexOf("OPR") != -1)){
         //console.log("nie chrome")
-        alert("Jeśli chcesz zainastalować aplikacje jako osobnę alikoacje, użyj przeglądarki Chrome.")
+        alert("Jeśli chcesz zainastalować aplikacje jako osobne okno, użyj przeglądarki Chrome.")
     }
 }
 
