@@ -1199,7 +1199,7 @@ function ComparingSymbols() {
                                     }
                                     break;
                                 case "=":
-                                    if ( ComparingSymbol[i][0]=ComparingSymbol[i][1]) {
+                                    if ( ComparingSymbol[i][0]==ComparingSymbol[i][1]) {
                                         //console.log(i+" dobrze")
                                         gameData.ComparingSymbols["comaprasment"+i]={
                                             result: "Dobrze",
