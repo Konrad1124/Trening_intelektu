@@ -352,9 +352,7 @@ DelateFile.addEventListener('click', async () => {
             option.text = fileNames[i];
             selectList.appendChild(option);
         }
-    } else {
-        
-    }
+    } 
 })
 
 
@@ -991,12 +989,12 @@ function Greating(){
     info.id = "info";
     info.innerHTML="W tej chwili rozpoczniesz serię krótkich ćwiczeń, które pomogą Ci zapobiec demencji w przyszłości."
     let button = document.createElement("button");
-    button.id = "StartSudoku";
+    button.id = "Start";
     button.innerHTML= "Dalej";
     button.classList.add("Buttons");
     Game1.appendChild(info);
     Game1.appendChild(button);
-    button.onclick = function StartSudoku() {
+    button.onclick = function Start() {
         while (Game1.firstChild) {
             Game1.removeChild(Game1.firstChild);
         }
@@ -1015,7 +1013,7 @@ function ComparingSymbols() {
     for (let i = 0; i < 10; i++) {
         number=Random(9,35);
         difrence=Random(-4,4);
-        ComparNumbers[i]=[number,number-difrence]
+        ComparNumbers[i]=[number,number-difrence];
     }
     ComparNumbers.forEach((element,i) => {
         temp1="";
