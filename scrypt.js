@@ -1874,7 +1874,7 @@ function FindWords() {
             temp++;
             selectedWordArray.push(word);
         } else {
-            letter=letterArray[Random(0,(letterArray.length)-1)]
+            letter=letterArray[Random(0,(letterArray.length)-1)];
             if (letersSequenceArray[letersSequenceArray.length-2]!=undefined&&letersSequenceArray[letersSequenceArray.length-1]!=undefined) {
                 if(wordArray.indexOf(letersSequenceArray[letersSequenceArray.length-2].slice(-1)+letersSequenceArray[letersSequenceArray.length-1].slice(-1)+letter)>-1){
                     continue;
@@ -1921,7 +1921,7 @@ function FindWords() {
         letersSequenceArray.forEach((element,i) => {
             if(element.length!=1){
                 window[ 'p' ].innerHTML+=`<a href=\"\#link${i}\" title=\"${element}\" id=\"link${i}\" class=\"linkNotClicked\">${element}</a>`
-                
+                window[ 'p' ].onclick=function() {return textLink(`${element}`,this);};
             }else{
                 window[ 'p' ].innerHTML+=element
             }
@@ -2033,12 +2033,6 @@ function FindWords() {
         
         Game1.appendChild(FindWordsForm);
         Game1.appendChild(submitAnswer);
-        letersSequenceArray.forEach((element,i) => {
-            if(element.length!=1){
-            el = document.getElementById(`link${i}`);
-            el.onclick=function() {return textLink(`${element}`,this);};
-            }
-        });
         function textLink(word, link){
             wordFinded++;
             window[ 'pCounter' ].innerHTML=wordFinded+" / "+temp;
