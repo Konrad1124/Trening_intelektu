@@ -1174,55 +1174,54 @@ function ComparingSymbols() {
             //console.log(time)
             gameData.ComparingSymbols={time: `${time}`}
             if (document.querySelector(`input[name=symbols1]`)!=null) {
-                ComparingSymbol
-                .forEach((element,i) => {
+                ComparingSymbol.forEach((element,i) => {
                     input = document.querySelectorAll(`input[name=symbols${i}]`);
                     for (const radio of input) {
                         if (radio.checked) {
                             //console.log(radio.value)
                             switch (radio.value) {
                                 case "<":
-                                    if ( ComparingSymbol[i][0]<ComparingSymbol[i][1]) {
+                                    if ( element[0]<element[1]) {
                                         //console.log(i+" dobrze")
                                         gameData.ComparingSymbols["comaprasment"+i]={
                                             result: "Dobrze",
-                                            comaprasment: `${ComparingSymbol[i][0]} < ${ComparingSymbol[i][1]}`
+                                            comaprasment: `${element[0]} < ${element[1]}`
                                         }
                                     }else{
                                         ////console.log(i+" źle")
                                         gameData.ComparingSymbols["comaprasment"+i]={
                                             result: "Źle",
-                                            comaprasment: `${ComparingSymbol[i][0]} < ${ComparingSymbol[i][1]}`
+                                            comaprasment: `${element[0]} < ${element[1]}`
                                         }
                                     }
                                     break;
                                 case "=":
-                                    if ( ComparingSymbol[i][0]==ComparingSymbol[i][1]) {
+                                    if ( element[0]==element[1]) {
                                         //console.log(i+" dobrze")
                                         gameData.ComparingSymbols["comaprasment"+i]={
                                             result: "Dobrze",
-                                            comaprasment: `${ComparingSymbol[i][0]} = ${ComparingSymbol[i][1]}`
+                                            comaprasment: `${element[0]} = ${element[1]}`
                                         }
                                     }else{
                                         //console.log(i+" źle")
                                         gameData.ComparingSymbols["comaprasment"+i]={
                                             result: "Źle",
-                                            comaprasment: `${ComparingSymbol[i][0]} = ${ComparingSymbol[i][1]}`
+                                            comaprasment: `${element[0]} = ${element[1]}`
                                         }
                                     }
                                     break;
                                 case ">":
-                                    if ( ComparingSymbol[i][0]>ComparingSymbol[i][1]) {
+                                    if ( element[0]>element[1]) {
                                         //console.log(i+" dobrze")
                                         gameData.ComparingSymbols["comaprasment"+i]={
                                             result: "Dobrze",
-                                            comaprasment: `${ComparingSymbol[i][0]} > ${ComparingSymbol[i][1]}`
+                                            comaprasment: `${element[0]} > ${element[1]}`
                                         }
                                     }else{
                                         //console.log(i+" źle")
                                         gameData.ComparingSymbols["comaprasment"+i]={
                                             result: "Źle",
-                                            comaprasment: `${ComparingSymbol[i][0]} > ${ComparingSymbol[i][1]}`
+                                            comaprasment: `${element[0]} > ${element[1]}`
                                         }
                                     }
                                     break;
@@ -1232,7 +1231,7 @@ function ComparingSymbols() {
                             //console.log("brak odpowiedzi")
                             gameData.ComparingSymbols["comaprasment"+i]={
                                 result: "Brak odpowiedzi",
-                                comaprasment: `${ComparingSymbol[i][0]} ? ${ComparingSymbol[i][1]}`
+                                comaprasment: `${element[0]} ? ${element[1]}`
                             }
                         }
                         
