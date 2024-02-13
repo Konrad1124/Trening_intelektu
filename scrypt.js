@@ -1920,7 +1920,7 @@ function FindWords() {
         window[ 'p' ] = document.createElement("p");
         letersSequenceArray.forEach((element,i) => {
             if(element.length!=1){
-                window[ 'p' ].innerHTML+=`<a href=\"\#link${i}\" title=\"${element}\" id=\"link${i}\" onclick="function() {return textLink(${element},this);}" class=\"linkNotClicked\">${element}</a>`;
+                window[ 'p' ].innerHTML+=`<a href=\"\#link${i}\" title=\"${element}\" id=\"link${i}\" onclick="function() link${i} {return textLink(${element},this);}" class=\"linkNotClicked\">${element}</a>`
             }else{
                 window[ 'p' ].innerHTML+=element
             }
