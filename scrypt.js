@@ -1921,7 +1921,8 @@ function FindWords() {
         letersSequenceArray.forEach((element,i) => {
             if(element.length!=1){
                 window[ 'p' ].innerHTML+=`<a href=\"\#link${i}\" title=\"${element}\" id=\"link${i}\" class=\"linkNotClicked\">${element}</a>`
-                window[ 'p' ].onclick=function() {return textLink(`${element}`,this);};
+                el = document.getElementById(`link${i}`);
+                el.onclick=function() {return textLink(`${element}`,this);};
             }else{
                 window[ 'p' ].innerHTML+=element
             }
@@ -2033,6 +2034,12 @@ function FindWords() {
         
         Game1.appendChild(FindWordsForm);
         Game1.appendChild(submitAnswer);
+        letersSequenceArray.forEach((element,i) => {
+            if(element.length!=1){
+            el = document.getElementById(`link${i}`);
+            el.onclick=function() {return textLink(`${element}`,this);};
+            }
+        });
         function textLink(word, link){
             wordFinded++;
             window[ 'pCounter' ].innerHTML=wordFinded+" / "+temp;
