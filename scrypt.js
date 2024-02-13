@@ -2035,10 +2035,10 @@ function FindWords() {
         letersSequenceArray.forEach((element,i) => {
             if(element.length!=1){
             el = document.getElementById(`link${i}`);
-            el.onclick=function() {return textLink(`${element}`,this);};
+            el.onclick=function() {return textLink(this);};
             }
         });
-        function textLink(word, link){
+        function textLink(link){
             wordFinded++;
             window[ 'pCounter' ].innerHTML=wordFinded+" / "+temp;
             link.setAttribute('class', 'linkClicked');
