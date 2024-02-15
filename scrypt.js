@@ -59,7 +59,6 @@ let temp=0;
 let tempArray=[];
 //let wordArray='And Fix Own Are Fly Odd Ape Fry Our Ace For Pet Act Got Pat Ask Get Peg Arm God Paw Age Gel Pup Ago Gas Pit Air Hat Put Ate Hit Pot All Has Pop But Had Pin Bye How Rat Bad Her Rag Big His Rub Bed Hen Row Bat Ink Rug Boy Ice Run Bus Ill Rap Bag Jab Ram Box Jug Sow Bit Jet See Bee Jam Saw Buy Jar Set Bun Job Sit Cub Jog Sir Cat Kit Sat Car Key Sob Cut Lot Tap Cow Lit Tip Cry Let Top Cab Lay Tug Can Mat Tow Dad Man Toe Dab Mad Tan Dam Mug Ten Did Mix Two Dug Map Use Den Mum Van Dot Mud Vet Dip Mom Was Day May Wet Ear Met Win Eye Net Won Eat New Wig End Nap War Elf Now Why Egg Nod Who Far Net Way Fat Not Wow Few Nut You Fan Oar Yes Fun One Yak Fit Out Yet Fin Owl Zip Fox Old Zap'.toUpperCase().split(' ')
 let wordArray='ABY ACH AHA AJĆ AKR AKT ALE ALG ANI ARA ASY AUA AUĆ AUT BAĆ BAK BAM BAŃ BAR BAŹ BĄK BEK BEZ BEŻ BĘC BIĆ BIŁ BIO BOA BOK BON BÓB BÓG BÓJ BÓL BÓR BUC BUK BUS BYĆ BYK BYŁ BYM BYŚ BYT CAL CEL CEP CIĘ CIP CIŹ CIŻ CLI CŁO CNA CNI CNY COŚ CÓŻ CUĆ CUD CUG CUM CYC CYG CYK CYT CZE CZI CZY ĆMA ĆMĄ ĆMĘ ĆMI ĆMO ĆMY DAĆ DAJ DAL DAŁ DAM DAŃ DAR DĄB DĄĆ DĄŁ DĄS DĄŻ DBA DEK DĘĆ DLA DMĄ DMĘ DNI DNO DOK DOM DÓŁ DRĄ DRĘ DWA DWU DYM ECH EGO EKO ELF EMO EMU ENT EON ERA ERY EWA EWE EWĘ EWY FEZ FUJ GAD GAJ GAR GAZ GAŻ GDY GĘŚ GIN GIŃ GNĄ GNĘ GON GOŃ GRA GRĄ GRĘ GRR GRY GUL GUZ GZĘ GZY HAK HAU HEH HEJ HEL HIT HMM HOP HUT HYC ICH IDĄ IDĘ IDŹ ILE ILU IŚĆ JAD JAJ JAK JAM JAŚ JAW JEJ JEM JEN JEŻ JĘK JUK JUŻ KAC KAŃ KAT KAŹ KAŻ KĄP KĄT KEG KĘS KIC KIJ KIT KŁA KŁY KOC KOG KOŃ KOP KOS KOT KÓŁ KÓP KÓZ KRA KRY KTO KUC KUĆ KUJ KUP KUŚ LAĆ LAG LAK LAS LAT LĄD LEĆ LEJ LEK LEN LEŃ LEP LEW LEŹ LEŻ LĘK LIS LIŻ LNU LNY LOK LOR LÓD LUB LUD LUK LUZ LWY LŻĄ LŻĘ LŻY ŁAD ŁAJ ŁAŁ ŁAM ŁAN ŁAŃ ŁAP ŁAT ŁAŹ ŁĄK ŁBA ŁBY ŁEB ŁEZ ŁOM ŁOŚ ŁÓJ ŁÓW ŁÓŻ ŁUK ŁUP ŁUT ŁYK ŁZA ŁZĄ ŁZĘ ŁZO ŁZY ŁŻĄ ŁŻE ŁŻĘ MAG MAJ MAK MAŹ MAŻ MĄŻ MĘT MIG MIK MIŚ MIT MNĄ MNĘ MOB MOC MOD MOL MÓC MÓD MÓJ MÓL MÓR MÓW MÓŻ MRĘ MUC MUF MUŁ MUR MUS MYĆ MYJ MYK NAĆ NAD NAJ NAM NAS NĘĆ NIĄ NIC NIĆ NIE NIL NIM NIŻ NOC NOS NÓG NÓW NÓŻ NUĆ NUŻ NYŻ OBA OBU OBY OCH ODA ODĄ ODE ODĘ OGR OHO OJĆ OKA OKI OKO OKU OLE ONA ONE ONI ONO ORK OSA OSĄ OSĘ OSY OŚĆ OTO OWA OWĄ OWE OWO ÓCZ PAC PAL PAN PAŃ PAS PAŹ PĄK PĄS PĘD PĘK PĘZ PIĆ PIJ PIŁ PIN PIT PNĄ PNĘ PNI POR PÓL PÓŁ PÓR PRĄ PRĘ PRO PSA PSY PUB PUC PUK PYK PYŁ PYŚ RAD RAF RAJ RAK RAM RAP RAZ RAŹ RĄB RĄK REN ROK ROL RÓB RÓD RÓG RÓJ RÓL RÓW RÓŻ RUM RWĄ RWĘ RYĆ RYK RYŁ RYS RYŚ RYT RYŻ RŻĄ RŻE RŻY SAD SAK SAM SAŃ SĄD SĄG SEN SER SĘK SĘP SIE SIĘ SIŁ SNĄ SNĘ SNU SNY SOK SOS SÓD SÓL SÓW SPA SSĄ SSĘ STO SUM SUŃ SUW SWE SYK SYN SZA ŚLĄ ŚLE ŚLĘ ŚNI ŚPI TAK TAM TAN TAŚ TAŻ TEJ TEN TEŻ TĘP TIK TKA TLĄ TLE TLĘ TLI TŁO TNĄ TNĘ TOM TON TOŃ TOR TOŻ TÓG TRĄ TRĘ TUP TUR TUŻ TYĆ TYŁ TYM TYP TYŚ UCZ UDA UDO UFO ULE ULG UPS UST WAB WAL WAŁ WAM WAN WAS WAT WAŻ WĄS WĄŻ WEŃ WEŹ WĘZ WIĆ WIE WIJ WIŁ WIŃ WIO WIR WIŚ WIZ WOK WOŃ WÓD WÓŁ WÓR WÓZ WRĄ WRE WRĘ WSI WUJ WYĆ WYŁ WYŻ ZAD ZAŚ ZĄB ZDA ZEŃ ZER ZEW ZEZ ZĘZ ZJE ZŁA ZŁĄ ZŁE ZŁO ZŁY ZNA ZOO ZWĄ ZWĘ ZWY ZZA ŹLE ŹLI ŻAK ŻAL ŻAR ŻĄP ŻEL ŻEŃ ŻER ŻRĄ ŻRE ŻRĘ ŻUĆ ŻUJ ŻUK ŻUL ŻUŁ ŻUP ŻUR ŻYĆ ŻYJ ŻYŁ ŻYW'.toUpperCase().split(' ')
-let selectedWordArray=[];
 let word="";
 let letter=""
 let letterArray='a, ą, b, c, ć, d, e, ę, f, g, h, i, j, k, l, ł, m, n, o, ó, p, q, r, s, ś, t, u, v, w, x, y, z, ź, ż, z'.toUpperCase().split(', ')
@@ -1851,7 +1850,6 @@ function MathOnTime() {
 
 function FindWords() {
     temp=0;
-    selectedWordArray=[];
     letersSequenceArray =[]
     word="";
     letter=""
@@ -1862,7 +1860,6 @@ function FindWords() {
             word=wordArray[Random(0,(wordArray.length)-1)];
             letersSequenceArray.push(word);
             temp++;
-            selectedWordArray.push(word);
         } else {
             letter=letterArray[Random(0,(letterArray.length)-1)];
             if (letersSequenceArray[letersSequenceArray.length-2]!=undefined&&letersSequenceArray[letersSequenceArray.length-1]!=undefined) {
