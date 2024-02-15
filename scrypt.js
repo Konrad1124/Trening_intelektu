@@ -1405,7 +1405,7 @@ function Remember2Number(){
                 for (let j = 1; j < 10; j+=2) {
                    tempArray.push(NumberSequence[iteration][j]);
                 }
-                NumberSequenceCorect[iteration]=tempArray;
+                NumberSequenceCorect=tempArray;
                 
                 form=document.querySelector("#Compar");
                 input=form.querySelectorAll("input[name=numbers]");
@@ -1415,7 +1415,7 @@ function Remember2Number(){
                 }
 
                 input.forEach((element,i) => {
-                    if (element.valueAsNumber == NumberSequenceCorect[iteration][i]) {
+                    if (element.valueAsNumber == NumberSequenceCorect[i]) {
                         //console.log("corect")
                         gameData.Remember2Number["Column"+iteration][`Number${i}`] = "Dobrze"
                     }else{
@@ -1430,7 +1430,7 @@ function Remember2Number(){
                 for (let j = 1; j < 10; j+=2) {
                    tempArray.push(NumberSequence[iteration][j]);
                 }
-                NumberSequenceCorect[iteration]=tempArray;
+                NumberSequenceCorect=tempArray;
                 
                 form=document.querySelector("#Compar");
                 input=form.querySelectorAll("input[name=numbers]");
@@ -1440,7 +1440,7 @@ function Remember2Number(){
                 }
 
                 input.forEach((element,i) => {
-                    if (element.valueAsNumber == NumberSequenceCorect[iteration][i]) {
+                    if (element.valueAsNumber == NumberSequenceCorect[i]) {
                         //console.log("corect")
                         gameData.Remember2Number["Column"+iteration][`Number${i}`] = "Dobrze"
                     }else{
