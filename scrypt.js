@@ -1025,17 +1025,7 @@ function ComparingSymbols() {
         for (let a = 0; a < element[1]; a++) {
             temp2+=Symbol;
         }
-        if (temp1.length<temp2.length) {
-            let dif =temp2.length - temp1.length;
-            for (let i = 0; i < dif; i++) {
-                temp1+=" ";
-            }
-        } else {
-            let dif =temp1.length - temp2.length;
-            for (let i = 0; i < dif; i++) {
-                temp2+=" ";
-            }
-        }
+        
         ComparingSymbol[i]=[temp1,temp2];
     });
     info = document.createElement("div");
