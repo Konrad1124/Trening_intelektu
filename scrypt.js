@@ -559,7 +559,8 @@ function chenged(x,i,j, stoper) {
         x.target.value=""
     }
     if(JSON.stringify(SudokuArray)===JSON.stringify(SudokuArraySolution)){
-        submitAnswer.style.display = 'inline-block'
+        submitAnswer.style.display = 'inline-block';
+        skip.style.display = 'none';
         time=new Date().getTime()-time.getTime();
         gameData.Sudoku={time: `${time}`}
         //console.log(time)
