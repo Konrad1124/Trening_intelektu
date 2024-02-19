@@ -1248,7 +1248,7 @@ function Remember2Number(){
     gameData.Remember2Number={};
     info = document.createElement("div");
     info.id = "info";
-    info.innerHTML="Przeczytaj wszystkie liczby w kolumnie. Czytając, zapamiętaj o co drugą cyfre. Następnie wpisz zapamiętane liczby we właściwej kolejności.    "
+    info.innerHTML="Przeczytaj wszystkie liczby w kolumnie. Czytając, zapamiętaj o co drugą cyfre. Następnie wpisz zapamiętane liczby we właściwej kolejności."
     let button = document.createElement("button");
     button.id = "StartRemember2Number";
     button.innerHTML= "Dalej";
@@ -1878,7 +1878,7 @@ function FindWords() {
 
     info = document.createElement("div");
     info.id = "info";
-    info.innerHTML="Znajdź w sekwencji słowa z literami drzewa. Spróbuj zrobić to tak szybko, jak to możliwe."
+    info.innerHTML="Znajdź w sekwencji liter trzyliteorwe słowa. Spróbuj zrobić to tak szybko, jak to możliwe."
     let button = document.createElement("button");
     button.id = "StartFindWords";
     button.innerHTML= "Dalej";
@@ -2088,7 +2088,7 @@ function Sudoku() {
 
     info = document.createElement("div");
     info.id = "info";
-    info.innerHTML="Ułóż jak najszybciej sudoku z literami, pamiętając, że dana litera może pojawić się tylko raz w każdym małym kwadracie (pola 3x3), w każdej kolumnie i każdym rzędzie."
+    info.innerHTML="Ułóż jak najszybciej sudoku literowe, pamiętając, że dana litera może pojawić się tylko raz w każdym małym kwadracie (pola 3x3), w każdej kolumnie i każdym rzędzie."
     let button = document.createElement("button");
     button.id = "StartSudoku";
     button.innerHTML= "Dalej";
