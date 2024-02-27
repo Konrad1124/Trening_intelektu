@@ -338,7 +338,7 @@ showData.addEventListener('click', async () => {
 DelateFile.addEventListener('click', async () => {
     
 
-    if (confirm("Delate File")) {
+    if (confirm("Usunąć plik?")) {
         await Root.removeEntry(`${document.getElementById("mySelect2").value}`);
         while (document.getElementById("mySelect2").firstChild) {
             document.getElementById("mySelect2").removeChild(document.getElementById("mySelect2").firstChild);
